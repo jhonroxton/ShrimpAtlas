@@ -76,10 +76,12 @@ export default function Globe3D({
         // Create viewer
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const viewer: any = new Cesium.Viewer(container, {
+          // ArcGIS World Imagery — same source Cesium ion uses, free, no token
           imageryProvider: new Cesium.UrlTemplateImageryProvider({
-            url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            credit: '© OpenStreetMap contributors',
-            maximumLevel: 19,
+            url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+            credit: '© Esri, Maxar, Earthstar Geographics',
+            maximumLevel: 18,
+            minimumLevel: 0,
           }),
           terrainProvider: new Cesium.EllipsoidTerrainProvider(),
           baseLayerPicker: false,
