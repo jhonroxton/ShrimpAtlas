@@ -3,6 +3,10 @@ import { SpeciesDistribution } from '../types'
 
 type CesType = any
 
+// Cesium ion token for high-quality terrain and imagery
+const CESIUM_ION_TOKEN =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiZGFkZWQ1YS1jNWZiLTQ2YjYtYmY1ZC0xOGM0YWU1YjRhOWQiLCJpZCI6NDA5NDc5LCJpYXQiOjE3NzQ1MjY1OTh9.ivliFmQhIp2NTADQq1gPYosYTYia_ckHHK4mQmKrnCE'
+
 interface Globe3DProps {
   distributions?: SpeciesDistribution[]
   showCurrents?: boolean
@@ -23,14 +27,14 @@ export default function Globe3D({
   distributions = [],
   showCurrents = true,
   showSpecies = true,
-  onSpeciesClick,
+
   initialCenter = { lon: 120, lat: 20, height: 20_000_000 },
 }: Globe3DProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const viewerRef = useRef<any>(null)
   const cesRef = useRef<CesType>(null)
   const [loading, setLoading] = useState(true)
-  const [error,  setError]  = useState<string | null>(null)
+  const [error, setError] = useState<string | null>(null)
 
   const flyToOcean = useCallback((ocean: string) => {
     const pos = OCEAN_PRESETS[ocean]
@@ -48,22 +52,19 @@ export default function Globe3D({
 
     const init = async () => {
       try {
-        // Cesium uses named ES exports, not default
         const Ces: CesType = await import('cesium')
         if (cancelled) return
-        cesRef.current = Ces
+
+        // Configure Cesium ion token
+        Ces.Ion.defaultAccessToken = CESIUM_ION_TOKEN
 
         if (!containerRef.current) return
 
-        // OpenStreetMap imagery — no API key required
-        const osmImagery = new Ces.OpenStreetMapImageryProvider({
-          url: 'https://tile.openstreetmap.org/',
-        })
+        // Use ion world terrain + default imagery
+        const terrainProvider = await Ces.createWorldTerrainAsync()
 
         const view = new Ces.Viewer(containerRef.current, {
-          imageryProvider: osmImagery,
-          // EllipsoidTerrainProvider = flat Earth, no ion token needed
-          terrainProvider: new Ces.EllipsoidTerrainProvider(),
+          terrainProvider,
           baseLayerPicker: false,
           geocoder: false,
           homeButton: true,
@@ -79,6 +80,7 @@ export default function Globe3D({
 
         if (cancelled) { view.destroy(); return }
         viewerRef.current = view
+        cesRef.current = Ces
 
         // Dark ocean theme
         view.scene.globe.baseColor = Ces.Color.fromCssColorString('#0A1628')
@@ -101,12 +103,11 @@ export default function Globe3D({
           duration: 0,
         })
 
-        // Expose viewer for flyToOcean helper
         ;(window as any)._cesiumViewer = view
 
         setLoading(false)
 
-        if (showSpecies)  addDistributionPoints(view, Ces, distributions, onSpeciesClick)
+        if (showSpecies) addDistributionPoints(view, Ces, distributions)
         if (showCurrents) addOceanCurrents(view, Ces)
       } catch (err: any) {
         if (!cancelled) {
@@ -135,7 +136,7 @@ export default function Globe3D({
     const Ces = cesRef.current
     if (!view || !Ces || loading) return
     view.entities.removeAll()
-    if (showSpecies)  addDistributionPoints(view, Ces, distributions, onSpeciesClick)
+    if (showSpecies) addDistributionPoints(view, Ces, distributions)
     if (showCurrents) addOceanCurrents(view, Ces)
   }, [distributions, showCurrents, showSpecies, loading])
 
@@ -162,7 +163,6 @@ export default function Globe3D({
         </div>
       )}
 
-      {/* Quick-jump panel */}
       <div className="absolute top-4 left-4 bg-deep-sea-800/90 backdrop-blur border border-deep-sea-600 rounded-lg p-3 space-y-2">
         <p className="text-xs text-gray-400 font-medium">🌊 快速跳转</p>
         {Object.keys(OCEAN_PRESETS).map((ocean) => (
@@ -187,12 +187,7 @@ function createShrimpIcon(verified: boolean): string {
   return 'data:image/svg+xml;base64,' + btoa(svg)
 }
 
-function addDistributionPoints(
-  viewer: any,
-  Ces: any,
-  distributions: SpeciesDistribution[],
-  onClick?: (id: string) => void,
-) {
+function addDistributionPoints(viewer: any, Ces: any, distributions: SpeciesDistribution[]) {
   for (const dist of distributions) {
     viewer.entities.add({
       position: Ces.Cartesian3.fromDegrees(dist.longitude, dist.latitude),
@@ -203,11 +198,6 @@ function addDistributionPoints(
         verticalOrigin: Ces.VerticalOrigin.BOTTOM,
       },
     })
-  }
-  if (onClick && distributions.length > 0) {
-    viewer.screenSpaceEventHandler?.removeInputAction(
-      Ces.ScreenSpaceEventType.LEFT_CLICK,
-    )
   }
 }
 
