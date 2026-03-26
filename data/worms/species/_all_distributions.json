@@ -1,0 +1,7374 @@
+{
+  "Penaeus vannamei": {
+    "gbif_key": 2223872,
+    "distributions": [
+      {
+        "lat": 22.497194,
+        "lng": 120.471694,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 22.811789,
+        "lng": 115.024681,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -22.702488,
+        "lng": -43.434962,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -22.702488,
+        "lng": -43.434962,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.55433,
+        "lng": 120.15961,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.554231,
+        "lng": 120.159945,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.328556,
+        "lng": -106.48057,
+        "depth": null,
+        "country": "Mexico",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.553601,
+        "lng": 120.158226,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 12.622536,
+        "lng": 102.008031,
+        "depth": null,
+        "country": "Thailand",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.558799,
+        "lng": 120.161208,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.55433,
+        "lng": 120.15961,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.558428,
+        "lng": 120.164958,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.55433,
+        "lng": 120.15961,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.55541,
+        "lng": 120.16001,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 3.832424,
+        "lng": 100.900178,
+        "depth": null,
+        "country": "Malaysia",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -2.653077,
+        "lng": -80.253981,
+        "depth": null,
+        "country": "Ecuador",
+        "locality": "",
+        "year": 2023,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Penaeus monodon": {
+    "gbif_key": 8406925,
+    "distributions": [
+      {
+        "lat": 14.155789,
+        "lng": 122.829417,
+        "depth": null,
+        "country": "Philippines",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 9.804913,
+        "lng": 76.282203,
+        "depth": null,
+        "country": "India",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 9.804916,
+        "lng": 76.282213,
+        "depth": null,
+        "country": "India",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.553797,
+        "lng": 120.16401,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.098206,
+        "lng": 120.531089,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 22.281481,
+        "lng": 113.927825,
+        "depth": null,
+        "country": "Hong Kong",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 6.022726,
+        "lng": 80.800836,
+        "depth": null,
+        "country": "Sri Lanka",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.55433,
+        "lng": 120.15961,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.558428,
+        "lng": 120.164958,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.55433,
+        "lng": 120.15961,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.55763,
+        "lng": 120.16296,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.558428,
+        "lng": 120.164958,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.181247,
+        "lng": 120.277244,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.197533,
+        "lng": 120.090247,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -30.1891,
+        "lng": 30.77731,
+        "depth": null,
+        "country": "South Africa",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -30.391949,
+        "lng": 30.766904,
+        "depth": null,
+        "country": "South Africa",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -30.032445,
+        "lng": 30.853284,
+        "depth": null,
+        "country": "South Africa",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.868857,
+        "lng": 113.90317,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 22.053415,
+        "lng": 113.705699,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Penaeus chinensis": {
+    "gbif_key": 2223711,
+    "distributions": [
+      {
+        "lat": 35.710307,
+        "lng": 120.205247,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.0987,
+        "lng": 120.530375,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.077982,
+        "lng": 120.312058,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2023,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.349444,
+        "lng": 126.013333,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Yeonggwang-gun Nagwol-myeon",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.36072,
+        "lng": 120.7163,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2021,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.188167,
+        "lng": 125.297333,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2012,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.158833,
+        "lng": 125.758333,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2012,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.1465,
+        "lng": 125.610333,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2012,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.119797,
+        "lng": 126.68115,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Hwaseong-si Seosin-myeon",
+        "year": 2012,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.1789,
+        "lng": 127.28745,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Goheung-gun",
+        "year": 2012,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.119797,
+        "lng": 126.68115,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Hwaseong-si Seosin-myeon",
+        "year": 2012,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.239483,
+        "lng": 125.715767,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2012,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.081467,
+        "lng": 126.035183,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2012,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.056,
+        "lng": 126.092733,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2012,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.228333,
+        "lng": 125.271167,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2012,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.256567,
+        "lng": 125.214367,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2012,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.193317,
+        "lng": 125.729833,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2012,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.813611,
+        "lng": 127.776667,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Yeosu-si",
+        "year": 2012,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.793833,
+        "lng": 124.791333,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.3055,
+        "lng": 125.218833,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Penaeus japonicus": {
+    "gbif_key": 2223429,
+    "distributions": [
+      {
+        "lat": 22.283547,
+        "lng": 113.927383,
+        "depth": null,
+        "country": "Hong Kong",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 29.953885,
+        "lng": 122.357399,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.400762,
+        "lng": 120.154822,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.332833,
+        "lng": 126.64875,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Wando-gun Gunoe-myeon",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.332833,
+        "lng": 126.64875,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Wando-gun Gunoe-myeon",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.332833,
+        "lng": 126.64875,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Wando-gun Gunoe-myeon",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.332833,
+        "lng": 126.64875,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Wando-gun Gunoe-myeon",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.169456,
+        "lng": 122.410267,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 22.821675,
+        "lng": 69.361218,
+        "depth": null,
+        "country": "India",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.098528,
+        "lng": 120.530569,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 22.310376,
+        "lng": 113.938256,
+        "depth": null,
+        "country": "Hong Kong",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 24.447605,
+        "lng": 118.152655,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.09855,
+        "lng": 120.530608,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -28.375317,
+        "lng": 32.42895,
+        "depth": null,
+        "country": "South Africa",
+        "locality": "Ingwe beach",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.939084,
+        "lng": 128.788264,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Hyeonnam-myeon",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.939084,
+        "lng": 128.788264,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Hyeonnam-myeon",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.939084,
+        "lng": 128.788264,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Hyeonnam-myeon",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.939084,
+        "lng": 128.788264,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Hyeonnam-myeon",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.939084,
+        "lng": 128.788264,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Hyeonnam-myeon",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.939084,
+        "lng": 128.788264,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Hyeonnam-myeon",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Penaeus merguiensis": {
+    "gbif_key": 2223715,
+    "distributions": [
+      {
+        "lat": -27.329727,
+        "lng": 153.086953,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -10.108978,
+        "lng": 123.735008,
+        "depth": null,
+        "country": "Indonesia",
+        "locality": "",
+        "year": 2023,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -27.263361,
+        "lng": 153.078933,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2023,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -7.350262,
+        "lng": 108.2221,
+        "depth": null,
+        "country": "Indonesia",
+        "locality": "",
+        "year": 2022,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 20.73,
+        "lng": 92.35,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Bay of Bengal, Teknaf",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 20.73,
+        "lng": 92.35,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Bay of Bengal, Teknaf",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 20.728,
+        "lng": 92.351,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "",
+        "year": 2020,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.189647,
+        "lng": 120.085839,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2020,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 14.833142,
+        "lng": 74.12683,
+        "depth": null,
+        "country": "India",
+        "locality": "",
+        "year": 2019,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -27.496669,
+        "lng": 153.021873,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2019,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -25.764649,
+        "lng": 153.008995,
+        "depth": null,
+        "country": "Australia",
+        "locality": "Unnamed Road, Fraser Island QLD 4581, Australia",
+        "year": 2016,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 11.01,
+        "lng": 76.95,
+        "depth": null,
+        "country": "India",
+        "locality": "",
+        "year": 2016,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 11.01,
+        "lng": 76.95,
+        "depth": null,
+        "country": "India",
+        "locality": "",
+        "year": 2016,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 26.3,
+        "lng": 56.32,
+        "depth": null,
+        "country": "Iran (Islamic Republic of)",
+        "locality": "",
+        "year": 2013,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 26.3,
+        "lng": 56.32,
+        "depth": null,
+        "country": "Iran (Islamic Republic of)",
+        "locality": "",
+        "year": 2013,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 26.3,
+        "lng": 56.32,
+        "depth": null,
+        "country": "Iran (Islamic Republic of)",
+        "locality": "",
+        "year": 2013,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -13.9587,
+        "lng": 127.3133,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2013,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.53297,
+        "lng": 130.96393,
+        "depth": null,
+        "country": "Australia",
+        "locality": "Elizabeth River, Darwin Harbour, NT, Australia",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.54525,
+        "lng": 130.98595,
+        "depth": null,
+        "country": "Australia",
+        "locality": "Elizabeth River, Darwin Harbour, NT, Australia",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.59858,
+        "lng": 130.90705,
+        "depth": null,
+        "country": "Australia",
+        "locality": "Middle Arm, Darwin Harbour, NT, Australia",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Penaeus indicus": {
+    "gbif_key": 2223719,
+    "distributions": [
+      {
+        "lat": 6.022726,
+        "lng": 80.800836,
+        "depth": null,
+        "country": "Sri Lanka",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.703521,
+        "lng": 89.261482,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.756639,
+        "lng": 89.222982,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.703521,
+        "lng": 89.261482,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.827841,
+        "lng": 89.195423,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.828443,
+        "lng": 89.195,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.793313,
+        "lng": 89.281088,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.703931,
+        "lng": 89.261001,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarbans west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.828443,
+        "lng": 89.195,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.827841,
+        "lng": 89.195423,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.828443,
+        "lng": 89.195,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.756639,
+        "lng": 89.222982,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.75489,
+        "lng": 89.28418,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarbans West Wildlife Sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.827841,
+        "lng": 89.195423,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.754752,
+        "lng": 89.283835,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.703917,
+        "lng": 89.260995,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarbans West Wildlife Sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.827841,
+        "lng": 89.195423,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarbans west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.703926,
+        "lng": 89.261013,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.754752,
+        "lng": 89.283835,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.827841,
+        "lng": 89.195423,
+        "depth": null,
+        "country": "Bangladesh",
+        "locality": "Sundarban west wildlife sanctuary",
+        "year": 2023,
+        "basis": "MACHINE_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Penaeus subtilis": {
+    "gbif_key": 2223844,
+    "distributions": [
+      {
+        "lat": -12.8633,
+        "lng": -38.8294,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "Rio Paraguaçu",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.8619,
+        "lng": -38.8397,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "Rio Paraguaçu",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.8672,
+        "lng": -38.8481,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "Rio Paraguaçu",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.8644,
+        "lng": -38.8442,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "Rio Paraguaçu",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.8619,
+        "lng": -38.8397,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "Rio Paraguaçu",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.8672,
+        "lng": -38.8481,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "Rio Paraguaçu",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.8633,
+        "lng": -38.8294,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "Rio Paraguaçu",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.8672,
+        "lng": -38.8481,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "Rio Paraguaçu",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.8644,
+        "lng": -38.8442,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "Rio Paraguaçu",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.90956,
+        "lng": -52.35898,
+        "depth": null,
+        "country": "French Guiana",
+        "locality": "",
+        "year": 2020,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.9017,
+        "lng": -52.37073,
+        "depth": null,
+        "country": "French Guiana",
+        "locality": "",
+        "year": 2018,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.9017,
+        "lng": -52.37073,
+        "depth": null,
+        "country": "French Guiana",
+        "locality": "",
+        "year": 2018,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.9017,
+        "lng": -52.37073,
+        "depth": null,
+        "country": "French Guiana",
+        "locality": "",
+        "year": 2018,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.9017,
+        "lng": -52.37073,
+        "depth": null,
+        "country": "French Guiana",
+        "locality": "",
+        "year": 2018,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.9017,
+        "lng": -52.37073,
+        "depth": null,
+        "country": "French Guiana",
+        "locality": "",
+        "year": 2018,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.9017,
+        "lng": -52.37073,
+        "depth": null,
+        "country": "French Guiana",
+        "locality": "",
+        "year": 2018,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.92261,
+        "lng": -52.34371,
+        "depth": null,
+        "country": "French Guiana",
+        "locality": "",
+        "year": 2018,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.92261,
+        "lng": -52.34371,
+        "depth": null,
+        "country": "French Guiana",
+        "locality": "",
+        "year": 2018,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.92261,
+        "lng": -52.34371,
+        "depth": null,
+        "country": "French Guiana",
+        "locality": "",
+        "year": 2018,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.91759,
+        "lng": -52.35554,
+        "depth": null,
+        "country": "French Guiana",
+        "locality": "",
+        "year": 2018,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Penaeus setiferus": {
+    "gbif_key": 2223875,
+    "distributions": [
+      {
+        "lat": 9.43467,
+        "lng": 97.858187,
+        "depth": null,
+        "country": "Myanmar",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 29.334437,
+        "lng": -94.749737,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 30.241883,
+        "lng": -87.789787,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 32.184058,
+        "lng": -81.156275,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 32.502975,
+        "lng": -80.412565,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 29.104528,
+        "lng": -83.065492,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 31.425053,
+        "lng": -81.316437,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 13.149974,
+        "lng": 100.061237,
+        "depth": null,
+        "country": "Thailand",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 32.411926,
+        "lng": -81.794543,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 29.13077,
+        "lng": -90.523494,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 31.021555,
+        "lng": -81.43494,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 29.680937,
+        "lng": -92.206925,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.710772,
+        "lng": -82.690829,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 30.390547,
+        "lng": -88.88523,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 28.577578,
+        "lng": -96.649645,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 29.680978,
+        "lng": -92.206786,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 26.004706,
+        "lng": -97.103958,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.523474,
+        "lng": -79.062123,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 30.285628,
+        "lng": -89.041192,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 29.713334,
+        "lng": -94.991974,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Penaeus aztecus": {
+    "gbif_key": 2223840,
+    "distributions": [
+      {
+        "lat": 41.752738,
+        "lng": 19.522308,
+        "depth": null,
+        "country": "Albania",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.614781,
+        "lng": -97.212888,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.4736,
+        "lng": -80.314,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "Indian River Lagoon, mangroves near Little Jim Island",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.4736,
+        "lng": -80.314,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "Indian River Lagoon, mangroves near Little Jim Island",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 32.179008,
+        "lng": -80.889612,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.890258,
+        "lng": 27.772103,
+        "depth": null,
+        "country": "Greece",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 40.599472,
+        "lng": 16.91354,
+        "depth": null,
+        "country": "Italy",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.722939,
+        "lng": -76.726044,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.030059,
+        "lng": 6.55777,
+        "depth": null,
+        "country": "Algeria",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.058551,
+        "lng": 7.426584,
+        "depth": null,
+        "country": "Algeria",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 40.48436,
+        "lng": 0.724248,
+        "depth": 36.3,
+        "country": "Spain",
+        "locality": "La Ràpita",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.88367,
+        "lng": -75.394295,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 30.2804,
+        "lng": -88.097,
+        "depth": 1.9,
+        "country": "United States of America",
+        "locality": "Mobile Bay",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 30.2804,
+        "lng": -88.097,
+        "depth": 1.9,
+        "country": "United States of America",
+        "locality": "Mobile Bay",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 30.2804,
+        "lng": -88.097,
+        "depth": 1.9,
+        "country": "United States of America",
+        "locality": "Mobile Bay",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 30.2804,
+        "lng": -88.097,
+        "depth": 1.9,
+        "country": "United States of America",
+        "locality": "Mobile Bay",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 30.2804,
+        "lng": -88.097,
+        "depth": 1.9,
+        "country": "United States of America",
+        "locality": "Mobile Bay",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 30.2804,
+        "lng": -88.097,
+        "depth": 1.9,
+        "country": "United States of America",
+        "locality": "Mobile Bay",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.895892,
+        "lng": -76.020521,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.663975,
+        "lng": -77.06758,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Penaeus duorarum": {
+    "gbif_key": 2223847,
+    "distributions": [
+      {
+        "lat": 32.256246,
+        "lng": -64.83805,
+        "depth": null,
+        "country": "Bermuda",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 26.103528,
+        "lng": -81.79393,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 18.641197,
+        "lng": -91.839697,
+        "depth": null,
+        "country": "Mexico",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.710838,
+        "lng": -82.689895,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.710447,
+        "lng": -82.690555,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.709894,
+        "lng": -82.687149,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.709793,
+        "lng": -82.689254,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.709862,
+        "lng": -82.689316,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.803838,
+        "lng": -82.596097,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.706135,
+        "lng": -82.622099,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.802112,
+        "lng": -82.774576,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.802112,
+        "lng": -82.774576,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.802112,
+        "lng": -82.774576,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.600062,
+        "lng": -97.225105,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 30.1259,
+        "lng": -85.731413,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.333958,
+        "lng": -79.173074,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.953348,
+        "lng": -82.874347,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 30.40468,
+        "lng": -86.442577,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.332419,
+        "lng": -79.186942,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.800801,
+        "lng": -82.604626,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Metapenaeus ensis": {
+    "gbif_key": 2223792,
+    "distributions": [
+      {
+        "lat": 23.558428,
+        "lng": 120.164958,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.553601,
+        "lng": 120.158226,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.558428,
+        "lng": 120.164958,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.55498,
+        "lng": 120.16108,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.5563,
+        "lng": 120.15923,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.553601,
+        "lng": 120.158226,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.553601,
+        "lng": 120.158226,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.55522,
+        "lng": 120.15992,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 16.522353,
+        "lng": 96.452797,
+        "depth": null,
+        "country": "Myanmar",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.558428,
+        "lng": 120.164958,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.558428,
+        "lng": 120.164958,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.553601,
+        "lng": 120.158226,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.55656,
+        "lng": 120.16198,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.558428,
+        "lng": 120.164958,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Metapenaeus bennettae": {
+    "gbif_key": 2223791,
+    "distributions": [
+      {
+        "lat": -36.819607,
+        "lng": 174.750476,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.837714,
+        "lng": 174.745611,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -35.78,
+        "lng": 174.41,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Whangarei",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -35.8,
+        "lng": 174.34,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Whangarei",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -35.75,
+        "lng": 174.35,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Whangarei",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.82,
+        "lng": 174.78,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.81,
+        "lng": 174.76,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.85,
+        "lng": 174.8,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.81,
+        "lng": 174.76,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.84,
+        "lng": 174.8,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.85,
+        "lng": 174.8,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -35.72,
+        "lng": 174.32,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Whangarei",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.84,
+        "lng": 174.77,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.84,
+        "lng": 174.76,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.81,
+        "lng": 174.76,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.84,
+        "lng": 174.79,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.81,
+        "lng": 174.67,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.842141,
+        "lng": 174.761244,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.84,
+        "lng": 174.76,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.88,
+        "lng": 174.67,
+        "depth": null,
+        "country": "New Zealand",
+        "locality": "Auckland",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Metapenaeus mastersii": {
+    "gbif_key": 2223795,
+    "distributions": [
+      {
+        "lat": 23.558428,
+        "lng": 120.164958,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.553601,
+        "lng": 120.158226,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.558428,
+        "lng": 120.164958,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.55498,
+        "lng": 120.16108,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.5563,
+        "lng": 120.15923,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.553601,
+        "lng": 120.158226,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.553601,
+        "lng": 120.158226,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.55522,
+        "lng": 120.15992,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 16.522353,
+        "lng": 96.452797,
+        "depth": null,
+        "country": "Myanmar",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.558428,
+        "lng": 120.164958,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.558428,
+        "lng": 120.164958,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.553601,
+        "lng": 120.158226,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.55656,
+        "lng": 120.16198,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.558428,
+        "lng": 120.164958,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 23.556089,
+        "lng": 120.16422,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Trachysalambria curvirostris": {
+    "gbif_key": 2223511,
+    "distributions": [
+      {
+        "lat": 36.136318,
+        "lng": 120.284255,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.153292,
+        "lng": 125.3112,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.757472,
+        "lng": 125.669536,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.769958,
+        "lng": 125.3112,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.724467,
+        "lng": 125.544456,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.191903,
+        "lng": 124.782756,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.843756,
+        "lng": 124.968547,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.302178,
+        "lng": 124.767936,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.0987,
+        "lng": 120.530375,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.098339,
+        "lng": 120.530903,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.659789,
+        "lng": 128.089611,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2023,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 32.464821,
+        "lng": 34.855871,
+        "depth": 29.5,
+        "country": "Israel",
+        "locality": "Israeli Mediterranean continental shelf",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 32.465367,
+        "lng": 34.864408,
+        "depth": 20.2,
+        "country": "Israel",
+        "locality": "Israeli Mediterranean continental shelf",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 32.465367,
+        "lng": 34.864408,
+        "depth": 20.2,
+        "country": "Israel",
+        "locality": "Israeli Mediterranean continental shelf",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 32.448316,
+        "lng": 34.856642,
+        "depth": 24.9,
+        "country": "Israel",
+        "locality": "Israeli Mediterranean continental shelf",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 31.94328,
+        "lng": 34.68633,
+        "depth": 22.28,
+        "country": "Israel",
+        "locality": "Israeli Mediterranean continental shelf",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 31.863167,
+        "lng": 34.644183,
+        "depth": 23.0,
+        "country": "Israel",
+        "locality": "Israeli Mediterranean continental shelf",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 31.86195,
+        "lng": 34.65115,
+        "depth": 15.0,
+        "country": "Israel",
+        "locality": "Israeli Mediterranean continental shelf",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 31.867183,
+        "lng": 34.646867,
+        "depth": 22.0,
+        "country": "Israel",
+        "locality": "Israeli Mediterranean continental shelf",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 31.87515,
+        "lng": 34.651133,
+        "depth": 22.0,
+        "country": "Israel",
+        "locality": "Israeli Mediterranean continental shelf",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Macrobrachium rosenbergii": {
+    "gbif_key": 2224546,
+    "distributions": [
+      {
+        "lat": 0.118503,
+        "lng": 101.649404,
+        "depth": null,
+        "country": "Indonesia",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.652782,
+        "lng": 131.338231,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 18.743462,
+        "lng": 99.542647,
+        "depth": null,
+        "country": "Thailand",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 19.169464,
+        "lng": 99.900283,
+        "depth": null,
+        "country": "Thailand",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -14.712147,
+        "lng": 134.508042,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.758147,
+        "lng": 88.222121,
+        "depth": null,
+        "country": "India",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 5.971864,
+        "lng": 80.427376,
+        "depth": null,
+        "country": "Sri Lanka",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 5.465511,
+        "lng": 118.24703,
+        "depth": null,
+        "country": "Malaysia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 5.487414,
+        "lng": 118.22262,
+        "depth": null,
+        "country": "Malaysia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 6.018881,
+        "lng": 116.046982,
+        "depth": null,
+        "country": "Malaysia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -16.878394,
+        "lng": 145.655677,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 11.571723,
+        "lng": 75.791339,
+        "depth": null,
+        "country": "India",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 10.074781,
+        "lng": 76.241266,
+        "depth": null,
+        "country": "India",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 11.113897,
+        "lng": 75.900674,
+        "depth": null,
+        "country": "India",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 9.805689,
+        "lng": 106.538132,
+        "depth": null,
+        "country": "Viet Nam",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -7.79854,
+        "lng": 107.904145,
+        "depth": null,
+        "country": "Indonesia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 5.497852,
+        "lng": 118.206375,
+        "depth": null,
+        "country": "Malaysia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -27.24733,
+        "lng": -48.614238,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 10.325375,
+        "lng": 106.36943,
+        "depth": null,
+        "country": "Viet Nam",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 22.56107,
+        "lng": 120.458065,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Macrobrachium nipponense": {
+    "gbif_key": 2224515,
+    "distributions": [
+      {
+        "lat": 35.42895,
+        "lng": 135.256363,
+        "depth": null,
+        "country": "Japan",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.428547,
+        "lng": 135.256547,
+        "depth": null,
+        "country": "Japan",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.261395,
+        "lng": -119.041032,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.234526,
+        "lng": -119.126226,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.374502,
+        "lng": -119.158878,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 22.142156,
+        "lng": 113.552938,
+        "depth": null,
+        "country": "Macao",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.241707,
+        "lng": -119.015756,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.251128,
+        "lng": -119.043265,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 16.372697,
+        "lng": 99.902344,
+        "depth": null,
+        "country": "Thailand",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 22.140081,
+        "lng": 113.554588,
+        "depth": null,
+        "country": "Macao",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.324442,
+        "lng": -119.087267,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.134465,
+        "lng": 139.376786,
+        "depth": null,
+        "country": "Japan",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 1.286299,
+        "lng": 103.995095,
+        "depth": null,
+        "country": "Singapore",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 25.541414,
+        "lng": 113.362334,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 22.587647,
+        "lng": 120.598528,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 22.15137,
+        "lng": 113.559116,
+        "depth": null,
+        "country": "Macao",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 31.201672,
+        "lng": 121.603654,
+        "depth": null,
+        "country": "China",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.987072,
+        "lng": 140.353735,
+        "depth": null,
+        "country": "Japan",
+        "locality": "Dosakibana, Lake Kasumigaura",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.0742,
+        "lng": 135.603317,
+        "depth": null,
+        "country": "Japan",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.999101,
+        "lng": -121.694724,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Macrobrachium carcinus": {
+    "gbif_key": 2224580,
+    "distributions": [
+      {
+        "lat": 16.777528,
+        "lng": -62.200292,
+        "depth": null,
+        "country": "Montserrat",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 16.451734,
+        "lng": -85.929878,
+        "depth": null,
+        "country": "Honduras",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 18.184446,
+        "lng": -66.687289,
+        "depth": null,
+        "country": "Puerto Rico",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 8.403171,
+        "lng": -83.338515,
+        "depth": null,
+        "country": "Costa Rica",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 8.40261,
+        "lng": -83.337518,
+        "depth": null,
+        "country": "Costa Rica",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 8.402733,
+        "lng": -83.337613,
+        "depth": null,
+        "country": "Costa Rica",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 18.32212,
+        "lng": -64.878015,
+        "depth": null,
+        "country": "Virgin Islands (U.S.)",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 8.403826,
+        "lng": -83.336269,
+        "depth": null,
+        "country": "Costa Rica",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 17.761711,
+        "lng": -64.876341,
+        "depth": null,
+        "country": "Virgin Islands (U.S.)",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 18.317203,
+        "lng": -65.752412,
+        "depth": null,
+        "country": "Puerto Rico",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 18.325528,
+        "lng": -65.729813,
+        "depth": null,
+        "country": "Puerto Rico",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 18.325747,
+        "lng": -65.730095,
+        "depth": null,
+        "country": "Puerto Rico",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 18.325592,
+        "lng": -65.73027,
+        "depth": null,
+        "country": "Puerto Rico",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 18.31842,
+        "lng": -65.752005,
+        "depth": null,
+        "country": "Puerto Rico",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 16.053653,
+        "lng": -61.573337,
+        "depth": null,
+        "country": "Guadeloupe",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -23.338209,
+        "lng": -44.623178,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 10.723717,
+        "lng": -61.349774,
+        "depth": null,
+        "country": "Trinidad and Tobago",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 18.323503,
+        "lng": -65.810188,
+        "depth": null,
+        "country": "Puerto Rico",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 20.598156,
+        "lng": -105.23394,
+        "depth": null,
+        "country": "Mexico",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 18.301246,
+        "lng": -65.784853,
+        "depth": null,
+        "country": "Puerto Rico",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Neocaridina denticulata": {
+    "gbif_key": 2223025,
+    "distributions": [
+      {
+        "lat": 35.385945,
+        "lng": 136.670258,
+        "depth": null,
+        "country": "Japan",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.413791,
+        "lng": 127.12154,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Yatap-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.418262,
+        "lng": 127.11882,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Sasong-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.463583,
+        "lng": 127.12049,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Bokjeong-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.430463,
+        "lng": 127.11794,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Dunjeon-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.385836,
+        "lng": 127.11704,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Sunae-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.399081,
+        "lng": 127.12518,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Imae-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.340986,
+        "lng": 127.11593,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gumi-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.336347,
+        "lng": 127.11255,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gumi-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.372146,
+        "lng": 127.109,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Jeongja-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.354079,
+        "lng": 127.11699,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Jeongja-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.398821,
+        "lng": 127.12483,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Imae-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.413881,
+        "lng": 127.12147,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Yatap-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.412997,
+        "lng": 127.12212,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Yatap-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.421656,
+        "lng": 127.118,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Yeosu-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.430589,
+        "lng": 127.11806,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Dunjeon-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.463411,
+        "lng": 127.12001,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Bokjeong-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.385728,
+        "lng": 127.11698,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Sunae-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.340985,
+        "lng": 127.1155,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gumi-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.335771,
+        "lng": 127.11263,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gumi-dong",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Crangon crangon": {
+    "gbif_key": 2222188,
+    "distributions": [
+      {
+        "lat": 45.093771,
+        "lng": 12.293136,
+        "depth": null,
+        "country": "Italy",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 69.663202,
+        "lng": 18.761054,
+        "depth": null,
+        "country": "Norway",
+        "locality": "Eidjordnessundet, Tromsø, Tr",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.4,
+        "lng": 3.7,
+        "depth": null,
+        "country": "Netherlands",
+        "locality": "Borssele - Noordnol / koelwaterinlaat centrale",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Pandalus borealis": {
+    "gbif_key": 2222355,
+    "distributions": [
+      {
+        "lat": 56.656667,
+        "lng": -60.083333,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 54.771667,
+        "lng": -56.653333,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 54.647778,
+        "lng": -55.988611,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 78.415339,
+        "lng": 12.18494,
+        "depth": 231.6,
+        "country": "Svalbard and Jan Mayen",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 78.967929,
+        "lng": 11.847896,
+        "depth": 289.36,
+        "country": "Svalbard and Jan Mayen",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 78.973236,
+        "lng": 11.935209,
+        "depth": 254.315,
+        "country": "Svalbard and Jan Mayen",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 78.314807,
+        "lng": 15.201068,
+        "depth": 271.655,
+        "country": "Svalbard and Jan Mayen",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 79.700873,
+        "lng": 11.109162,
+        "depth": 205.12,
+        "country": "Svalbard and Jan Mayen",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 78.314807,
+        "lng": 15.201068,
+        "depth": 271.655,
+        "country": "Svalbard and Jan Mayen",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 70.672486,
+        "lng": 28.004696,
+        "depth": 143.0,
+        "country": "Norway",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 56.650278,
+        "lng": -60.09,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 63.915651,
+        "lng": 9.82703,
+        "depth": null,
+        "country": "Norway",
+        "locality": "Persflua, Lysøysundet, Ørland, Tø",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 56.348056,
+        "lng": -59.5625,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 54.578573,
+        "lng": -55.48073,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 50.41738,
+        "lng": -59.50148,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 50.333498,
+        "lng": -59.471688,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 64.636389,
+        "lng": -34.815833,
+        "depth": null,
+        "country": "Greenland",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 60.252797,
+        "lng": 5.220575,
+        "depth": null,
+        "country": "Norway",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 76.97431,
+        "lng": 15.523015,
+        "depth": null,
+        "country": "Svalbard and Jan Mayen",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 58.737917,
+        "lng": 9.159223,
+        "depth": null,
+        "country": "Norway",
+        "locality": "Nordfjorden, Risør, Ag",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Pandalus montagui": {
+    "gbif_key": 2222367,
+    "distributions": [
+      {
+        "lat": 56.656667,
+        "lng": -60.083333,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 63.685178,
+        "lng": 9.667406,
+        "depth": null,
+        "country": "Norway",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 58.365,
+        "lng": -59.841667,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 53.220573,
+        "lng": -4.163968,
+        "depth": null,
+        "country": "United Kingdom of Great Britain and Northern Ireland",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 67.22692,
+        "lng": 14.625561,
+        "depth": 22.0,
+        "country": "Norway",
+        "locality": "Saltbrygga, Saltstraumen, Bodø, No",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 67.180056,
+        "lng": 14.905998,
+        "depth": null,
+        "country": "Norway",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 44.435792,
+        "lng": -63.829242,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 70.672486,
+        "lng": 28.004696,
+        "depth": 143.0,
+        "country": "Norway",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 56.605,
+        "lng": -60.016111,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 56.788056,
+        "lng": -60.391667,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 59.2938,
+        "lng": 5.80033,
+        "depth": null,
+        "country": "Norway",
+        "locality": "VannlokalitetID:116631",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 55.438687,
+        "lng": -56.072908,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 55.932556,
+        "lng": -2.22265,
+        "depth": null,
+        "country": "United Kingdom of Great Britain and Northern Ireland",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 51.172843,
+        "lng": -57.961489,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 58.696962,
+        "lng": 9.173497,
+        "depth": null,
+        "country": "Norway",
+        "locality": "Ytre Sandnesfjorden, Risør, Ag",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 48.631473,
+        "lng": -63.973672,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 53.221805,
+        "lng": -4.168853,
+        "depth": null,
+        "country": "United Kingdom of Great Britain and Northern Ireland",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 55.515992,
+        "lng": 8.34376,
+        "depth": null,
+        "country": "Denmark",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 56.741888,
+        "lng": -5.208425,
+        "depth": null,
+        "country": "United Kingdom of Great Britain and Northern Ireland",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 67.22753,
+        "lng": 14.625106,
+        "depth": null,
+        "country": "Norway",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Pandalus jordani": {
+    "gbif_key": 2222356,
+    "distributions": [
+      {
+        "lat": 50.116184,
+        "lng": -125.19921,
+        "depth": 75.0,
+        "country": "Canada",
+        "locality": "Heriot Bay",
+        "year": 2025,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 49.755856,
+        "lng": -124.096956,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 40.7155,
+        "lng": -124.476937,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 57.027933,
+        "lng": -135.548494,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 48.774678,
+        "lng": -123.274803,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 48.74202,
+        "lng": -125.39625,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 123-4",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 49.11355,
+        "lng": -126.47653,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 124-3",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 49.0468,
+        "lng": -126.44268,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 124-3",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 48.9294,
+        "lng": -126.26608,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 124-2",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 48.74202,
+        "lng": -125.39625,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 123-4",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 48.74202,
+        "lng": -125.39625,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 123-4",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 49.0468,
+        "lng": -126.44268,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 124-3",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 49.0468,
+        "lng": -126.44268,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 124-3",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 48.74202,
+        "lng": -125.39625,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 123-4",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 48.74202,
+        "lng": -125.39625,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 123-4",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 49.0468,
+        "lng": -126.44268,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 124-3",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 49.0468,
+        "lng": -126.44268,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 124-3",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 48.74202,
+        "lng": -125.39625,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 123-4",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 49.0468,
+        "lng": -126.44268,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 124-3",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 49.0468,
+        "lng": -126.44268,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Pacific Fisheries Management Area (PMFA) & Subarea: 124-3",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Hippolyte inermis": {
+    "gbif_key": 5716558,
+    "distributions": [
+      {
+        "lat": 43.228742,
+        "lng": 5.348033,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.228742,
+        "lng": 5.348033,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.228742,
+        "lng": 5.348033,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 48.638112,
+        "lng": -2.021464,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.999236,
+        "lng": -7.979723,
+        "depth": null,
+        "country": "Portugal",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.182829,
+        "lng": 5.619816,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 45.333918,
+        "lng": 13.541967,
+        "depth": null,
+        "country": "Croatia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 48.897475,
+        "lng": -1.579897,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 49.082614,
+        "lng": -1.619697,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.332951,
+        "lng": 5.198105,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 49.206957,
+        "lng": -2.0177,
+        "depth": null,
+        "country": "Jersey",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 48.301979,
+        "lng": -4.553201,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 49.144128,
+        "lng": -2.011777,
+        "depth": null,
+        "country": "Jersey",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.001205,
+        "lng": -7.982522,
+        "depth": null,
+        "country": "Portugal",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.035617,
+        "lng": -7.79548,
+        "depth": null,
+        "country": "Portugal",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.035982,
+        "lng": -7.794883,
+        "depth": null,
+        "country": "Portugal",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.035982,
+        "lng": -7.794883,
+        "depth": null,
+        "country": "Portugal",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.036134,
+        "lng": -7.795216,
+        "depth": null,
+        "country": "Portugal",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.036134,
+        "lng": -7.795216,
+        "depth": null,
+        "country": "Portugal",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.036134,
+        "lng": -7.795216,
+        "depth": null,
+        "country": "Portugal",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Lysmata seticaudata": {
+    "gbif_key": 2226398,
+    "distributions": [
+      {
+        "lat": 42.394298,
+        "lng": 3.155311,
+        "depth": null,
+        "country": "Spain",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.228742,
+        "lng": 5.348033,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.797121,
+        "lng": -0.157988,
+        "depth": null,
+        "country": "Algeria",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.211503,
+        "lng": 5.352272,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.228742,
+        "lng": 5.348033,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.228742,
+        "lng": 5.348033,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 38.631545,
+        "lng": 0.031349,
+        "depth": null,
+        "country": "Spain",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 41.409575,
+        "lng": 2.227229,
+        "depth": null,
+        "country": "Spain",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.228742,
+        "lng": 5.348033,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.433115,
+        "lng": -2.868512,
+        "depth": null,
+        "country": "Spain",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.228742,
+        "lng": 5.348033,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.228742,
+        "lng": 5.348033,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.26024,
+        "lng": 5.289194,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 42.378672,
+        "lng": 3.155703,
+        "depth": null,
+        "country": "Spain",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 38.228014,
+        "lng": 22.892994,
+        "depth": null,
+        "country": "Greece",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 40.032779,
+        "lng": 23.4973,
+        "depth": null,
+        "country": "Greece",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 38.434273,
+        "lng": -9.067903,
+        "depth": null,
+        "country": "Portugal",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.328842,
+        "lng": 5.100085,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.262084,
+        "lng": 5.291659,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.285449,
+        "lng": 5.30601,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Lysmata debelius": {
+    "gbif_key": 5863085,
+    "distributions": [
+      {
+        "lat": -30.332112,
+        "lng": 30.740874,
+        "depth": null,
+        "country": "South Africa",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 13.284314,
+        "lng": 100.923817,
+        "depth": null,
+        "country": "Thailand",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -20.752208,
+        "lng": 167.027845,
+        "depth": null,
+        "country": "New Caledonia",
+        "locality": "",
+        "year": 2023,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -8.29698,
+        "lng": 115.614483,
+        "depth": null,
+        "country": "Indonesia",
+        "locality": "",
+        "year": 2019,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -8.289789,
+        "lng": 115.606941,
+        "depth": null,
+        "country": "Indonesia",
+        "locality": "",
+        "year": 2014,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -8.29538,
+        "lng": 115.612584,
+        "depth": null,
+        "country": "Indonesia",
+        "locality": "",
+        "year": 2013,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 7.696631,
+        "lng": 80.66931,
+        "depth": null,
+        "country": "Sri Lanka",
+        "locality": "",
+        "year": 2005,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 7.696631,
+        "lng": 80.66931,
+        "depth": null,
+        "country": "Sri Lanka",
+        "locality": "",
+        "year": 2005,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 7.696631,
+        "lng": 80.66931,
+        "depth": null,
+        "country": "Sri Lanka",
+        "locality": "",
+        "year": 2005,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.977972,
+        "lng": 34.39164,
+        "depth": null,
+        "country": "Egypt",
+        "locality": "Na'ama",
+        "year": 2005,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.977972,
+        "lng": 34.39164,
+        "depth": null,
+        "country": "Egypt",
+        "locality": "Na'ama",
+        "year": 2005,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -8.277076,
+        "lng": 115.596105,
+        "depth": null,
+        "country": "Indonesia",
+        "locality": "",
+        "year": 2004,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 14.2781,
+        "lng": 121.42,
+        "depth": null,
+        "country": "Philippines",
+        "locality": "Aqua Store Manila",
+        "year": 2001,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -21.13317,
+        "lng": 55.53241,
+        "depth": null,
+        "country": "Réunion",
+        "locality": "",
+        "year": null,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 14
+  },
+  "Lysmata amboinensis": {
+    "gbif_key": 2226409,
+    "distributions": [
+      {
+        "lat": -30.33213,
+        "lng": 30.740938,
+        "depth": null,
+        "country": "South Africa",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -0.516815,
+        "lng": 130.461378,
+        "depth": null,
+        "country": "Indonesia",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -30.205483,
+        "lng": 153.26693,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.295846,
+        "lng": -157.981912,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -8.240178,
+        "lng": 115.566185,
+        "depth": null,
+        "country": "Indonesia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -8.525461,
+        "lng": 115.576773,
+        "depth": null,
+        "country": "Indonesia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.164165,
+        "lng": 96.870956,
+        "depth": null,
+        "country": "Cocos (Keeling) Islands",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -26.616738,
+        "lng": 153.145671,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 9.696702,
+        "lng": 122.408939,
+        "depth": null,
+        "country": "Philippines",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -7.947444,
+        "lng": 39.784839,
+        "depth": null,
+        "country": "Tanzania, United Republic of",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 9.688244,
+        "lng": 122.384664,
+        "depth": null,
+        "country": "Philippines",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 20.787116,
+        "lng": -156.55833,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -30.205483,
+        "lng": 153.26693,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.531886,
+        "lng": -158.232847,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -8.276447,
+        "lng": 115.593247,
+        "depth": null,
+        "country": "Indonesia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -8.237999,
+        "lng": 115.565874,
+        "depth": null,
+        "country": "Indonesia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -30.205483,
+        "lng": 153.26693,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 19.49717,
+        "lng": -155.950107,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -21.024364,
+        "lng": 55.224169,
+        "depth": null,
+        "country": "Réunion",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 13.495322,
+        "lng": 120.991606,
+        "depth": null,
+        "country": "Philippines",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Pasiphaea japonica": {
+    "gbif_key": 2222271,
+    "distributions": [
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.638825,
+        "lng": 126.540867,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Gimpo-si Daegot-myeon",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Pasiphaea sivado": {
+    "gbif_key": 2222279,
+    "distributions": [
+      {
+        "lat": 58.060764,
+        "lng": 8.13924,
+        "depth": null,
+        "country": "Norway",
+        "locality": "Skagerrak sørøst for Oksøy, Kristiansand, Ag",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 41.044958,
+        "lng": 1.808725,
+        "depth": 350.2,
+        "country": "Spain",
+        "locality": "Vilanova i la Geltrú",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 41.900885,
+        "lng": 3.359594,
+        "depth": 291.7,
+        "country": "Spain",
+        "locality": "Palamós",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 41.887864,
+        "lng": 3.33224,
+        "depth": 507.7,
+        "country": "Spain",
+        "locality": "Palamós",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 41.316565,
+        "lng": 2.564531,
+        "depth": 375.8,
+        "country": "Spain",
+        "locality": "Arenys de Mar",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 40.792308,
+        "lng": 1.39064,
+        "depth": 378.7,
+        "country": "Spain",
+        "locality": "Tarragona",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 42.01189,
+        "lng": 3.542757,
+        "depth": 389.0,
+        "country": "Spain",
+        "locality": "Roses",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 41.201562,
+        "lng": 2.321905,
+        "depth": 376.9,
+        "country": "Spain",
+        "locality": "Barcelona",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 41.362473,
+        "lng": 2.494873,
+        "depth": 499.4,
+        "country": "Spain",
+        "locality": "Barcelona",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 41.900719,
+        "lng": 3.359767,
+        "depth": 276.4,
+        "country": "Spain",
+        "locality": "Palamós",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 58.336,
+        "lng": 11.4045,
+        "depth": 1.0,
+        "country": "Sweden",
+        "locality": "",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 41.475024,
+        "lng": 3.170998,
+        "depth": 334.1,
+        "country": "Spain",
+        "locality": "Blanes",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 41.351488,
+        "lng": 2.726129,
+        "depth": 391.0,
+        "country": "Spain",
+        "locality": "Arenys de Mar",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 41.021168,
+        "lng": 1.818311,
+        "depth": 530.2,
+        "country": "Spain",
+        "locality": "Vilanova i la Geltrú",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 42.0151,
+        "lng": 3.564181,
+        "depth": 464.8,
+        "country": "Spain",
+        "locality": "Roses",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 41.021168,
+        "lng": 1.818311,
+        "depth": 530.2,
+        "country": "Spain",
+        "locality": "Vilanova i la Geltrú",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 58.3359,
+        "lng": 11.4041,
+        "depth": 1.5,
+        "country": "Sweden",
+        "locality": "",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 58.352,
+        "lng": 11.2285,
+        "depth": 5.0,
+        "country": "Sweden",
+        "locality": "",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 58.2784,
+        "lng": 11.4247,
+        "depth": 4.0,
+        "country": "Sweden",
+        "locality": "",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 58.3578,
+        "lng": 11.2412,
+        "depth": 1.5,
+        "country": "Sweden",
+        "locality": "",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Acetes japonicus": {
+    "gbif_key": 2225886,
+    "distributions": [
+      {
+        "lat": 36.008636,
+        "lng": 126.662858,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Seocheon-gun Janghang-eup",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.586131,
+        "lng": 126.595944,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Buan-gun Jinseo-myeon",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 35.586131,
+        "lng": 126.595944,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Buan-gun Jinseo-myeon",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.623797,
+        "lng": 126.285583,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Taean-gun Nam-myeon",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.623797,
+        "lng": 126.285583,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Taean-gun Nam-myeon",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.249722,
+        "lng": 126.536667,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Boryeong-si Ungcheon-eup",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.249722,
+        "lng": 126.536667,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Boryeong-si Ungcheon-eup",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.249722,
+        "lng": 126.536667,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Boryeong-si Ungcheon-eup",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.623797,
+        "lng": 126.285583,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Taean-gun Nam-myeon",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.623797,
+        "lng": 126.285583,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Taean-gun Nam-myeon",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 36.623797,
+        "lng": 126.285583,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Taean-gun Nam-myeon",
+        "year": 2021,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.609661,
+        "lng": 125.714733,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Ongjin-gun",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.968806,
+        "lng": 124.741586,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Hwaseong-si Seosin-myeon",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.609661,
+        "lng": 125.714733,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Ongjin-gun",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.119797,
+        "lng": 126.68115,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "Hwaseong-si Seosin-myeon",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.213056,
+        "lng": 126.413333,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.245278,
+        "lng": 126.764722,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.29,
+        "lng": 126.885,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.206944,
+        "lng": 126.584167,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.401111,
+        "lng": 126.938056,
+        "depth": null,
+        "country": "Korea, Republic of",
+        "locality": "",
+        "year": 2011,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Acetes intermedius": {
+    "gbif_key": 2225908,
+    "distributions": [
+      {
+        "lat": 23.05748,
+        "lng": 120.07765,
+        "depth": null,
+        "country": "Chinese Taipei",
+        "locality": "",
+        "year": 2022,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 1
+  },
+  "Plesiopenaeus edwardsianus": {
+    "gbif_key": 2223108,
+    "distributions": [
+      {
+        "lat": 41.481362,
+        "lng": 19.061262,
+        "depth": null,
+        "country": "Albania",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 28.734228,
+        "lng": -13.866945,
+        "depth": null,
+        "country": "Spain",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 62.932762,
+        "lng": -62.678786,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 44.828333,
+        "lng": -55.768167,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 44.828333,
+        "lng": -55.768167,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 62.906111,
+        "lng": -60.456944,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 44.831667,
+        "lng": -55.973333,
+        "depth": 692.5,
+        "country": "Canada",
+        "locality": "",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 45.05,
+        "lng": -54.576667,
+        "depth": 280.0,
+        "country": "Canada",
+        "locality": "",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 42.762217,
+        "lng": -63.77585,
+        "depth": null,
+        "country": "Canada",
+        "locality": "Scotian Shelf, Set 167, Station 203",
+        "year": 2023,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -35.4556,
+        "lng": 18.8477,
+        "depth": 545.0,
+        "country": "South Africa",
+        "locality": "",
+        "year": 2022,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -33.8655,
+        "lng": 17.4137,
+        "depth": 600.0,
+        "country": "South Africa",
+        "locality": "",
+        "year": 2022,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -12.14,
+        "lng": 13.2,
+        "depth": 755.0,
+        "country": "Angola",
+        "locality": "South West African coast (Angola), 47- Atlantic, Southeast",
+        "year": 2022,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -42.744167,
+        "lng": -178.7775,
+        "depth": 896.0,
+        "country": "New Zealand",
+        "locality": "Chatham Rise",
+        "year": 2020,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -33.849,
+        "lng": 17.408,
+        "depth": 599.0,
+        "country": "South Africa",
+        "locality": "",
+        "year": 2020,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -30.847,
+        "lng": 15.334,
+        "depth": 861.0,
+        "country": "South Africa",
+        "locality": "",
+        "year": 2020,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -33.32933,
+        "lng": 16.90267,
+        "depth": 829.0,
+        "country": "South Africa",
+        "locality": "",
+        "year": 2019,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -32.19767,
+        "lng": 16.231,
+        "depth": 681.0,
+        "country": "South Africa",
+        "locality": "",
+        "year": 2019,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -30.6985,
+        "lng": 15.32283,
+        "depth": 590.0,
+        "country": "South Africa",
+        "locality": "",
+        "year": 2019,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -31.3768,
+        "lng": 15.6506,
+        "depth": 703.0,
+        "country": "South Africa",
+        "locality": "",
+        "year": 2019,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 42.5315,
+        "lng": -64.521833,
+        "depth": null,
+        "country": "Canada",
+        "locality": "",
+        "year": 2019,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Benthesicymus tanneri": {
+    "gbif_key": 2223202,
+    "distributions": [
+      {
+        "lat": -4.07,
+        "lng": -81.21,
+        "depth": 685.0,
+        "country": "Peru",
+        "locality": "Pacific Southeast (Peru)- 87",
+        "year": 2007,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 24.653333,
+        "lng": -108.63,
+        "depth": 599.0,
+        "country": "Mexico",
+        "locality": "Frente al Bahía Santa María",
+        "year": 1991,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 24.548333,
+        "lng": -108.86,
+        "depth": 385.0,
+        "country": "Mexico",
+        "locality": "Frente a Sinaloa",
+        "year": 1991,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 24.646667,
+        "lng": -108.448333,
+        "depth": 509.0,
+        "country": "Mexico",
+        "locality": "Frente al Bahía Santa María",
+        "year": 1991,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 9.682507,
+        "lng": -85.803318,
+        "depth": 1371.6,
+        "country": "United States of America",
+        "locality": "Costa Rica, 14 mi., 233° T. from Pta. Guiones",
+        "year": 1973,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 8.116667,
+        "lng": -83.26,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "Costa Rica, 15.8 mi., 173° T. from Cabo Matapalo",
+        "year": 1973,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": -6.04,
+        "lng": -81.06,
+        "depth": 850.0,
+        "country": "Peru",
+        "locality": "NW de Isla Lobos de Tierra",
+        "year": 1971,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 7.366667,
+        "lng": -79.533333,
+        "depth": null,
+        "country": "Panama",
+        "locality": "Gulf of Panama",
+        "year": 1952,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 7.366667,
+        "lng": -79.533333,
+        "depth": null,
+        "country": "Panama",
+        "locality": "Gulf of Panama",
+        "year": 1952,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 7.366667,
+        "lng": -79.533333,
+        "depth": null,
+        "country": "Panama",
+        "locality": "Gulf of Panama",
+        "year": 1952,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.83,
+        "lng": -87.0,
+        "depth": 1143.0,
+        "country": "Costa Rica",
+        "locality": "60 mi. S of Cocos Island",
+        "year": 1925,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.84,
+        "lng": -87.01,
+        "depth": 1145.0,
+        "country": "Costa Rica",
+        "locality": "60 mi. S Cocos Islands",
+        "year": 1925,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.83,
+        "lng": -87.0,
+        "depth": 1399.0,
+        "country": "Costa Rica",
+        "locality": "60 mi S of Cocos Island",
+        "year": 1925,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 22.8056,
+        "lng": -109.878,
+        "depth": 898.0,
+        "country": "Mexico",
+        "locality": "San lucas Bay, Cabo Falso",
+        "year": 1911,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 25.3958,
+        "lng": -113.267,
+        "depth": 1344.0,
+        "country": "Mexico",
+        "locality": "Uncle Sam Bank",
+        "year": 1911,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.6458,
+        "lng": -115.294,
+        "depth": 960.0,
+        "country": "Mexico",
+        "locality": "Cedros Island, South of",
+        "year": 1911,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 29.3833,
+        "lng": -116.233,
+        "depth": 1608.0,
+        "country": "Mexico",
+        "locality": "San Carlos Point, SW of",
+        "year": 1911,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 29.4833,
+        "lng": -116.3,
+        "depth": 2014.0,
+        "country": "Mexico",
+        "locality": "San Carlos Point, SW of",
+        "year": 1911,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 22.7792,
+        "lng": -109.838,
+        "depth": 1152.0,
+        "country": "Mexico",
+        "locality": "Cape San Lucas",
+        "year": 1911,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 5.5167,
+        "lng": -86.5167,
+        "depth": 1847.0,
+        "country": "Costa Rica",
+        "locality": "Cocos Island",
+        "year": 1891,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Gennadas valens": {
+    "gbif_key": 5178460,
+    "distributions": [
+      {
+        "lat": 44.828385,
+        "lng": -55.768132,
+        "depth": 662.5,
+        "country": "Canada",
+        "locality": "",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 44.828385,
+        "lng": -55.768132,
+        "depth": 662.5,
+        "country": "Canada",
+        "locality": "",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 47.797637,
+        "lng": -59.699233,
+        "depth": 244.0,
+        "country": "Canada",
+        "locality": "",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 47.0,
+        "lng": -57.0,
+        "depth": null,
+        "country": "Saint Pierre and Miquelon",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 46.311667,
+        "lng": -58.038333,
+        "depth": 453.0,
+        "country": "Canada",
+        "locality": "",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 46.97,
+        "lng": -59.813333,
+        "depth": 358.0,
+        "country": "Canada",
+        "locality": "",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 47.753167,
+        "lng": -60.236333,
+        "depth": 496.0,
+        "country": "Canada",
+        "locality": "",
+        "year": 2023,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 47.753167,
+        "lng": -60.236333,
+        "depth": 496.0,
+        "country": "Canada",
+        "locality": "",
+        "year": 2023,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": -34.26548,
+        "lng": 152.32598,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2016,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.31573,
+        "lng": 150.28338,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2016,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": -36.31573,
+        "lng": 150.28338,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2016,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 16.6,
+        "lng": -38.27,
+        "depth": null,
+        "country": null,
+        "locality": "",
+        "year": 2016,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 16.6,
+        "lng": -38.27,
+        "depth": null,
+        "country": "unknown or invalid",
+        "locality": "Central Atlantic",
+        "year": 2016,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 16.6,
+        "lng": -38.27,
+        "depth": null,
+        "country": "unknown or invalid",
+        "locality": "Central Atlantic",
+        "year": 2016,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 16.6,
+        "lng": -38.27,
+        "depth": null,
+        "country": "unknown or invalid",
+        "locality": "Central Atlantic",
+        "year": 2016,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 16.6,
+        "lng": -38.27,
+        "depth": null,
+        "country": null,
+        "locality": "",
+        "year": 2016,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 38.82081,
+        "lng": -96.33162,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2015,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 38.82081,
+        "lng": -96.33162,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2015,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 17.136833,
+        "lng": -46.5015,
+        "depth": null,
+        "country": null,
+        "locality": "17° 08.210' N 46° 30.09' W",
+        "year": 2015,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 44.98667,
+        "lng": -55.06833,
+        "depth": 860.0,
+        "country": "Canada",
+        "locality": "Southeast St Pierre Bank, NL",
+        "year": 2015,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Alpheus heterochaelis": {
+    "gbif_key": 2226132,
+    "distributions": [
+      {
+        "lat": 27.710572,
+        "lng": -82.689819,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.710845,
+        "lng": -82.68992,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 28.967565,
+        "lng": -80.879582,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 30.052331,
+        "lng": -81.374222,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.847485,
+        "lng": -82.552895,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 29.767608,
+        "lng": -81.25637,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.709738,
+        "lng": -82.689362,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -26.271178,
+        "lng": -48.788308,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "ETE Espinheiros",
+        "year": 2024,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.709845,
+        "lng": -82.689072,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.709842,
+        "lng": -82.689072,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 37.247778,
+        "lng": -76.498667,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "VIMS C-SALT Oyster Farm, York River",
+        "year": 2024,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.710304,
+        "lng": -82.690447,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.709897,
+        "lng": -82.689453,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.710558,
+        "lng": -82.690588,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 25.959853,
+        "lng": -81.71067,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2024,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -26.268281,
+        "lng": -48.755797,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "ETE Espinheiros",
+        "year": 2023,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": -26.271178,
+        "lng": -48.788308,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "ETE Espinheiros",
+        "year": 2023,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 27.733295,
+        "lng": -82.476745,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2023,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 29.39825,
+        "lng": -89.92838,
+        "depth": 2.44,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2023,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": -26.268281,
+        "lng": -48.755797,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "ETE Espinheiros",
+        "year": 2023,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Alpheus bellimanus": {
+    "gbif_key": 2226093,
+    "distributions": [
+      {
+        "lat": 34.3942,
+        "lng": -119.729983,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "Santa Barbara, off of Mesa Lane Road (MOHK); E of 16-10S NPP bolt",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.413783,
+        "lng": -119.8224,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "Goleta, off Goleta Beach Park (GOLB), 100 m east of Goleta Pier;  1m N of T1",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.3942,
+        "lng": -119.729983,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "Santa Barbara, off of Mesa Lane Road (MOHK); E of 16-10S NPP bolt",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 34.413783,
+        "lng": -119.8224,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "Goleta, off Goleta Beach Park (GOLB), 100 m east of Goleta Pier;  1m N of T1",
+        "year": 2025,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 7.594406,
+        "lng": -81.712574,
+        "depth": null,
+        "country": "Panama",
+        "locality": "Coiba Archipelago, off E coast of Isla de Coiba, Mona Lisa",
+        "year": 2019,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.701683,
+        "lng": -118.291583,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "Point Fermin, dropoff",
+        "year": 2019,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.70315,
+        "lng": -118.297183,
+        "depth": 14.63,
+        "country": "United States of America",
+        "locality": "California, Los Angeles County, Palos Verdes Peninsula, Point Fermin",
+        "year": 2019,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.701683,
+        "lng": -118.291583,
+        "depth": 13.5,
+        "country": "United States of America",
+        "locality": "California, Los Angeles County, Point Fermin, dropoff",
+        "year": 2019,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.71245,
+        "lng": -118.315667,
+        "depth": 8.23,
+        "country": "United States of America",
+        "locality": "California, Los Angeles County, Palos Verdes Peninsula, White Point",
+        "year": 2019,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.69,
+        "lng": -118.29,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "California, Los Angeles County (non-precise locality)",
+        "year": 2019,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.675068,
+        "lng": -118.22818,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "Eastern Pacific, USA, California, Los Angeles County, Palos Verdes, outside Los Angeles Harbor",
+        "year": 2017,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.675068,
+        "lng": -118.22818,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "Eastern Pacific, USA, California, Los Angeles County, Palos Verdes, outside Los Angeles Harbor",
+        "year": 2017,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.719166,
+        "lng": -118.26083,
+        "depth": 11.89,
+        "country": "United States of America",
+        "locality": "Pacific, USA, California, Los Angeles County, inside Los Angeles Harbor.",
+        "year": 2016,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 33.719166,
+        "lng": -118.26083,
+        "depth": 11.89,
+        "country": "United States of America",
+        "locality": "Pacific, USA, California, Los Angeles County, inside Los Angeles Harbor.",
+        "year": 2016,
+        "basis": "MATERIAL_SAMPLE",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.00517,
+        "lng": -81.60492,
+        "depth": 25.0,
+        "country": "Colombia",
+        "locality": "Santuario de Fauna y Flora Malpelo | El Arrecife",
+        "year": 2014,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.00014,
+        "lng": -81.61297,
+        "depth": 25.0,
+        "country": "Colombia",
+        "locality": "Santuario de Fauna y Flora Malpelo | La Nevera",
+        "year": 2014,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.00517,
+        "lng": -81.60492,
+        "depth": 15.0,
+        "country": "Colombia",
+        "locality": "Santuario de Fauna y Flora Malpelo | El Arrecife",
+        "year": 2014,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.00517,
+        "lng": -81.60492,
+        "depth": 15.0,
+        "country": "Colombia",
+        "locality": "Santuario de Fauna y Flora Malpelo | Bajo de Junior",
+        "year": 2014,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.00742,
+        "lng": -81.60706,
+        "depth": 25.0,
+        "country": "Colombia",
+        "locality": "Santuario de Fauna y Flora Malpelo | Pared del Náufrago",
+        "year": 2014,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.00014,
+        "lng": -81.61297,
+        "depth": 15.0,
+        "country": "Colombia",
+        "locality": "Santuario de Fauna y Flora Malpelo | La Nevera",
+        "year": 2014,
+        "basis": "PRESERVED_SPECIMEN",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Stenopus hispidus": {
+    "gbif_key": 5178716,
+    "distributions": [
+      {
+        "lat": -8.50726,
+        "lng": -34.998692,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -27.937401,
+        "lng": 153.424138,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 4.246589,
+        "lng": 118.631277,
+        "depth": null,
+        "country": "Malaysia",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -10.571536,
+        "lng": -36.599217,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.895168,
+        "lng": -159.607714,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 12.161458,
+        "lng": -68.283309,
+        "depth": null,
+        "country": "Bonaire, Sint Eustatius and Saba",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 12.227003,
+        "lng": -69.091596,
+        "depth": null,
+        "country": "Curaçao",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -13.014932,
+        "lng": -38.468404,
+        "depth": null,
+        "country": "Brazil",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.872762,
+        "lng": -159.453856,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 9.121762,
+        "lng": 123.214426,
+        "depth": null,
+        "country": "Philippines",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 26.745503,
+        "lng": -80.056672,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -22.296044,
+        "lng": 166.436083,
+        "depth": null,
+        "country": "New Caledonia",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -22.334541,
+        "lng": 166.408179,
+        "depth": null,
+        "country": "New Caledonia",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 21.255817,
+        "lng": -157.810791,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 26.74554,
+        "lng": -80.056649,
+        "depth": null,
+        "country": "United States of America",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 13.754917,
+        "lng": 120.906262,
+        "depth": null,
+        "country": "Philippines",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 19.382951,
+        "lng": -81.417122,
+        "depth": null,
+        "country": "Cayman Islands",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 12.155905,
+        "lng": -68.279596,
+        "depth": null,
+        "country": "Bonaire, Sint Eustatius and Saba",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 9.121762,
+        "lng": 123.214426,
+        "depth": null,
+        "country": "Philippines",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": -28.097963,
+        "lng": 153.45645,
+        "depth": null,
+        "country": "Australia",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  },
+  "Processa edulis": {
+    "gbif_key": 2225848,
+    "distributions": [
+      {
+        "lat": 43.429872,
+        "lng": 4.937537,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.318416,
+        "lng": 3.558163,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.429872,
+        "lng": 4.937537,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.429856,
+        "lng": 4.938626,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.318416,
+        "lng": 3.558163,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.429856,
+        "lng": 4.938626,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.079307,
+        "lng": 5.803488,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.079307,
+        "lng": 5.803488,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.217044,
+        "lng": 5.345411,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 53.35761,
+        "lng": -4.229153,
+        "depth": null,
+        "country": "United Kingdom of Great Britain and Northern Ireland",
+        "locality": "",
+        "year": 2026,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.228742,
+        "lng": 5.348033,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.511634,
+        "lng": 4.120229,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 47.119819,
+        "lng": -2.168358,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.22873,
+        "lng": 5.347981,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.168557,
+        "lng": 5.694465,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 41.409575,
+        "lng": 2.227229,
+        "depth": null,
+        "country": "Spain",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 50.480613,
+        "lng": -3.509241,
+        "depth": null,
+        "country": "United Kingdom of Great Britain and Northern Ireland",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.318722,
+        "lng": 3.558097,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 43.228742,
+        "lng": 5.348033,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      },
+      {
+        "lat": 48.638059,
+        "lng": -2.022062,
+        "depth": null,
+        "country": "France",
+        "locality": "",
+        "year": 2025,
+        "basis": "HUMAN_OBSERVATION",
+        "source": "GBIF"
+      }
+    ],
+    "count": 20
+  }
+}
