@@ -9,16 +9,17 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
+    "@deck.gl/core": "^9.0.16",
+    "@deck.gl/geo-layers": "^9.0.16",
+    "@deck.gl/layers": "^9.0.16",
+    "@deck.gl/react": "^9.0.16",
+    "@types/cesium": "^1.67.14",
+    "axios": "^1.6.7",
+    "cesium": "^1.139.1",
+    "deck.gl": "^9.0.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.0",
-    "axios": "^1.6.7",
-    "cesium": "^1.111.0",
-    "deck.gl": "^9.0.16",
-    "@deck.gl/core": "^9.0.16",
-    "@deck.gl/layers": "^9.0.16",
-    "@deck.gl/geo-layers": "^9.0.16",
-    "@deck.gl/react": "^9.0.16"
+    "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.55",

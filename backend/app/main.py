@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api import species, map, currents, auth, contributions
+from app.api import species, map, currents, auth, contributions, species_worms
 from app.core.config import settings
 
 app = FastAPI(
@@ -24,6 +24,7 @@ app.include_router(map.router, prefix="/api/v1", tags=["Map"])
 app.include_router(currents.router, prefix="/api/v1", tags=["Currents"])
 app.include_router(auth.router, prefix="/api/v1", tags=["Auth"])
 app.include_router(contributions.router, prefix="/api/v1", tags=["Contributions"])
+app.include_router(species_worms.router, prefix="/api/v1", tags=["Species"])
 
 
 @app.get("/")
