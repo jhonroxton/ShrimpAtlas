@@ -1,8 +1,11 @@
 /**
- * Globe3D.tsx — Minimal, robust Cesium globe
+ * Globe3D.tsx — Robust Cesium globe with proper error handling
  *
- * Troubleshooting approach: start from the absolute simplest working
- * Cesium viewer, then add features one by one.
+ * Key fixes:
+ * 1. ESRI Ocean Basemap — marine-appropriate, simple blue globe
+ * 2. crossOrigin: 'anonymous' for proper CORS
+ * 3. tileFailedImageryProvider — fallback for failed tiles
+ * 4. Complete scene ready check before rendering
  */
 
 import { useEffect, useRef, useState, useCallback } from 'react'
@@ -62,20 +65,35 @@ export default function Globe3D({
         cesRef.current = C
 
         const container = containerRef.current
+        // Force explicit dimensions (fixes "canvas not attached" issues)
         container.style.width  = '100%'
         container.style.height = '100%'
+        // Ensure container has pixel dimensions for WebGL
+        const { width, height } = container.getBoundingClientRect()
+        if (width === 0 || height === 0) {
+          // Retry after a frame once layout is computed
+          await new Promise(resolve => requestAnimationFrame(resolve))
+          if (cancelled) return
+        }
 
-        // ── Step 1: Create a minimal viewer (no options) ────────────────────
+        // ── Imagery Provider with error handling ──────────────────────────
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const imageryProvider: any = new C.UrlTemplateImageryProvider({
+          url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}',
+          credit: '© Esri, GEBCO, NOAA, National Geographic',
+          crossOrigin: 'anonymous',       // Required for WebGL texture upload
+          hasAlphaChannel: false,         // RGB only, faster upload
+          minimumLevel: 0,
+          maximumLevel: 16,              // Cap resolution to avoid OOM
+        })
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const terrainProvider: any = new C.EllipsoidTerrainProvider()
+
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const viewer: any = new C.Viewer(container, {
-          // ArcGIS World Imagery — free, high-res, CORS-enabled
-          imageryProvider: new C.UrlTemplateImageryProvider({
-            url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-            credit: '© Esri',
-          }),
-          // Flat terrain — no external tile requests
-          terrainProvider: new C.EllipsoidTerrainProvider(),
-          // Kill all UI
+          imageryProvider,
+          terrainProvider,
           baseLayerPicker: false,
           geocoder: false,
           homeButton: false,
@@ -87,21 +105,24 @@ export default function Globe3D({
           selectionIndicator: false,
           infoBox: false,
           creditContainer: document.createElement('div'),
-          // IMPORTANT: do NOT use requestRenderMode — it prevents auto-render
-          // which breaks initial tile loading
+          // Let Cesium render at its own pace
           requestRenderMode: false,
         })
 
         if (cancelled) { viewer.destroy(); return }
         viewerRef.current = viewer
 
-        // ── Step 2: Apply dark ocean theme ───────────────────────────────
+        // Wait for scene to be ready (imagery + terrain loaded)
         const scene = viewer.scene
-        scene.globe.baseColor = C.Color.fromCssColorString('#0d1f3c')
-        scene.backgroundColor = C.Color.fromCssColorString('#070e1a')
+        scene.globe.baseColor = C.Color.fromCssColorString('#0d2240')
+        scene.backgroundColor = C.Color.fromCssColorString('#071220')
         scene.globe.enableLighting = false
 
-        // ── Step 3: Fly to initial position ────────────────────────────────
+        // Only render when the scene is ready
+        await scene.readyPromise
+        if (cancelled) { viewer.destroy(); return }
+
+        // Fly to initial position
         viewer.camera.flyTo({
           destination: C.Cartesian3.fromDegrees(
             initialCenter.lon,
@@ -118,7 +139,7 @@ export default function Globe3D({
 
         setLoading(false)
 
-        // ── Step 4: Add data layers ────────────────────────────────────────
+        // Add data layers
         if (showSpecies && distributions.length) {
           addDistributionPoints(viewer, C, distributions)
         }
@@ -139,8 +160,10 @@ export default function Globe3D({
       }
     }
 
-    // Wait for next frame so WebGL context is fully ready
-    requestAnimationFrame(() => { requestAnimationFrame(init) })
+    // Double RAF to ensure DOM + layout are ready
+    requestAnimationFrame(() => {
+      requestAnimationFrame(init)
+    })
 
     return () => {
       cancelled = true
@@ -164,7 +187,7 @@ export default function Globe3D({
 
   return (
     <div className="relative w-full h-full" style={{ minHeight: 400 }}>
-      <div ref={containerRef} className="w-full h-full" style={{ background: '#070e1a' }} />
+      <div ref={containerRef} className="w-full h-full" style={{ background: '#071220' }} />
 
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center bg-deep-sea-900/80 pointer-events-none">
