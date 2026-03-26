@@ -181,21 +181,18 @@ export default function Globe3D({
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
 
-function createShrimpIcon(verified: boolean): string {
-  const color = verified ? '#00D4FF' : '#7B2FFF'
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"><circle cx="14" cy="14" r="9" fill="${color}" opacity="0.85"/><circle cx="14" cy="14" r="4" fill="${color}"/></svg>`
-  return 'data:image/svg+xml;base64,' + btoa(svg)
-}
-
 function addDistributionPoints(viewer: any, Ces: any, distributions: SpeciesDistribution[]) {
   for (const dist of distributions) {
     viewer.entities.add({
       position: Ces.Cartesian3.fromDegrees(dist.longitude, dist.latitude),
-      billboard: {
-        image: createShrimpIcon(dist.is_verified),
-        width: 28,
-        height: 28,
-        verticalOrigin: Ces.VerticalOrigin.BOTTOM,
+      point: {
+        pixelSize: 10,
+        color: dist.is_verified
+          ? Ces.Color.fromCssColorString('#00D4FF')
+          : Ces.Color.fromCssColorString('#7B2FFF'),
+        outlineColor: Ces.Color.WHITE.withAlpha(0.8),
+        outlineWidth: 2,
+        heightReference: Ces.HeightReference.CLAMP_TO_GROUND,
       },
     })
   }
