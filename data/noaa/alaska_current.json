@@ -1,0 +1,7 @@
+{
+  "name": "Alaska Current",
+  "type": "warm",
+  "ocean": "pacific",
+  "direction": "northward",
+  "season": "year_round"
+}

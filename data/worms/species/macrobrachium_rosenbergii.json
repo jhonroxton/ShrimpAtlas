@@ -1,9 +1,18 @@
 {
   "worms_aphia_id": 220137,
+  "valid_aphia_id": 220137,
   "scientific_name": "Macrobrachium rosenbergii",
+  "valid_name": "Macrobrachium rosenbergii",
+  "authority": "(De Man, 1879)",
   "family": "Palaemonidae",
   "genus": "Macrobrachium",
+  "order": "Decapoda",
+  "class": "Malacostraca",
   "status": "accepted",
   "is_marine": 0,
-  "habitat": null
+  "habitat": null,
+  "taxon_rank": "Species",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=220137"
 }

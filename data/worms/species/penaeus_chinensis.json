@@ -1,9 +1,18 @@
 {
   "worms_aphia_id": 762806,
+  "valid_aphia_id": 1809202,
   "scientific_name": "Penaeus chinensis",
+  "valid_name": "Penaeus (Fenneropenaeus) chinensis",
+  "authority": "(Osbeck, 1765)",
   "family": "Penaeidae",
   "genus": "Penaeus",
+  "order": "Decapoda",
+  "class": "Malacostraca",
   "status": "superseded combination",
   "is_marine": 1,
-  "habitat": null
+  "habitat": null,
+  "taxon_rank": "Species",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=762806"
 }

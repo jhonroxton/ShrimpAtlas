@@ -1,9 +1,9 @@
 {
-  "worms_aphia_id": 210378,
-  "valid_aphia_id": 1809193,
-  "scientific_name": "Penaeus monodon",
-  "valid_name": "Penaeus (Penaeus) monodon",
-  "authority": "Fabricius, 1798",
+  "worms_aphia_id": 395176,
+  "valid_aphia_id": 1809216,
+  "scientific_name": "Penaeus aztecus",
+  "valid_name": "Penaeus (Farfantepenaeus) aztecus",
+  "authority": "Ives, 1891",
   "family": "Penaeidae",
   "genus": "Penaeus",
   "order": "Decapoda",
@@ -14,5 +14,5 @@
   "taxon_rank": "Species",
   "kingdom": "Animalia",
   "phylum": "Arthropoda",
-  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=210378"
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=395176"
 }

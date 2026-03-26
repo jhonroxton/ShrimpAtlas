@@ -1,0 +1,7 @@
+{
+  "name": "Beaufort Gyre",
+  "type": "warm",
+  "ocean": "arctic",
+  "direction": "clockwise",
+  "season": "year_round"
+}

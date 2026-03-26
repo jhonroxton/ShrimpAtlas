@@ -1,9 +1,18 @@
 {
   "worms_aphia_id": 210426,
+  "valid_aphia_id": 240796,
   "scientific_name": "Plesiopenaeus edwardsianus",
+  "valid_name": "Aristaeopsis edwardsiana",
+  "authority": "(Johnson, 1868)",
   "family": "Aristeidae",
   "genus": "Plesiopenaeus",
+  "order": "Decapoda",
+  "class": "Malacostraca",
   "status": "superseded combination",
   "is_marine": 1,
-  "habitat": null
+  "habitat": null,
+  "taxon_rank": "Species",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=210426"
 }

@@ -1,0 +1,7 @@
+{
+  "name": "South Equatorial Current (Atlantic)",
+  "type": "warm",
+  "ocean": "atlantic",
+  "direction": "westward",
+  "season": "year_round"
+}

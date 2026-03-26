@@ -1,0 +1,7 @@
+{
+  "name": "Kuroshio Extension",
+  "type": "warm",
+  "ocean": "pacific",
+  "direction": "northeastward",
+  "season": "year_round"
+}

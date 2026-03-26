@@ -1,0 +1,7 @@
+{
+  "name": "South Equatorial Current (Pacific)",
+  "type": "warm",
+  "ocean": "pacific",
+  "direction": "westward",
+  "season": "year_round"
+}

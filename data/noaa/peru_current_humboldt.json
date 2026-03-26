@@ -1,0 +1,7 @@
+{
+  "name": "Peru Current (Humboldt)",
+  "type": "cold",
+  "ocean": "pacific",
+  "direction": "northward",
+  "season": "year_round"
+}

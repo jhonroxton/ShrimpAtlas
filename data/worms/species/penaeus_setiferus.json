@@ -1,0 +1,18 @@
+{
+  "worms_aphia_id": 762818,
+  "valid_aphia_id": 1809210,
+  "scientific_name": "Penaeus setiferus",
+  "valid_name": "Penaeus (Litopenaeus) setiferus",
+  "authority": "(Linnaeus, 1767)",
+  "family": "Penaeidae",
+  "genus": "Penaeus",
+  "order": "Decapoda",
+  "class": "Malacostraca",
+  "status": "superseded combination",
+  "is_marine": 1,
+  "habitat": null,
+  "taxon_rank": "Species",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=762818"
+}

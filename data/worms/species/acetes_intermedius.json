@@ -1,0 +1,18 @@
+{
+  "worms_aphia_id": 377410,
+  "valid_aphia_id": 377410,
+  "scientific_name": "Acetes intermedius",
+  "valid_name": "Acetes intermedius",
+  "authority": "Omori, 1975",
+  "family": "Sergestidae",
+  "genus": "Acetes",
+  "order": "Decapoda",
+  "class": "Malacostraca",
+  "status": "accepted",
+  "is_marine": 1,
+  "habitat": null,
+  "taxon_rank": "Species",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=377410"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Transpolar Drift",
+  "type": "cold",
+  "ocean": "arctic",
+  "direction": "north_atlantic",
+  "season": "year_round"
+}

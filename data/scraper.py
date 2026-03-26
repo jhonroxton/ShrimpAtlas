@@ -68,24 +68,65 @@ def extract_species_data(record: dict) -> dict:
 
 
 SCRAPE_LIST = [
-    # Penaeid shrimp (most important commercial species)
-    "Penaeus vannamei",    # 白对虾/南美白对虾
-    "Penaeus monodon",     # 斑节对虾/黑虎虾
-    "Penaeus chinensis",   # 中国对虾
-    "Penaeus japonicus",   # 日本对虾/车虾
-    "Penaeus merguiensis", # 墨吉对虾
-    "Penaeus indicus",     # 印度对虾
-    # Other commercial shrimp
-    "Metapenaeus ensis",   # 短沟对虾
-    "Metapenaeus bennettae", # 草虾
-    "Trachysalambria curvirostris", # 竹节虾
-    # Freshwater shrimp
-    "Macrobrachium rosenbergii", # 罗氏沼虾
-    "Macrobrachium nipponense",  # 日本沼虾
-    # Crangonid shrimp
-    "Crangon crangon",     # 欧洲褐虾
-    # Deep sea shrimp
+    # === 对虾科 Penaeidae (最重要的商业虾类) ===
+    "Penaeus vannamei",       # 南美白对虾/白对虾
+    "Penaeus monodon",        # 斑节对虾/黑虎虾
+    "Penaeus chinensis",      # 中国对虾/东方对虾
+    "Penaeus japonicus",      # 日本对虾/车虾
+    "Penaeus merguiensis",    # 墨吉对虾
+    "Penaeus indicus",        # 印度对虾
+    "Penaeus subtilis",       # 巴西对虾
+    "Penaeus setiferus",      # 美洲白对虾
+    "Penaeus aztecus",        # 褐色对虾
+    "Penaeus duorarum",       # 粉红对虾
+    "Metapenaeus ensis",      # 短沟对虾/绿尾须虾
+    "Metapenaeus bennettae",  # 澳洲草虾
+    "Metapenaeus monocerus",  # 须虾
+    "Metapenaeus mastersii",  # 棕色虎虾
+    "Metapenaeus moyobi",     # 蓝脚虾
+    "Trachysalambria curvirostris",  # 竹节虾/竹虾
+    "Trachysalambria asprica", # 东南亚竹虾
+    # === 匙指虾科/Atyidae (淡水/观赏虾) ===
+    "Macrobrachium rosenbergii",  # 罗氏沼虾/淡水长臂虾
+    "Macrobrachium nipponense",   # 日本沼虾
+    "Macrobrachium carcinus",      # 美洲大沼虾
+    "Macrobrachium rosenbergii",  # (dup)
+    "Neocaridina denticulata",   # 樱桃虾
+    "Neocaridina davidi",        # 极火虾
+    "Caridina multidentata",     # 蜜蜂虾
+    # === 褐虾科 Crangonidae ===
+    "Crangon crangon",           # 欧洲褐虾/沙虾
+    "Crangon南海",               # (可能不存在)
+    # === 长额虾科 Pandalidae ===
+    "Pandalus borealis",         # 北极甜虾/北方明虾
+    "Pandalus montagui",         # 粉红虾
+    "Pandalus jordani",          # 太平洋粉红虾
+    "Pandalus platyeros",        # 宽礁虾
+    # === 活额虾科 Hippolytidae ===
+    "Hippolyte inermis",         # 海草虾
+    "Lysmata seticaudata",       # 清洁虾
+    "Lysmata debelius",          # 火焰清洁虾
+    "Lysmata amboinensis",       # 白纹清洁虾
+    # === 玻璃虾科 Pasiphaeidae ===
+    "Pasiphaea japonica",        # 日本玻璃虾
+    "Pasiphaea sivado",          # 普通玻璃虾
+    # === 桃虾科/Sergestidae ===
+    "Acetes japonicus",          # 樱花虾/小白虾
+    "Acetes intermedius",        # 中型樱虾
+    # === 深海虾类 ===
     "Plesiopenaeus edwardsianus", # 深红虾
+    "Benthesicymus tanneri",     # 深海底虾
+    "Gennadas valens",           # 深海总科虾
+    # === 其他著名虾类 ===
+    "Alpheus heterochaelis",     # 枪虾/鼓虾
+    "Alpheus bellimanus",        # 壮美枪虾
+    "Stenopus hispidus",         # 毛刷清洁虾
+    "Heterocarpus relictus",     # 岩礁虾
+    "Processa edulis",           # 荷兰虾
+    # === 河虾/淡水虾 ===
+    "Astacus leptodactylus",      # 土耳其淡水螯虾
+    "Pacifastacus leniusculus",  # 信号小龙虾
+    "Cherax quadricarinatus",    # 蓝龙虾/红爪虾
 ]
 
 

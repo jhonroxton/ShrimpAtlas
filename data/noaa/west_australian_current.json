@@ -1,0 +1,7 @@
+{
+  "name": "West Australian Current",
+  "type": "cold",
+  "ocean": "indian",
+  "direction": "northward",
+  "season": "year_round"
+}

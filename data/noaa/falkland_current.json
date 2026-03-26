@@ -1,0 +1,7 @@
+{
+  "name": "Falkland Current",
+  "type": "cold",
+  "ocean": "atlantic",
+  "direction": "northward",
+  "season": "year_round"
+}

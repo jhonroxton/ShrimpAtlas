@@ -1,0 +1,7 @@
+{
+  "name": "North Pacific Current",
+  "type": "warm",
+  "ocean": "pacific",
+  "direction": "eastward",
+  "season": "year_round"
+}

@@ -1,0 +1,18 @@
+{
+  "worms_aphia_id": 246169,
+  "valid_aphia_id": 246169,
+  "scientific_name": "Macrobrachium carcinus",
+  "valid_name": "Macrobrachium carcinus",
+  "authority": "(Linnaeus, 1758)",
+  "family": "Palaemonidae",
+  "genus": "Macrobrachium",
+  "order": "Decapoda",
+  "class": "Malacostraca",
+  "status": "accepted",
+  "is_marine": 1,
+  "habitat": null,
+  "taxon_rank": "Species",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=246169"
+}

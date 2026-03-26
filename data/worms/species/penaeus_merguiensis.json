@@ -1,9 +1,18 @@
 {
   "worms_aphia_id": 210377,
+  "valid_aphia_id": 1809204,
   "scientific_name": "Penaeus merguiensis",
+  "valid_name": "Penaeus (Fenneropenaeus) merguiensis",
+  "authority": "De Man, 1888",
   "family": "Penaeidae",
   "genus": "Penaeus",
+  "order": "Decapoda",
+  "class": "Malacostraca",
   "status": "superseded combination",
   "is_marine": 1,
-  "habitat": null
+  "habitat": null,
+  "taxon_rank": "Species",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=210377"
 }

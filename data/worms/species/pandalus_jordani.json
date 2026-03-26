@@ -1,0 +1,18 @@
+{
+  "worms_aphia_id": 515469,
+  "valid_aphia_id": 515469,
+  "scientific_name": "Pandalus jordani",
+  "valid_name": "Pandalus jordani",
+  "authority": "Rathbun, 1902",
+  "family": "Pandalidae",
+  "genus": "Pandalus",
+  "order": "Decapoda",
+  "class": "Malacostraca",
+  "status": "accepted",
+  "is_marine": 1,
+  "habitat": null,
+  "taxon_rank": "Species",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=515469"
+}

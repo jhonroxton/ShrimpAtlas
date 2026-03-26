@@ -1,0 +1,18 @@
+{
+  "worms_aphia_id": 210370,
+  "valid_aphia_id": 210370,
+  "scientific_name": "Stenopus hispidus",
+  "valid_name": "Stenopus hispidus",
+  "authority": "(Olivier, 1811)",
+  "family": "Stenopodidae",
+  "genus": "Stenopus",
+  "order": "Decapoda",
+  "class": "Malacostraca",
+  "status": "accepted",
+  "is_marine": 1,
+  "habitat": null,
+  "taxon_rank": "Species",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=210370"
+}

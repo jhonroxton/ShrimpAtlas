@@ -1,0 +1,7 @@
+{
+  "name": "Azores Current",
+  "type": "warm",
+  "ocean": "atlantic",
+  "direction": "eastward",
+  "season": "year_round"
+}

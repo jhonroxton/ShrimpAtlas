@@ -1,0 +1,18 @@
+{
+  "worms_aphia_id": 241289,
+  "valid_aphia_id": 241289,
+  "scientific_name": "Lysmata amboinensis",
+  "valid_name": "Lysmata amboinensis",
+  "authority": "(De Man, 1888)",
+  "family": "Lysmatidae",
+  "genus": "Lysmata",
+  "order": "Decapoda",
+  "class": "Malacostraca",
+  "status": "accepted",
+  "is_marine": 1,
+  "habitat": null,
+  "taxon_rank": "Species",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=241289"
+}

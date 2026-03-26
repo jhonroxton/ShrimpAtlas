@@ -1,0 +1,7 @@
+{
+  "name": "Antarctic Circumpolar Current",
+  "type": "cold",
+  "ocean": "southern",
+  "direction": "eastward",
+  "season": "year_round"
+}

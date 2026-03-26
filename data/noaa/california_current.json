@@ -1,0 +1,7 @@
+{
+  "name": "California Current",
+  "type": "cold",
+  "ocean": "pacific",
+  "direction": "southward",
+  "season": "year_round"
+}

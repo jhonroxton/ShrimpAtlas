@@ -1,0 +1,18 @@
+{
+  "worms_aphia_id": 107528,
+  "valid_aphia_id": 107528,
+  "scientific_name": "Lysmata seticaudata",
+  "valid_name": "Lysmata seticaudata",
+  "authority": "(Risso, 1816)",
+  "family": "Lysmatidae",
+  "genus": "Lysmata",
+  "order": "Decapoda",
+  "class": "Malacostraca",
+  "status": "accepted",
+  "is_marine": 1,
+  "habitat": null,
+  "taxon_rank": "Species",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=107528"
+}

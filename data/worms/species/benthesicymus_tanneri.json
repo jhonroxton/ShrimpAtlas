@@ -1,0 +1,18 @@
+{
+  "worms_aphia_id": 377425,
+  "valid_aphia_id": 1391797,
+  "scientific_name": "Benthesicymus tanneri",
+  "valid_name": "Benthoecetes tanneri",
+  "authority": "Faxon, 1893",
+  "family": "Benthesicymidae",
+  "genus": "Benthesicymus",
+  "order": "Decapoda",
+  "class": "Malacostraca",
+  "status": "superseded combination",
+  "is_marine": 1,
+  "habitat": null,
+  "taxon_rank": "Species",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=377425"
+}

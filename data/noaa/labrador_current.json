@@ -1,0 +1,7 @@
+{
+  "name": "Labrador Current",
+  "type": "cold",
+  "ocean": "atlantic",
+  "direction": "southward",
+  "season": "year_round"
+}

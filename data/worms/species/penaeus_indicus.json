@@ -1,9 +1,18 @@
 {
   "worms_aphia_id": 210375,
+  "valid_aphia_id": 1809203,
   "scientific_name": "Penaeus indicus",
+  "valid_name": "Penaeus (Fenneropenaeus) indicus",
+  "authority": "H. Milne Edwards, 1837",
   "family": "Penaeidae",
   "genus": "Penaeus",
+  "order": "Decapoda",
+  "class": "Malacostraca",
   "status": "superseded combination",
   "is_marine": 1,
-  "habitat": null
+  "habitat": null,
+  "taxon_rank": "Species",
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "url": "https://www.marinespecies.org/aphia.php?p=taxdetails&id=210375"
 }

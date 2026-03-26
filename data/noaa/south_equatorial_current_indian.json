@@ -1,0 +1,7 @@
+{
+  "name": "South Equatorial Current (Indian)",
+  "type": "warm",
+  "ocean": "indian",
+  "direction": "westward",
+  "season": "year_round"
+}

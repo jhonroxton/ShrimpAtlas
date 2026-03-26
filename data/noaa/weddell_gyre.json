@@ -1,0 +1,7 @@
+{
+  "name": "Weddell Gyre",
+  "type": "cold",
+  "ocean": "southern",
+  "direction": "clockwise",
+  "season": "year_round"
+}
