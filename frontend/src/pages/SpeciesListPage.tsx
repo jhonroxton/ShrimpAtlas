@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import SpeciesCard from '../components/SpeciesCard'
-import { speciesApi } from '../api/species'
+import { speciesApi, getWormsSpecies, mapWormsToShrimp } from '../api/species'
 import { ShrimpSpecies } from '../types'
 
 const HABITATS = [
@@ -63,9 +63,17 @@ export default function SpeciesListPage() {
       setSpecies(res.data || [])
       setTotal(res.total || 0)
     } catch (err: any) {
-      // If API not available, show empty state gracefully
-      if (err.code === 'ERR_NETWORK' || err.message?.includes('Network')) {
-        setError('后端服务未启动，请先启动 FastAPI 后端 (cd backend && uvicorn app.main:app --reload)')
+      // Fall back to WoRMS data if FastAPI/backend is not available
+      if (err.code === 'ERR_NETWORK' || err.message?.includes('Network') || err.response?.status === 404) {
+        try {
+          const worms = await getWormsSpecies()
+          const mapped = worms.map(mapWormsToShrimp)
+          setSpecies(mapped)
+          setTotal(mapped.length)
+          setError(null)
+        } catch {
+          setError('后端服务未启动，请先启动 FastAPI 后端 (cd backend && uvicorn app.main:app --reload)')
+        }
       } else {
         setError(err.message || '加载失败')
       }

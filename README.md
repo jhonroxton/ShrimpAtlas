@@ -2,6 +2,40 @@
 
 一个以 3D 地球为载体的海洋科普平台，通过可视化展示全球虾类分布，并结合洋流与气候系统，让用户以探索的方式理解海洋生态。
 
+## 项目状态
+
+**开发中** — 前后端核心功能已就绪，可本地运行。
+
+- ✅ 前端：React + TypeScript + Vite + Tailwind + CesiumJS 3D 地球
+- ✅ 后端：FastAPI（可独立运行，WoRMS 数据无需数据库）
+- ✅ CI/CD：GitHub Actions（前端构建 + 后端测试）
+- 🔄 数据库：PostgreSQL + PostGIS（可选，数据来自静态 WoRMS JSON）
+
+## 本地运行
+
+### 前端（无需后端即可浏览物种列表）
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+访问 http://localhost:5173
+
+> **离线回退**：当前端无法连接后端时，自动回退使用 `data/worms/species/` 中的静态 WoRMS 数据，无需启动 FastAPI。
+
+### 后端（可选）
+
+```bash
+cd backend
+pip install -r requirements.txt
+cp .env.example .env   # 编辑填入环境变量
+uvicorn app.main:app --reload
+```
+
+API 文档：http://localhost:8000/docs
+
 ## 技术栈
 
 ### 前端
