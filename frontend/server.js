@@ -7,6 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const PORT = process.env.PORT || 3000
 const API_TARGET = 'http://localhost:8000'
 const DIST_DIR = path.join(__dirname, 'dist')
+const PUBLIC_DIR = path.join(__dirname, 'public')
 
 const NO_CACHE = {
   'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -49,6 +50,22 @@ const server = http.createServer((req, res) => {
       res.writeHead(502)
       res.end('API proxy error')
     })
+    return
+  }
+
+  // Serve local species images from /species-images/*
+  if (url.startsWith('/species-images/')) {
+    const relativePath = url.replace('/species-images/', '')
+    const filePath = path.join(PUBLIC_DIR, 'species-images', relativePath)
+    const ext = path.extname(filePath)
+    const contentType = MIME_TYPES[ext] || 'application/octet-stream'
+    if (fs.existsSync(filePath)) {
+      res.writeHead(200, { 'Content-Type': contentType, 'Cache-Control': 'public, max-age=86400' })
+      res.end(fs.readFileSync(filePath))
+    } else {
+      res.writeHead(404)
+      res.end('Image not found')
+    }
     return
   }
 
