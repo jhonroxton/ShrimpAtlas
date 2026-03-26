@@ -1,0 +1,119 @@
+[
+  {
+    "worms_aphia_id": 377748,
+    "scientific_name": "Penaeus vannamei",
+    "family": "Penaeidae",
+    "genus": "Penaeus",
+    "status": "superseded combination",
+    "is_marine": 1,
+    "habitat": null
+  },
+  {
+    "worms_aphia_id": 210378,
+    "scientific_name": "Penaeus monodon",
+    "family": "Penaeidae",
+    "genus": "Penaeus",
+    "status": "superseded combination",
+    "is_marine": 1,
+    "habitat": null
+  },
+  {
+    "worms_aphia_id": 762806,
+    "scientific_name": "Penaeus chinensis",
+    "family": "Penaeidae",
+    "genus": "Penaeus",
+    "status": "superseded combination",
+    "is_marine": 1,
+    "habitat": null
+  },
+  {
+    "worms_aphia_id": 210371,
+    "scientific_name": "Penaeus japonicus",
+    "family": "Penaeidae",
+    "genus": "Penaeus",
+    "status": "superseded combination",
+    "is_marine": 1,
+    "habitat": null
+  },
+  {
+    "worms_aphia_id": 210377,
+    "scientific_name": "Penaeus merguiensis",
+    "family": "Penaeidae",
+    "genus": "Penaeus",
+    "status": "superseded combination",
+    "is_marine": 1,
+    "habitat": null
+  },
+  {
+    "worms_aphia_id": 210375,
+    "scientific_name": "Penaeus indicus",
+    "family": "Penaeidae",
+    "genus": "Penaeus",
+    "status": "superseded combination",
+    "is_marine": 1,
+    "habitat": null
+  },
+  {
+    "worms_aphia_id": 210392,
+    "scientific_name": "Metapenaeus ensis",
+    "family": "Penaeidae",
+    "genus": "Metapenaeus",
+    "status": "accepted",
+    "is_marine": 1,
+    "habitat": null
+  },
+  {
+    "worms_aphia_id": 377533,
+    "scientific_name": "Metapenaeus bennettae",
+    "family": "Penaeidae",
+    "genus": "Metapenaeus",
+    "status": "accepted",
+    "is_marine": 1,
+    "habitat": null
+  },
+  {
+    "worms_aphia_id": 107113,
+    "scientific_name": "Trachysalambria curvirostris",
+    "family": "Penaeidae",
+    "genus": "Trachysalambria",
+    "status": "accepted",
+    "is_marine": 1,
+    "habitat": null
+  },
+  {
+    "worms_aphia_id": 220137,
+    "scientific_name": "Macrobrachium rosenbergii",
+    "family": "Palaemonidae",
+    "genus": "Macrobrachium",
+    "status": "accepted",
+    "is_marine": 0,
+    "habitat": null
+  },
+  {
+    "worms_aphia_id": 587405,
+    "scientific_name": "Macrobrachium nipponense",
+    "family": "Palaemonidae",
+    "genus": "Macrobrachium",
+    "status": "accepted",
+    "is_marine": 0,
+    "habitat": null
+  },
+  {
+    "worms_aphia_id": 107552,
+    "scientific_name": "Crangon crangon",
+    "family": "Crangonidae",
+    "genus": "Crangon",
+    "status": "accepted",
+    "is_marine": 1,
+    "habitat": null
+  },
+  {
+    "worms_aphia_id": 210426,
+    "scientific_name": "Plesiopenaeus edwardsianus",
+    "family": "Aristeidae",
+    "genus": "Plesiopenaeus",
+    "status": "superseded combination",
+    "is_marine": 1,
+    "habitat": null
+  }
+]
