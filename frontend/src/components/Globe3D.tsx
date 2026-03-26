@@ -3,10 +3,6 @@ import { SpeciesDistribution } from '../types'
 
 type CesType = any
 
-// Cesium ion token for high-quality terrain and imagery
-const CESIUM_ION_TOKEN =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJiZGFkZWQ1YS1jNWZiLTQ2YjYtYmY1ZC0xOGM0YWU1YjRhOWQiLCJpZCI6NDA5NDc5LCJpYXQiOjE3NzQ1MjY1OTh9.ivliFmQhIp2NTADQq1gPYosYTYia_ckHHK4mQmKrnCE'
-
 interface Globe3DProps {
   distributions?: SpeciesDistribution[]
   showCurrents?: boolean
@@ -27,7 +23,6 @@ export default function Globe3D({
   distributions = [],
   showCurrents = true,
   showSpecies = true,
-
   initialCenter = { lon: 120, lat: 20, height: 20_000_000 },
 }: Globe3DProps) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -54,17 +49,22 @@ export default function Globe3D({
       try {
         const Ces: CesType = await import('cesium')
         if (cancelled) return
-
-        // Configure Cesium ion token
-        Ces.Ion.defaultAccessToken = CESIUM_ION_TOKEN
+        cesRef.current = Ces
 
         if (!containerRef.current) return
 
-        // Use ion world terrain + default imagery
-        const terrainProvider = await Ces.createWorldTerrainAsync()
+        // Use Natural Earth II imagery — completely free, no token needed
+        const imageryProvider = new Ces.UrlTemplateImageryProvider({
+          url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}',
+          credit: 'USGS The National Map',
+          tilingScheme: new Ces.WebMercatorTilingScheme(),
+          maximumLevel: 18,
+        })
 
         const view = new Ces.Viewer(containerRef.current, {
-          terrainProvider,
+          imageryProvider,
+          // Flat ellipsoid terrain — no ion token required
+          terrainProvider: new Ces.EllipsoidTerrainProvider(),
           baseLayerPicker: false,
           geocoder: false,
           homeButton: true,
@@ -76,15 +76,14 @@ export default function Globe3D({
           selectionIndicator: false,
           infoBox: false,
           creditContainer: document.createElement('div'),
+          requestRenderMode: true,
         })
 
         if (cancelled) { view.destroy(); return }
         viewerRef.current = view
-        cesRef.current = Ces
 
         // Dark ocean theme
         view.scene.globe.baseColor = Ces.Color.fromCssColorString('#0A1628')
-        view.scene.fog.enabled = true
         view.scene.backgroundColor = Ces.Color.fromCssColorString('#070f1a')
         view.scene.globe.enableLighting = false
 
@@ -138,6 +137,7 @@ export default function Globe3D({
     view.entities.removeAll()
     if (showSpecies) addDistributionPoints(view, Ces, distributions)
     if (showCurrents) addOceanCurrents(view, Ces)
+    view.resize()
   }, [distributions, showCurrents, showSpecies, loading])
 
   return (
@@ -192,7 +192,6 @@ function addDistributionPoints(viewer: any, Ces: any, distributions: SpeciesDist
           : Ces.Color.fromCssColorString('#7B2FFF'),
         outlineColor: Ces.Color.WHITE.withAlpha(0.8),
         outlineWidth: 2,
-        heightReference: Ces.HeightReference.CLAMP_TO_GROUND,
       },
     })
   }
