@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: shrimpatlas-db
+    environment:
+      POSTGRES_USER: shrimpatlas
+      POSTGRES_PASSWORD: shrimpatlas123
+      POSTGRES_DB: shrimpatlas
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: shrimpatlas-backend
+    environment:
+      DATABASE_URL: postgresql+asyncpg://shrimpatlas:shrimpatlas123@db:5432/shrimpatlas
+      SECRET_KEY: change-me-in-production
+      ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 30
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: shrimpatlas-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    command: npm run dev
+
+volumes:
+  postgres_data:

@@ -52,6 +52,21 @@ async def list_species(
     )
 
 
+@router.get("/species/search", response_model=List[ShrimpSpeciesResponse])
+async def search_species(
+    q: str = Query(..., min_length=1),
+    db: AsyncSession = Depends(get_db),
+):
+    query = select(ShrimpSpecies).where(
+        ShrimpSpecies.cn_name.ilike(f"%{q}%")
+        | ShrimpSpecies.en_name.ilike(f"%{q}%")
+        | ShrimpSpecies.scientific_name.ilike(f"%{q}%")
+    ).limit(50)
+    result = await db.execute(query)
+    species_list = result.scalars().all()
+    return [ShrimpSpeciesResponse.model_validate(s) for s in species_list]
+
+
 @router.get("/species/{species_id}", response_model=ShrimpSpeciesResponse)
 async def get_species(species_id: UUID, db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(ShrimpSpecies).where(ShrimpSpecies.id == species_id))
@@ -68,18 +83,3 @@ async def get_species_distributions(species_id: UUID, db: AsyncSession = Depends
     )
     distributions = result.scalars().all()
     return [SpeciesDistributionResponse.model_validate(d) for d in distributions]
-
-
-@router.get("/species/search", response_model=List[ShrimpSpeciesResponse])
-async def search_species(
-    q: str = Query(..., min_length=1),
-    db: AsyncSession = Depends(get_db),
-):
-    query = select(ShrimpSpecies).where(
-        ShrimpSpecies.cn_name.ilike(f"%{q}%")
-        | ShrimpSpecies.en_name.ilike(f"%{q}%")
-        | ShrimpSpecies.scientific_name.ilike(f"%{q}%")
-    ).limit(50)
-    result = await db.execute(query)
-    species_list = result.scalars().all()
-    return [ShrimpSpeciesResponse.model_validate(s) for s in species_list]
