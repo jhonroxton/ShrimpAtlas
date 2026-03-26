@@ -53,12 +53,11 @@ export default function Globe3D({
 
         if (!containerRef.current) return
 
-        // Use Natural Earth II imagery — completely free, no token needed
+        // Use OpenStreetMap tiles — reliable, CORS-enabled, no token needed
         const imageryProvider = new Ces.UrlTemplateImageryProvider({
-          url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}',
-          credit: 'USGS The National Map',
-          tilingScheme: new Ces.WebMercatorTilingScheme(),
-          maximumLevel: 18,
+          url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+          credit: '© OpenStreetMap contributors',
+          maximumLevel: 19,
         })
 
         const view = new Ces.Viewer(containerRef.current, {
