@@ -81,10 +81,10 @@ export default function Globe3D({
         const imageryProvider: any = new C.UrlTemplateImageryProvider({
           url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}',
           credit: '© Esri, GEBCO, NOAA, National Geographic',
-          crossOrigin: 'anonymous',       // Required for WebGL texture upload
-          hasAlphaChannel: false,         // RGB only, faster upload
+          // No crossOrigin: ArcGIS sends correct CORS headers,
+          // letting Cesium auto-detect. 'anonymous' can break some setups.
           minimumLevel: 0,
-          maximumLevel: 16,              // Cap resolution to avoid OOM
+          maximumLevel: 16,
         })
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
