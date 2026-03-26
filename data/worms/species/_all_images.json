@@ -1,0 +1,328 @@
+{
+  "Penaeus vannamei": {
+    "worms_aphia_id": 377748,
+    "images": [
+      "https://images.marinespecies.org/thumbs/31476_penaeus-vannamei.jpg"
+    ],
+    "count": 1
+  },
+  "Penaeus monodon": {
+    "worms_aphia_id": 210378,
+    "images": [
+      "https://images.marinespecies.org/thumbs/19060_penaeus-monodon.jpg",
+      "https://images.marinespecies.org/thumbs/46886_penaeus-monodon.jpg",
+      "https://images.marinespecies.org/thumbs/151464_penaeus-monodon.jpg"
+    ],
+    "count": 3
+  },
+  "Penaeus chinensis": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/564542822/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/593021072/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/390658199/original.jpg"
+    ],
+    "count": 3,
+    "source": "GBIF-iNaturalist"
+  },
+  "Penaeus japonicus": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/477298100/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/530658580/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/610400794/original.jpg"
+    ],
+    "count": 3,
+    "source": "GBIF-iNaturalist"
+  },
+  "Penaeus merguiensis": {
+    "worms_aphia_id": 210377,
+    "images": [
+      "https://images.marinespecies.org/thumbs/19058_penaeus-merguiensis.jpg"
+    ],
+    "count": 1
+  },
+  "Penaeus indicus": {
+    "worms_aphia_id": 210375,
+    "images": [
+      "https://images.marinespecies.org/thumbs/29875_penaeus-indicus.jpg"
+    ],
+    "count": 1
+  },
+  "Penaeus subtilis": {
+    "worms_aphia_id": null,
+    "images": [
+      "http://mediaphoto.mnhn.fr/media/14421452408661394gESMs0Gh7Vio",
+      "https://medialib.naturalis.nl/file/id/RMNH.CRUS.D.50688/format/large",
+      "https://collections.nmnh.si.edu/media/?i=15189473&h=895"
+    ],
+    "count": 3,
+    "source": "GBIF-iNaturalist"
+  },
+  "Penaeus setiferus": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/611221689/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/623646534/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/625406137/original.jpg"
+    ],
+    "count": 3,
+    "source": "GBIF-iNaturalist"
+  },
+  "Penaeus aztecus": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/551250715/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/475808371/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/524095889/original.jpg"
+    ],
+    "count": 5,
+    "source": "GBIF-iNaturalist"
+  },
+  "Penaeus duorarum": {
+    "worms_aphia_id": 246391,
+    "images": [
+      "https://images.marinespecies.org/thumbs/19056_penaeus-duorarum.jpg"
+    ],
+    "count": 1
+  },
+  "Metapenaeus ensis": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/547817406/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/436460602/original.jpeg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/444146229/original.jpeg"
+    ],
+    "count": 6,
+    "source": "GBIF-iNaturalist"
+  },
+  "Metapenaeus bennettae": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/556898826/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/556898824/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/572572865/original.jpg"
+    ],
+    "count": 7,
+    "source": "GBIF-iNaturalist"
+  },
+  "Metapenaeus mastersii": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/547817406/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/436460602/original.jpeg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/444146229/original.jpeg"
+    ],
+    "count": 6,
+    "source": "GBIF-iNaturalist"
+  },
+  "Trachysalambria curvirostris": {
+    "worms_aphia_id": 107113,
+    "images": [
+      "https://images.marinespecies.org/thumbs/107113_trachysalambria-curvirostris.jpg"
+    ],
+    "count": 1
+  },
+  "Macrobrachium rosenbergii": {
+    "worms_aphia_id": 220137,
+    "images": [
+      "https://images.marinespecies.org/thumbs/18963_macrobrachium-rosenbergii.jpg"
+    ],
+    "count": 1
+  },
+  "Macrobrachium nipponense": {
+    "worms_aphia_id": 587405,
+    "images": [
+      "https://images.marinespecies.org/thumbs/152155_macrobrachium-nipponense.jpg",
+      "https://images.marinespecies.org/thumbs/152154_macrobrachium-nipponense.jpg",
+      "https://images.marinespecies.org/thumbs/152153_macrobrachium-nipponense.jpg",
+      "https://images.marinespecies.org/thumbs/151135_macrobrachium-nipponense.jpg"
+    ],
+    "count": 4
+  },
+  "Macrobrachium carcinus": {
+    "worms_aphia_id": 246169,
+    "images": [
+      "https://images.marinespecies.org/thumbs/34497_macrobrachium-carcinus-linnaeus-1758.jpg"
+    ],
+    "count": 1
+  },
+  "Neocaridina denticulata": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/605635104/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/604180459/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/447835210/original.jpg"
+    ],
+    "count": 3,
+    "source": "GBIF-iNaturalist"
+  },
+  "Crangon crangon": {
+    "worms_aphia_id": 107552,
+    "images": [
+      "https://images.marinespecies.org/thumbs/107552_crangon-crangon.jpg",
+      "https://images.marinespecies.org/thumbs/429_picture-of-crangon-crangon-linnaeus-1758.jpg",
+      "https://images.marinespecies.org/thumbs/34496_crangon-crangon-linnaeus-1758.jpg",
+      "https://images.marinespecies.org/thumbs/664_crangon-crangon-linnaeus-1758.jpg",
+      "https://images.marinespecies.org/thumbs/1879_crangon-crangon-linnaeus-1758.jpg"
+    ],
+    "count": 5
+  },
+  "Pandalus borealis": {
+    "worms_aphia_id": 107649,
+    "images": [
+      "https://images.marinespecies.org/thumbs/107649_pandalus-borealis.jpg",
+      "https://images.marinespecies.org/thumbs/136736_pandalus-borealis.jpg",
+      "https://images.marinespecies.org/thumbs/1897_pandalus-borealis-kr-yer-1838.jpg",
+      "https://images.marinespecies.org/thumbs/1898_pandalus-borealis-kr-yer-1838.jpg",
+      "https://images.marinespecies.org/thumbs/39061_pandalus-borealis.jpg"
+    ],
+    "count": 5
+  },
+  "Pandalus montagui": {
+    "worms_aphia_id": 107651,
+    "images": [
+      "https://images.marinespecies.org/thumbs/107651_pandalus-montagui.jpg",
+      "https://images.marinespecies.org/thumbs/140427_pandalus-montagui---iml.jpg",
+      "https://images.marinespecies.org/thumbs/1899_pandalus-montagui-leach-1814.jpg",
+      "https://images.marinespecies.org/thumbs/1900_pandalus-montagui-leach-1814.jpg",
+      "https://images.marinespecies.org/thumbs/1901_pandalus-montagui-leach-1814.jpg"
+    ],
+    "count": 5
+  },
+  "Pandalus jordani": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/559230501/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/559230438/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/563319130/original.jpg"
+    ],
+    "count": 6,
+    "source": "GBIF-iNaturalist"
+  },
+  "Hippolyte inermis": {
+    "worms_aphia_id": 107511,
+    "images": [
+      "https://images.marinespecies.org/thumbs/107511_hippolyte-inermis.jpg"
+    ],
+    "count": 1
+  },
+  "Lysmata seticaudata": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/606671962/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/606671968/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/464338851/original.jpeg"
+    ],
+    "count": 12,
+    "source": "GBIF-iNaturalist"
+  },
+  "Lysmata debelius": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/612436959/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/612436963/original.jpg",
+      "https://inaturalist-open-data.s3.amazonaws.com/photos/351374811/original.jpeg"
+    ],
+    "count": 5,
+    "source": "GBIF-iNaturalist"
+  },
+  "Lysmata amboinensis": {
+    "worms_aphia_id": 241289,
+    "images": [
+      "https://images.marinespecies.org/thumbs/18961_lysmata-amboinensis.jpg"
+    ],
+    "count": 1
+  },
+  "Pasiphaea japonica": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://medialib.naturalis.nl/file/id/RMNH.CRUS.D.31035/format/large",
+      "https://collections.nmnh.si.edu/media/?i=14430524&h=900",
+      "https://medialib.naturalis.nl/file/id/RMNH.CRUS.D.29887/format/large"
+    ],
+    "count": 3,
+    "source": "GBIF-iNaturalist"
+  },
+  "Pasiphaea sivado": {
+    "worms_aphia_id": 107677,
+    "images": [
+      "https://images.marinespecies.org/thumbs/107677_pasiphaea-sivado.jpg"
+    ],
+    "count": 1
+  },
+  "Acetes japonicus": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://medialib.naturalis.nl/file/id/RMNH.CRUS.D.18799/format/large",
+      "https://collections.nmnh.si.edu/media/?i=13902222&h=885",
+      "https://collections.nmnh.si.edu/media/?i=13902221&h=882"
+    ],
+    "count": 3,
+    "source": "GBIF-iNaturalist"
+  },
+  "Acetes intermedius": {
+    "worms_aphia_id": 377410,
+    "images": [],
+    "count": 0
+  },
+  "Plesiopenaeus edwardsianus": {
+    "worms_aphia_id": 210426,
+    "images": [
+      "https://images.marinespecies.org/thumbs/19349_plesiopenaeus-edwardsianus.jpg"
+    ],
+    "count": 1
+  },
+  "Benthesicymus tanneri": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://medialib.naturalis.nl/file/id/RMNH.CRUS.D.27317/format/large",
+      "https://emu-prod.amnh.org/imulive/iz/imu/request.php?request=Multimedia&method=fetch&key=10099188",
+      "https://emu-prod.amnh.org/imulive/iz/imu/request.php?request=Multimedia&method=fetch&key=10099046"
+    ],
+    "count": 3,
+    "source": "GBIF-iNaturalist"
+  },
+  "Gennadas valens": {
+    "worms_aphia_id": 107098,
+    "images": [
+      "https://images.marinespecies.org/thumbs/107098_gennadas-valens.jpg"
+    ],
+    "count": 1
+  },
+  "Alpheus heterochaelis": {
+    "worms_aphia_id": 158348,
+    "images": [
+      "https://images.marinespecies.org/thumbs/158348_alpheus-heterochaelis.jpg"
+    ],
+    "count": 1
+  },
+  "Alpheus bellimanus": {
+    "worms_aphia_id": null,
+    "images": [
+      "https://research.nhm.org/SpecimenPhotos/15210/DSC_0584-00286.JPG",
+      "https://research.nhm.org/SpecimenPhotos/15210/DSC_0585-00287.JPG",
+      "https://research.nhm.org/SpecimenPhotos/15210/DSC_0583-00285.JPG"
+    ],
+    "count": 9,
+    "source": "GBIF-iNaturalist"
+  },
+  "Stenopus hispidus": {
+    "worms_aphia_id": 210370,
+    "images": [
+      "https://images.marinespecies.org/thumbs/19663_stenopus-hispidus.jpg",
+      "https://images.marinespecies.org/thumbs/31540_stenopus-hispidus.jpg",
+      "https://images.marinespecies.org/thumbs/133201_stenopus-hispidus-bandedboxershrimp-dms.jpg",
+      "https://images.marinespecies.org/thumbs/133202_stenopus-hispidus-bandedboxershrimp1-dms.jpg"
+    ],
+    "count": 4
+  },
+  "Processa edulis": {
+    "worms_aphia_id": 107683,
+    "images": [
+      "https://images.marinespecies.org/thumbs/107683_processa-edulis.jpg",
+      "https://images.marinespecies.org/thumbs/152022_processa-edulis-edulis.jpg"
+    ],
+    "count": 2
+  }
+}
