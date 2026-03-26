@@ -9,7 +9,7 @@ export default function HomePage() {
   const [distributions, setDistributions] = useState<SpeciesDistribution[]>([])
   const [showCurrents, setShowCurrents] = useState(true)
   const [showSpecies, setShowSpecies] = useState(true)
-  const [loading, setLoading] = useState(false)
+  const [, setLoading] = useState(false)
 
   // Load map distributions from API
   useEffect(() => {

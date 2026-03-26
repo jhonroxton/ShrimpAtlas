@@ -28,7 +28,6 @@ export default function SpeciesCard({ species, onViewOnMap }: SpeciesCardProps) 
 
   const iucnColor = IUCN_COLORS[species.iucn_status] || IUCN_COLORS.DD
   const habitatLabel = HABITAT_LABELS[species.habitat] || species.habitat || '未知'
-  const fallbackImg = `https://via.placeholder.com/400x240/0A1628/00D4FF?text=${encodeURIComponent(species.cn_name || species.en_name)}`
 
   return (
     <div className="bg-deep-sea-800 border border-deep-sea-600 rounded-xl overflow-hidden hover:border-ocean-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-ocean-accent/10 group">

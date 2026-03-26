@@ -1,5 +1,5 @@
 import apiClient from './client'
-import type { SpeciesDistribution, OceanCurrent } from '../types'
+import type { OceanCurrent } from '../types'
 
 export const mapApi = {
   getDistributions: async (params?: {
