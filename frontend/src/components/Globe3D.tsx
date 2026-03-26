@@ -1,15 +1,14 @@
+/**
+ * Globe3D.tsx — Clean, stable Cesium globe component
+ *
+ * Known issues this version fixes:
+ * - "source image could not be decoded" → use OSM only, no ion/Bing
+ * - Token expiry issues → completely token-free
+ * - WebGL context issues → explicit container sizing
+ */
+
 import { useEffect, useRef, useState, useCallback } from 'react'
 import { SpeciesDistribution } from '../types'
-
-type CesType = any
-
-interface Globe3DProps {
-  distributions?: SpeciesDistribution[]
-  showCurrents?: boolean
-  showSpecies?: boolean
-  onSpeciesClick?: (speciesId: string) => void
-  initialCenter?: { lon: number; lat: number; height?: number }
-}
 
 const OCEAN_PRESETS: Record<string, { lon: number; lat: number; height: number }> = {
   太平洋: { lon: -160, lat: 10,  height: 25_000_000 },
@@ -19,6 +18,13 @@ const OCEAN_PRESETS: Record<string, { lon: number; lat: number; height: number }
   南大洋: { lon: 0,    lat: -70, height: 22_000_000 },
 }
 
+interface Globe3DProps {
+  distributions?: SpeciesDistribution[]
+  showCurrents?: boolean
+  showSpecies?: boolean
+  initialCenter?: { lon: number; lat: number; height?: number }
+}
+
 export default function Globe3D({
   distributions = [],
   showCurrents = true,
@@ -26,14 +32,14 @@ export default function Globe3D({
   initialCenter = { lon: 120, lat: 20, height: 20_000_000 },
 }: Globe3DProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const viewerRef = useRef<any>(null)
-  const cesRef = useRef<CesType>(null)
+  const viewerRef    = useRef<any>(null)
+  const cesRef       = useRef<any>(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError]   = useState<string | null>(null)
 
   const flyToOcean = useCallback((ocean: string) => {
     const pos = OCEAN_PRESETS[ocean]
-    const Ces = cesRef.current
+    const Ces  = cesRef.current
     const view = viewerRef.current
     if (!Ces || !view || !pos) return
     view.camera.flyTo({
@@ -42,52 +48,71 @@ export default function Globe3D({
     })
   }, [])
 
+  // ── Initialize Cesium ─────────────────────────────────────────────────────
   useEffect(() => {
-    let cancelled = false
+    let destroyed = false
 
-    const init = async () => {
+    async function init() {
       try {
-        const Ces: CesType = await import('cesium')
-        if (cancelled) return
+        // Dynamic import — keeps Cesium out of the main bundle until needed
+        const Ces = await import('cesium')
+        if (destroyed) return
         cesRef.current = Ces
 
-        if (!containerRef.current) return
+        if (!containerRef.current) {
+          setError('DOM container not found')
+          setLoading(false)
+          return
+        }
 
-        // Use OpenStreetMap tiles — reliable, CORS-enabled, no token needed
-        const imageryProvider = new Ces.UrlTemplateImageryProvider({
-          url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-          credit: '© OpenStreetMap contributors',
-          maximumLevel: 19,
-        })
+        // Explicitly size the container (fixes "canvas not attached" errors)
+        const container = containerRef.current
+        container.style.width  = '100%'
+        container.style.height = '100%'
 
-        const view = new Ces.Viewer(containerRef.current, {
-          imageryProvider,
-          // Flat ellipsoid terrain — no ion token required
+        // Create viewer with TOKEN-FREE imagery + flat terrain
+        const viewer = new Ces.Viewer(container, {
+          // OpenStreetMap — free, no token, CORS-enabled
+          imageryProvider: new Ces.OpenStreetMapImageryProvider({
+            url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            credit: '© OpenStreetMap contributors',
+          }),
+
+          // Flat terrain — no external tile requests
           terrainProvider: new Ces.EllipsoidTerrainProvider(),
-          baseLayerPicker: false,
-          geocoder: false,
-          homeButton: true,
-          sceneModePicker: false,
+
+          // UI: disable everything unnecessary
+          baseLayerPicker:      false,
+          geocoder:             false,
+          homeButton:           true,
+          sceneModePicker:       false,
           navigationHelpButton: false,
-          animation: false,
-          timeline: false,
-          fullscreenButton: false,
-          selectionIndicator: false,
-          infoBox: false,
+          animation:            false,
+          timeline:             false,
+          fullscreenButton:     false,
+          selectionIndicator:   false,
+          infoBox:              false,
+
+          // Empty credit container (no "Powered by Cesium" box)
           creditContainer: document.createElement('div'),
+
+          // Only request a render when data changes (saves CPU)
           requestRenderMode: true,
+          maximumRenderTimeLoops: 10,
         })
 
-        if (cancelled) { view.destroy(); return }
-        viewerRef.current = view
+        if (destroyed) { viewer.destroy(); return }
+        viewerRef.current = viewer
 
-        // Dark ocean theme
-        view.scene.globe.baseColor = Ces.Color.fromCssColorString('#0A1628')
-        view.scene.backgroundColor = Ces.Color.fromCssColorString('#070f1a')
-        view.scene.globe.enableLighting = false
+        // ── Visual theming ──────────────────────────────────────────────
+        const scene = viewer.scene
+        scene.globe.baseColor = Ces.Color.fromCssColorString('#0A1628')
+        scene.backgroundColor = Ces.Color.fromCssColorString('#070f1a')
+        scene.globe.enableLighting = false
+        scene.fog.enabled = true
 
-        // Initial camera
-        view.camera.flyTo({
+        // ── Initial camera position ──────────────────────────────────────
+        viewer.camera.flyTo({
           destination: Ces.Cartesian3.fromDegrees(
             initialCenter.lon,
             initialCenter.lat,
@@ -95,22 +120,24 @@ export default function Globe3D({
           ),
           orientation: {
             heading: Ces.Math.toRadians(0),
-            pitch: Ces.Math.toRadians(-90),
+            pitch:   Ces.Math.toRadians(-90),
             roll: 0,
           },
           duration: 0,
         })
 
-        ;(window as any)._cesiumViewer = view
+        // Expose viewer globally for the ocean quick-jump buttons
+        ;(window as any)._cesiumViewer = viewer
 
         setLoading(false)
 
-        if (showSpecies) addDistributionPoints(view, Ces, distributions)
-        if (showCurrents) addOceanCurrents(view, Ces)
+        // Add data layers
+        if (showSpecies)  addPoints(viewer, Ces, distributions)
+        if (showCurrents) addCurrents(viewer, Ces)
       } catch (err: any) {
-        if (!cancelled) {
-          console.error('[Globe3D] init error:', err)
-          setError(err?.message ?? 'Failed to load 3D globe')
+        if (!destroyed) {
+          console.error('[Globe3D] init failed:', err)
+          setError(err?.message ?? 'Failed to load globe')
           setLoading(false)
         }
       }
@@ -119,32 +146,40 @@ export default function Globe3D({
     init()
 
     return () => {
-      cancelled = true
+      destroyed = true
       if (viewerRef.current) {
         viewerRef.current.destroy()
         viewerRef.current = null
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Re-render layers when data changes
+  // ── Update layers when props change ───────────────────────────────────
   useEffect(() => {
-    const view = viewerRef.current
-    const Ces = cesRef.current
-    if (!view || !Ces || loading) return
-    view.entities.removeAll()
-    if (showSpecies) addDistributionPoints(view, Ces, distributions)
-    if (showCurrents) addOceanCurrents(view, Ces)
-    view.resize()
+    const viewer = viewerRef.current
+    const Ces  = cesRef.current
+    if (!viewer || !Ces || loading) return
+
+    // Remove old entities and redraw
+    viewer.entities.removeAll()
+    if (showSpecies)  addPoints(viewer, Ces, distributions)
+    if (showCurrents) addCurrents(viewer, Ces)
+    viewer.resize()
   }, [distributions, showCurrents, showSpecies, loading])
 
   return (
-    <div className="relative w-full h-full">
-      <div ref={containerRef} className="w-full h-full" />
+    <div className="relative w-full h-full" style={{ minHeight: 400 }}>
+      {/* Cesium container */}
+      <div
+        ref={containerRef}
+        className="w-full h-full"
+        style={{ background: '#070f1a' }}
+      />
 
+      {/* Loading overlay */}
       {loading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-deep-sea-900/80">
+        <div className="absolute inset-0 flex items-center justify-center bg-deep-sea-900/80 pointer-events-none">
           <div className="text-center">
             <div className="text-5xl mb-3 animate-pulse">🌍</div>
             <p className="text-ocean-accent text-sm">正在加载 3D 地球...</p>
@@ -152,16 +187,18 @@ export default function Globe3D({
         </div>
       )}
 
+      {/* Error overlay */}
       {error && !loading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-deep-sea-900/90">
+        <div className="absolute inset-0 flex items-center justify-center bg-deep-sea-900/90 pointer-events-none">
           <div className="text-center p-6">
             <div className="text-4xl mb-3">⚠️</div>
-            <p className="text-red-400 text-sm mb-2">地球加载失败</p>
+            <p className="text-red-400 text-sm mb-1">地球加载失败</p>
             <p className="text-gray-500 text-xs max-w-xs">{error}</p>
           </div>
         </div>
       )}
 
+      {/* Ocean quick-jump panel */}
       <div className="absolute top-4 left-4 bg-deep-sea-800/90 backdrop-blur border border-deep-sea-600 rounded-lg p-3 space-y-2">
         <p className="text-xs text-gray-400 font-medium">🌊 快速跳转</p>
         {Object.keys(OCEAN_PRESETS).map((ocean) => (
@@ -178,43 +215,43 @@ export default function Globe3D({
   )
 }
 
-// ── Helpers ─────────────────────────────────────────────────────────────────
+// ── Helpers ────────────────────────────────────────────────────────────────
 
-function addDistributionPoints(viewer: any, Ces: any, distributions: SpeciesDistribution[]) {
-  for (const dist of distributions) {
+function addPoints(viewer: any, Ces: any, distributions: SpeciesDistribution[]) {
+  if (!distributions.length) return
+  for (const d of distributions) {
     viewer.entities.add({
-      position: Ces.Cartesian3.fromDegrees(dist.longitude, dist.latitude),
+      position: Ces.Cartesian3.fromDegrees(d.longitude, d.latitude),
       point: {
-        pixelSize: 10,
-        color: dist.is_verified
+        pixelSize:     9,
+        color:         d.is_verified
           ? Ces.Color.fromCssColorString('#00D4FF')
           : Ces.Color.fromCssColorString('#7B2FFF'),
-        outlineColor: Ces.Color.WHITE.withAlpha(0.8),
-        outlineWidth: 2,
+        outlineColor:  Ces.Color.WHITE.withAlpha(0.7),
+        outlineWidth:  1.5,
       },
     })
   }
 }
 
-function addOceanCurrents(viewer: any, Ces: any) {
-  const currents = [
-    { name: '黑潮 (Kuroshio)', type: 'warm', coords: [[130,20],[140,28],[150,35],[165,42],[180,45]] },
-    { name: '湾流 (Gulf Stream)', type: 'warm', coords: [[-80,22],[-70,30],[-60,40],[-50,50],[-30,58]] },
+function addCurrents(viewer: any, Ces: any) {
+  const CURRENTS = [
+    { name: '黑潮',   type: 'warm', coords: [[130,20],[140,28],[150,35],[165,42],[180,45]] },
+    { name: '湾流',   type: 'warm', coords: [[-80,22],[-70,30],[-60,40],[-50,50],[-30,58]] },
     { name: '加利福尼亚寒流', type: 'cold', coords: [[-115,45],[-122,38],[-128,28],[-130,18]] },
-    { name: '秘鲁寒流', type: 'cold', coords: [[-80,-5],[-85,-12],[-90,-18],[-95,-25]] },
+    { name: '秘鲁寒流',     type: 'cold', coords: [[-80,-5],[-85,-12],[-90,-18],[-95,-25]] },
     { name: '厄加勒斯暖流', type: 'warm', coords: [[20,-30],[30,-35],[40,-38],[50,-40]] },
   ]
-
-  for (const curr of currents) {
-    const color = curr.type === 'warm'
-      ? Ces.Color.fromCssColorString('#FF6B6B').withAlpha(0.65)
-      : Ces.Color.fromCssColorString('#4DABF7').withAlpha(0.65)
+  for (const c of CURRENTS) {
+    const color = c.type === 'warm'
+      ? Ces.Color.fromCssColorString('#FF6B6B').withAlpha(0.6)
+      : Ces.Color.fromCssColorString('#4DABF7').withAlpha(0.6)
 
     viewer.entities.add({
-      name: curr.name,
+      name: c.name,
       polyline: {
         positions: Ces.Cartesian3.fromDegreesArrayHeights(
-          curr.coords.flatMap((c) => [c[0], c[1], 0]),
+          c.coords.flatMap(([lon, lat]) => [lon, lat, 0]),
         ),
         width: 3,
         material: color,
