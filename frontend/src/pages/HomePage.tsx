@@ -52,6 +52,7 @@ export default function HomePage() {
           }
         }
         setSpeciesImages(imgMap)
+        setSpecies(allSpecies)
       } catch (err) {
         console.warn('Could not load map data:', err)
       } finally {
@@ -64,7 +65,7 @@ export default function HomePage() {
   return (
     <div className="relative w-full h-[calc(100vh-64px)] overflow-hidden">
       {/* 3D Globe — data passed from HomePage */}
-      <Globe3D distributions={distributions} speciesImages={speciesImages} />
+      <Globe3D distributions={distributions} speciesImages={speciesImages} species={species} />
 
       {/* Search — bottom left */}
       <div className="absolute bottom-4 left-4 z-20 w-72">
