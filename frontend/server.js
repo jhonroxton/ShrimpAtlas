@@ -22,18 +22,25 @@ const MIME_TYPES = {
   '.json': 'application/json',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.gif': 'image/gif',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
   '.map': 'application/json',
+  '.glsl': 'text/plain',
+  '.ktx2': 'application/octet-stream',
+  '.data': 'application/octet-stream',
+  '.topojson': 'application/json',
+  '.geojson': 'application/json',
 }
 
 const server = http.createServer((req, res) => {
   const url = req.url || ''
 
-  // Proxy API requests
-  if (url.startsWith('/api/')) {
+  // Proxy API and map requests
+  if (url.startsWith('/api/') || url.startsWith('/map/')) {
     const options = {
       hostname: 'localhost',
       port: 8000,
@@ -65,6 +72,29 @@ const server = http.createServer((req, res) => {
     } else {
       res.writeHead(404)
       res.end('Image not found')
+    }
+    return
+  }
+
+  // Serve Cesium static assets from node_modules
+  if (url.startsWith('/cesium/')) {
+    const cesiumBase = path.join(__dirname, 'node_modules', 'cesium', 'Build', 'Cesium')
+    const cesiumPath = url.replace('/cesium/', '')
+    const filePath = path.join(cesiumBase, cesiumPath)
+
+    if (fs.existsSync(filePath) && !fs.statSync(filePath).isDirectory()) {
+      const ext = path.extname(filePath)
+      const contentType = MIME_TYPES[ext] || 'application/octet-stream'
+      const headers = {
+        'Content-Type': contentType,
+        'Cache-Control': 'public, max-age=86400',
+        'Access-Control-Allow-Origin': '*',
+      }
+      res.writeHead(200, headers)
+      res.end(fs.readFileSync(filePath))
+    } else {
+      res.writeHead(404)
+      res.end(`Cesium asset not found: ${url}`)
     }
     return
   }

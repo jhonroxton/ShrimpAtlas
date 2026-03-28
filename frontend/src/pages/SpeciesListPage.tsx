@@ -47,6 +47,7 @@ export default function SpeciesListPage() {
   const [iucnStatus, setIucnStatus] = useState('')
   const [edible, setEdible] = useState('')
   const [page, setPage] = useState(1)
+  const [pageInput, setPageInput] = useState('1')
   const pageSize = 20
 
   const fetchSpecies = useCallback(async () => {
@@ -110,7 +111,7 @@ export default function SpeciesListPage() {
             <label className="block text-xs text-gray-400 mb-1">栖息环境</label>
             <select
               value={habitat}
-              onChange={(e) => { setHabitat(e.target.value); setPage(1) }}
+              onChange={(e) => { setHabitat(e.target.value); setPage(1); setPageInput("1") }}
               className="w-full bg-deep-sea-700 border border-deep-sea-600 text-gray-200 text-sm rounded-lg px-3 py-2 focus:border-ocean-accent focus:outline-none"
             >
               {HABITATS.map((opt) => (
@@ -124,7 +125,7 @@ export default function SpeciesListPage() {
             <label className="block text-xs text-gray-400 mb-1">温度带</label>
             <select
               value={tempZone}
-              onChange={(e) => { setTempZone(e.target.value); setPage(1) }}
+              onChange={(e) => { setTempZone(e.target.value); setPage(1); setPageInput("1") }}
               className="w-full bg-deep-sea-700 border border-deep-sea-600 text-gray-200 text-sm rounded-lg px-3 py-2 focus:border-ocean-accent focus:outline-none"
             >
               {TEMP_ZONES.map((opt) => (
@@ -138,7 +139,7 @@ export default function SpeciesListPage() {
             <label className="block text-xs text-gray-400 mb-1">保护等级</label>
             <select
               value={iucnStatus}
-              onChange={(e) => { setIucnStatus(e.target.value); setPage(1) }}
+              onChange={(e) => { setIucnStatus(e.target.value); setPage(1); setPageInput("1") }}
               className="w-full bg-deep-sea-700 border border-deep-sea-600 text-gray-200 text-sm rounded-lg px-3 py-2 focus:border-ocean-accent focus:outline-none"
             >
               {IUCN_STATUSES.map((opt) => (
@@ -152,7 +153,7 @@ export default function SpeciesListPage() {
             <label className="block text-xs text-gray-400 mb-1">食用性</label>
             <select
               value={edible}
-              onChange={(e) => { setEdible(e.target.value); setPage(1) }}
+              onChange={(e) => { setEdible(e.target.value); setPage(1); setPageInput("1") }}
               className="w-full bg-deep-sea-700 border border-deep-sea-600 text-gray-200 text-sm rounded-lg px-3 py-2 focus:border-ocean-accent focus:outline-none"
             >
               {EDIBLE_OPTIONS.map((opt) => (
@@ -164,7 +165,7 @@ export default function SpeciesListPage() {
 
         {/* Reset */}
         <button
-          onClick={() => { setHabitat(''); setTempZone(''); setIucnStatus(''); setEdible(''); setPage(1) }}
+          onClick={() => { setHabitat(''); setTempZone(''); setIucnStatus(''); setEdible(''); setPage(1); setPageInput('1') }}
           className="mt-3 text-xs text-gray-400 hover:text-ocean-accent transition-colors"
         >
           重置筛选
@@ -206,17 +207,32 @@ export default function SpeciesListPage() {
             <div className="flex justify-center items-center gap-2 mt-8">
               <button
                 disabled={page <= 1}
-                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                onClick={() => { setPage((p) => Math.max(1, p - 1)); setPageInput(String(Math.max(1, page - 1))) }}
                 className="px-4 py-2 bg-deep-sea-800 border border-deep-sea-600 rounded-lg text-sm text-gray-300 hover:text-ocean-accent disabled:opacity-40 transition-colors"
               >
                 上一页
               </button>
-              <span className="text-sm text-gray-400">
-                第 {page} / {totalPages} 页
-              </span>
+              <div className="flex items-center gap-1">
+                <input
+                  type="number"
+                  min={1}
+                  max={totalPages}
+                  value={pageInput}
+                  onChange={(e) => setPageInput(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') { const p = Math.min(totalPages, Math.max(1, parseInt(pageInput) || 1)); setPage(p); setPageInput(String(p)) } }}
+                  className="w-16 px-2 py-1.5 text-center bg-deep-sea-800 border border-deep-sea-600 rounded-lg text-sm text-gray-200 outline-none focus:border-cyan-400 transition-colors"
+                />
+                <button
+                  onClick={() => { const p = Math.min(totalPages, Math.max(1, parseInt(pageInput) || 1)); setPage(p); setPageInput(String(p)) }}
+                  className="px-3 py-1.5 bg-cyan-600 hover:bg-cyan-500 border border-cyan-500 rounded-lg text-sm text-white transition-colors"
+                >
+                  跳转
+                </button>
+                <span className="text-sm text-gray-400 ml-1">/ {totalPages} 页</span>
+              </div>
               <button
                 disabled={page >= totalPages}
-                onClick={() => setPage((p) => p + 1)}
+                onClick={() => { setPage((p) => p + 1); setPageInput(String(page + 1)) }}
                 className="px-4 py-2 bg-deep-sea-800 border border-deep-sea-600 rounded-lg text-sm text-gray-300 hover:text-ocean-accent disabled:opacity-40 transition-colors"
               >
                 下一页
