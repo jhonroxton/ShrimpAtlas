@@ -342,7 +342,6 @@ export default function Globe3D({ distributions = [], speciesImages = {}, specie
     if (distributions.length > 0 && !layerRefs.current._distLoaded) {
       layerRefs.current._distLoaded = true
     }
-  }, [distributions.length]) // eslint-disable-line
 
   // Rebuild data layers when distributions data loads (after initial mount)
   useEffect(() => {
@@ -374,91 +373,91 @@ export default function Globe3D({ distributions = [], speciesImages = {}, specie
   }, [distributions.length, species?.length || 0]) // eslint-disable-line
 
     // Animation loop
-    let animId: number; let t = 0
-    const NEAR = 40, FAR = 50
-
-    const animate = () => {
-      animId = requestAnimationFrame(animate)
-      t += 0.016
-      controls.update()
-
-      // LOD switching: far=dots, near=sprites
-      const dist = camera.position.length()
-      if (dist < NEAR) {
-        worldDots.visible = false
-        sprites.forEach((s: any) => {
-          s.visible = true
-          // Lazy load real species image
-          if (!s.userData.loaded && s.userData.imgUrl) {
-            new THREE.TextureLoader().load(s.userData.imgUrl,
-              (tex: any) => { s.material.map = tex; s.material.needsUpdate = true; s.userData.loaded = true },
-              undefined,
-              () => { /* keep orange glow fallback */ }
-            )
-            s.userData.loaded = true // prevent repeated attempts
+      let animId: number; let t = 0
+      const NEAR = 40, FAR = 50
+  
+      const animate = () => {
+        animId = requestAnimationFrame(animate)
+        t += 0.016
+        controls.update()
+  
+        // LOD switching: far=dots, near=sprites
+        const dist = camera.position.length()
+        if (dist < NEAR) {
+          worldDots.visible = false
+          sprites.forEach((s: any) => {
+            s.visible = true
+            // Lazy load real species image
+            if (!s.userData.loaded && s.userData.imgUrl) {
+              new THREE.TextureLoader().load(s.userData.imgUrl,
+                (tex: any) => { s.material.map = tex; s.material.needsUpdate = true; s.userData.loaded = true },
+                undefined,
+                () => { /* keep orange glow fallback */ }
+              )
+              s.userData.loaded = true // prevent repeated attempts
+            }
+          })
+        } else if (dist > FAR) {
+          worldDots.visible = true
+          sprites.forEach((s: any) => { s.visible = false })
+        }
+  
+        // Animate ocean currents
+        currAnim.particles.forEach((pts: any, ci: number) => {
+          const pos = pts.geometry.attributes.position.array as Float32Array
+          const segLens = currAnim.segLensArr[ci], total = currAnim.totalArr[ci]
+          const phase = (t * currAnim.speeds[ci] * 60 + currAnim.phases[ci]) % 1
+          let dist2 = phase * total; let si = 0
+          for (let s = 0; s < segLens.length; s++) {
+            if (dist2 < segLens[s]) { si = s; break }
+            dist2 -= segLens[s]; si = s
           }
+          const [lon1, lat1] = currAnim.coordsAll[ci][si]
+          const [lon2, lat2] = currAnim.coordsAll[ci][si+1] || currAnim.coordsAll[ci][si]
+          const fx = dist2 / (segLens[si] || 1)
+          const [x, y, z] = latLonTo3D(lat1 + (lat2-lat1)*fx, lon1 + (lon2-lon1)*fx, EARTH_R + 0.1)
+          pos[0] = x; pos[1] = y; pos[2] = z
+          pts.geometry.attributes.position.needsUpdate = true
         })
-      } else if (dist > FAR) {
-        worldDots.visible = true
-        sprites.forEach((s: any) => { s.visible = false })
+  
+        // Animate migration particles
+        migrAnim.particles.forEach((pts: any, ri: number) => {
+          const pos = pts.geometry.attributes.position.array as Float32Array
+          const segLens = migrAnim.segLensArr[ri], total = migrAnim.totalArr[ri]
+          const phase = (t * migrAnim.speeds[ri] * 60 + migrAnim.phases[ri]) % 1
+          let dist2 = phase * total; let si = 0
+          for (let s = 0; s < segLens.length; s++) {
+            if (dist2 < segLens[s]) { si = s; break }
+            dist2 -= segLens[s]; si = s
+          }
+          const [lon1, lat1] = migrAnim.coordsAll[ri][si]
+          const [lon2, lat2] = migrAnim.coordsAll[ri][si+1] || migrAnim.coordsAll[ri][si]
+          const fx = dist2 / (segLens[si] || 1)
+          const [x, y, z] = latLonTo3D(lat1 + (lat2-lat1)*fx, lon1 + (lon2-lon1)*fx, EARTH_R + 0.2)
+          pos[0] = x; pos[1] = y; pos[2] = z
+          pts.geometry.attributes.position.needsUpdate = true
+        })
+  
+        renderer.render(scene, camera)
       }
-
-      // Animate ocean currents
-      currAnim.particles.forEach((pts: any, ci: number) => {
-        const pos = pts.geometry.attributes.position.array as Float32Array
-        const segLens = currAnim.segLensArr[ci], total = currAnim.totalArr[ci]
-        const phase = (t * currAnim.speeds[ci] * 60 + currAnim.phases[ci]) % 1
-        let dist2 = phase * total; let si = 0
-        for (let s = 0; s < segLens.length; s++) {
-          if (dist2 < segLens[s]) { si = s; break }
-          dist2 -= segLens[s]; si = s
-        }
-        const [lon1, lat1] = currAnim.coordsAll[ci][si]
-        const [lon2, lat2] = currAnim.coordsAll[ci][si+1] || currAnim.coordsAll[ci][si]
-        const fx = dist2 / (segLens[si] || 1)
-        const [x, y, z] = latLonTo3D(lat1 + (lat2-lat1)*fx, lon1 + (lon2-lon1)*fx, EARTH_R + 0.1)
-        pos[0] = x; pos[1] = y; pos[2] = z
-        pts.geometry.attributes.position.needsUpdate = true
-      })
-
-      // Animate migration particles
-      migrAnim.particles.forEach((pts: any, ri: number) => {
-        const pos = pts.geometry.attributes.position.array as Float32Array
-        const segLens = migrAnim.segLensArr[ri], total = migrAnim.totalArr[ri]
-        const phase = (t * migrAnim.speeds[ri] * 60 + migrAnim.phases[ri]) % 1
-        let dist2 = phase * total; let si = 0
-        for (let s = 0; s < segLens.length; s++) {
-          if (dist2 < segLens[s]) { si = s; break }
-          dist2 -= segLens[s]; si = s
-        }
-        const [lon1, lat1] = migrAnim.coordsAll[ri][si]
-        const [lon2, lat2] = migrAnim.coordsAll[ri][si+1] || migrAnim.coordsAll[ri][si]
-        const fx = dist2 / (segLens[si] || 1)
-        const [x, y, z] = latLonTo3D(lat1 + (lat2-lat1)*fx, lon1 + (lon2-lon1)*fx, EARTH_R + 0.2)
-        pos[0] = x; pos[1] = y; pos[2] = z
-        pts.geometry.attributes.position.needsUpdate = true
-      })
-
-      renderer.render(scene, camera)
-    }
-    animate()
-
-    const handleResize = () => {
-      if (!container.clientWidth || !container.clientHeight) return
-      renderer.setSize(container.clientWidth, container.clientHeight)
-      camera.aspect = container.clientWidth / container.clientHeight
-      camera.updateProjectionMatrix()
-    }
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      cancelAnimationFrame(animId)
-      window.removeEventListener('resize', handleResize)
-      renderer.dispose()
-      if (mountRef.current) mountRef.current.removeChild(renderer.domElement)
-    }
-  }, []) // eslint-disable-line
-
+      animate()
+  
+      const handleResize = () => {
+        if (!container.clientWidth || !container.clientHeight) return
+        renderer.setSize(container.clientWidth, container.clientHeight)
+        camera.aspect = container.clientWidth / container.clientHeight
+        camera.updateProjectionMatrix()
+      }
+      window.addEventListener('resize', handleResize)
+  
+      return () => {
+        cancelAnimationFrame(animId)
+        window.removeEventListener('resize', handleResize)
+        renderer.dispose()
+        if (mountRef.current) mountRef.current.removeChild(renderer.domElement)
+      }
+    }, []) // eslint-disable-line
+  
   const toggle = (i: number) => {
     const next = [...checkboxRef.current]
     next[i] = !next[i]
