@@ -5,11 +5,6 @@ import { mapApi } from '../api/map'
 import { speciesApi } from '../api/species'
 import { SpeciesDistribution } from '../types'
 
-// Convert scientific name to folder name: "Penaeus vannamei" → "Penaeus_vannamei"
-function toFolderName(name: string): string {
-  return name.replace(/\s+/g, '_')
-}
-
 export default function HomePage() {
   const [distributions, setDistributions] = useState<SpeciesDistribution[]>([])
   const [speciesImages, setSpeciesImages] = useState<Record<string, string>>({})
@@ -49,17 +44,11 @@ export default function HomePage() {
           if (page > 5) break  // safety cap
         }
 
-        const idToScientificName: Record<string, string> = {}
-        for (const s of allSpecies) {
-          if (s.id && s.scientific_name) idToScientificName[s.id] = s.scientific_name
-        }
-
+        // Build species → image URL map directly from API's images field
         const imgMap: Record<string, string> = {}
-        for (const id of Object.keys(idToScientificName)) {
-          const sciname = idToScientificName[id]
-          if (sciname) {
-            const folder = toFolderName(sciname)
-            imgMap[id] = `/species-images/${folder}/1.jpg`
+        for (const s of allSpecies) {
+          if (s.id && Array.isArray(s.images) && s.images[0]) {
+            imgMap[s.id] = s.images[0]
           }
         }
         setSpeciesImages(imgMap)

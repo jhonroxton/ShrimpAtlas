@@ -370,7 +370,7 @@ export default function Globe3D({ distributions = [], speciesImages = {}, specie
       const showSprites = dist < 40
       refs.sprites.forEach((s: any) => { s.visible = showSprites })
     }
-  }, [distributions.length, species?.length || 0]) // eslint-disable-line
+  }, [distributions.length, species?.length || 0, Object.keys(speciesImages).length]) // eslint-disable-line
 
     // Animation loop
       let animId: number; let t = 0
