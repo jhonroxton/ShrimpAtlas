@@ -2,22 +2,26 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Globe3D from '../components/Globe3D'
 import { mapApi } from '../api/map'
+import { speciesApi } from '../api/species'
 import { SpeciesDistribution } from '../types'
 
+// Convert scientific name to folder name: "Penaeus vannamei" → "Penaeus_vannamei"
+function toFolderName(name: string): string {
+  return name.replace(/\s+/g, '_')
+}
+
 export default function HomePage() {
-  const navigate = useNavigate()
   const [distributions, setDistributions] = useState<SpeciesDistribution[]>([])
-  const [showCurrents, setShowCurrents] = useState(true)
-  const [showSpecies, setShowSpecies] = useState(true)
+  const [speciesImages, setSpeciesImages] = useState<Record<string, string>>({})
   const [, setLoading] = useState(false)
 
-  // Load map distributions from API
+  // Load distributions + species name→ID mapping → speciesImages
   useEffect(() => {
-    const loadDistributions = async () => {
+    const loadAll = async () => {
       setLoading(true)
       try {
+        // Load distributions
         const geojson = await mapApi.getDistributions()
-        // Convert GeoJSON to SpeciesDistribution format
         const dists: SpeciesDistribution[] = (geojson.features || []).map((f: any) => ({
           id: f.properties?.id || '',
           species_id: f.properties?.species_id || '',
@@ -29,66 +33,52 @@ export default function HomePage() {
           source: f.properties?.source || '',
         }))
         setDistributions(dists)
+
+        // Build species → image URL map from local cached images
+        // Folder structure: /species-images/{Genus_species}/1.jpg
+        // Load all species pages (260 total, 100 per page)
+        const allSpecies: any[] = []
+        let page = 1
+        while (true) {
+          const res = await speciesApi.list({ page, page_size: 100 })
+          if (!res.data?.length) break
+          allSpecies.push(...res.data)
+          if (res.data.length < 100) break
+          page++
+          if (page > 5) break  // safety cap
+        }
+
+        const idToScientificName: Record<string, string> = {}
+        for (const s of allSpecies) {
+          if (s.id && s.scientific_name) idToScientificName[s.id] = s.scientific_name
+        }
+
+        const imgMap: Record<string, string> = {}
+        for (const id of Object.keys(idToScientificName)) {
+          const sciname = idToScientificName[id]
+          if (sciname) {
+            const folder = toFolderName(sciname)
+            imgMap[id] = `/species-images/${folder}/1.jpg`
+          }
+        }
+        setSpeciesImages(imgMap)
       } catch (err) {
-        // Backend not ready yet - that's ok, globe still works
-        console.warn('Could not load distributions:', err)
+        console.warn('Could not load map data:', err)
       } finally {
         setLoading(false)
       }
     }
-    loadDistributions()
+    loadAll()
   }, [])
 
   return (
-    <div className="relative w-full h-[calc(100vh-64px)]">
-      {/* 3D Globe */}
-      <Globe3D
-        distributions={distributions}
-        showCurrents={showCurrents}
-        showSpecies={showSpecies}
-        onSpeciesClick={(id) => navigate(`/species/${id}`)}
-      />
+    <div className="relative w-full h-[calc(100vh-64px)] overflow-hidden">
+      {/* 3D Globe — data passed from HomePage */}
+      <Globe3D distributions={distributions} speciesImages={speciesImages} />
 
-      {/* Floating control panel */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-deep-sea-800/95 backdrop-blur border border-deep-sea-600 rounded-xl px-6 py-4 flex gap-6 shadow-2xl">
-        <label className="flex items-center gap-2 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={showCurrents}
-            onChange={(e) => setShowCurrents(e.target.checked)}
-            className="accent-ocean-accent w-4 h-4"
-          />
-          <span className="text-sm text-gray-300">🌊 洋流</span>
-        </label>
-        <label className="flex items-center gap-2 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={showSpecies}
-            onChange={(e) => setShowSpecies(e.target.checked)}
-            className="accent-ocean-accent w-4 h-4"
-          />
-          <span className="text-sm text-gray-300">🦐 物种分布</span>
-        </label>
-        <div className="w-px bg-deep-sea-600" />
-        <button
-          onClick={() => navigate('/species')}
-          className="text-sm text-ocean-accent hover:text-ocean-cyan transition-colors font-medium"
-        >
-          查看全部物种 →
-        </button>
-      </div>
-
-      {/* Search bar */}
-      <div className="absolute top-6 left-1/2 -translate-x-1/2 w-full max-w-lg px-4">
+      {/* Search — bottom left */}
+      <div className="absolute bottom-4 left-4 z-20 w-72">
         <SearchBar />
-      </div>
-
-      {/* Stats overlay */}
-      <div className="absolute top-6 right-6 bg-deep-sea-800/90 backdrop-blur border border-deep-sea-600 rounded-xl px-4 py-3">
-        <div className="text-xs text-gray-400 mb-1">🦐 已收录物种</div>
-        <div className="text-2xl font-bold text-ocean-accent">38</div>
-        <div className="text-xs text-gray-400 mt-2 mb-1">🌊 洋流数据</div>
-        <div className="text-2xl font-bold text-blue-400">31</div>
       </div>
     </div>
   )
@@ -113,12 +103,12 @@ function SearchBar() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="搜索虾类名称、学名..."
-        className="w-full bg-deep-sea-800/95 backdrop-blur border border-deep-sea-600 text-gray-200 text-sm rounded-full px-5 py-3 pl-12 focus:border-ocean-accent focus:outline-none shadow-xl"
+        className="w-full bg-deep-sea-800/95 backdrop-blur border border-deep-sea-600 text-gray-200 text-sm rounded-full px-4 py-2.5 pl-10 pr-16 sm:px-5 sm:py-3 sm:pl-12 focus:border-ocean-accent focus:outline-none shadow-xl"
       />
-      <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg">🔍</span>
+      <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-base sm:text-lg">🔍</span>
       <button
         type="submit"
-        className="absolute right-3 top-1/2 -translate-y-1/2 bg-ocean-accent hover:bg-ocean-cyan text-deep-sea-900 text-xs font-bold px-4 py-1.5 rounded-full transition-colors"
+        className="absolute right-2 top-1/2 -translate-y-1/2 bg-ocean-accent hover:bg-ocean-cyan text-deep-sea-900 text-xs font-bold px-3 py-1 sm:px-4 sm:py-1.5 rounded-full transition-colors"
       >
         搜索
       </button>
