@@ -74,7 +74,7 @@ function buildWorldDots(distributions: SpeciesDistribution[], scene: any): any {
   const loader = new THREE.TextureLoader()
   const glowTex = loader.load(makeGlowDataURL('#00D4FF', 128))
   const mat = new THREE.PointsMaterial({
-    size: 2.5, map: glowTex, vertexColors: true,
+    size: 8.0, map: glowTex, vertexColors: true,
     transparent: true, depthWrite: false,
     blending: THREE.AdditiveBlending, sizeAttenuation: true,
   })
@@ -241,9 +241,20 @@ function createMigrationAnimator(scene: any): any {
 interface Props {
   distributions?: SpeciesDistribution[]
   speciesImages?: Record<string, string>
+  species?: any[]  // species list for constructing local image paths
 }
 
-export default function Globe3D({ distributions = [], speciesImages = {} }: Props) {
+export default function Globe3D({ distributions = [], speciesImages = {}, species = [] }: Props) {
+  // Build speciesImages from species data if not provided via API
+  const effectiveSpeciesImages = Object.keys(speciesImages).length > 0 ? speciesImages : (() => {
+    const map: Record<string, string> = {}
+    species.forEach((s: any) => {
+      if (!s.id || !s.scientific_name) return
+      const folder = s.scientific_name.replace(/ /g, '_')  // "Penaeus vannamei" → "Penaeus_vannamei"
+      map[s.id] = `/species-images/${folder}/1.jpg`
+    })
+    return map
+  })()
   const mountRef = useRef<HTMLDivElement>(null)
   const [checkboxState, setCheckboxState] = useState([
     { label: '虾类分布点', checked: true  },
@@ -315,7 +326,7 @@ export default function Globe3D({ distributions = [], speciesImages = {} }: Prop
     // Data layers
     const worldDots = buildWorldDots(distributions, scene)
     const heatmap   = buildRichnessHeatmap(distributions, scene)
-    const { sprites } = buildSprites(distributions, speciesImages, scene)
+    const { sprites } = buildSprites(distributions, effectiveSpeciesImages, scene)
     const currAnim  = createCurrentAnimator(scene)
     const migrAnim  = createMigrationAnimator(scene)
 
