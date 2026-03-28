@@ -385,7 +385,7 @@ export default function Globe3D({ distributions = [], speciesImages = {}, specie
         const dist = camera.position.length()
         if (dist < NEAR) {
           worldDots.visible = false
-          sprites.forEach((s: any) => {
+          ;(layerRefs.current.sprites || []).forEach((s: any) => {
             s.visible = true
             // Lazy load real species image
             if (!s.userData.loaded && s.userData.imgUrl) {
@@ -399,7 +399,7 @@ export default function Globe3D({ distributions = [], speciesImages = {}, specie
           })
         } else if (dist > FAR) {
           worldDots.visible = true
-          sprites.forEach((s: any) => { s.visible = false })
+          ;(layerRefs.current.sprites || []).forEach((s: any) => { s.visible = false })
         }
   
         // Animate ocean currents
