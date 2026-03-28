@@ -50,36 +50,66 @@ function makeGlowDataURL(color: string, size = 128): string {
 
 // ── Popup card component ─────────────────────────────────────────────────────
 
-function makeShrimpCard(species: any): HTMLDivElement {
+function makeShrimpCard(sp: any): HTMLDivElement {
   const div = document.createElement('div')
   div.style.cssText = `
-    background: rgba(0,20,40,0.92);
-    border: 1px solid rgba(0,212,255,0.4);
-    border-radius: 10px;
-    padding: 12px 16px;
+    background: rgba(5,15,35,0.95);
+    border: 1.5px solid rgba(0,212,255,0.5);
+    border-radius: 12px;
+    padding: 14px 16px;
     color: white;
     font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    min-width: 180px;
-    max-width: 240px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    width: 220px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 20px rgba(0,212,255,0.1);
     pointer-events: none;
     user-select: none;
+    overflow: hidden;
   `
+
+  // IUCN status color
+  const iucnColors: Record<string, string> = {
+    LC: '#7FD17F', NT: '#A8D17F', VU: '#FFD700', EN: '#FFA500',
+    CR: '#FF4444', EW: '#FF88FF', EX: '#888888', DD: '#AAAAAA',
+  }
+  const iucnColor = iucnColors[sp.iucn_status] || '#AAAAAA'
+  const iucnLabel: Record<string, string> = {
+    LC: '无危', NT: '近危', VU: '易危', EN: '濒危',
+    CR: '极危', EW: '野外灭绝', EX: '灭绝', DD: '数据缺乏',
+  }
+
+  const cnName = sp.cn_name || sp.chinese_name || sp.en_name || '—'
+  const enName = sp.en_name || sp.english_name || '—'
+  const sciName = sp.scientific_name || '—'
+  const habitat = sp.habitat || '—'
+  const diet = sp.diet || '—'
+  const tempZone = sp.temperature_zone || '—'
+  const iucn = sp.iucn_status ? `${sp.iucn_status} (${iucnLabel[sp.iucn_status] || sp.iucn_status})` : '—'
+  const maxLen = sp.max_length_cm ? `${sp.max_length_cm} cm` : '—'
+  const edible = sp.is_edible ? '✅ 可食用' : '⚠️ 不可食用'
+
+  const zoneEmoji: Record<string, string> = { tropical: '🌴', temperate: '🍂', cold: '❄️', unknown: '🌍' }
+  const zoneLabel: Record<string, string> = { tropical: '热带', temperate: '温带', cold: '寒带' }
+
   div.innerHTML = `
-    <div style="font-size:15px;font-weight:bold;color:#FFD700;margin-bottom:6px">
-      ${species.chinese_name || '—'}
+    <div style="font-size:16px;font-weight:bold;color:#FFD700;margin-bottom:8px;line-height:1.3">
+      ${cnName}
     </div>
-    <div style="font-size:11px;color:#aaa;margin-bottom:8px;font-style:italic">
-      ${species.scientific_name || ''}
+    <div style="font-size:11px;color:#aaa;margin-bottom:10px;font-style:italic;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:8px">
+      ${sciName}
     </div>
-    <div style="font-size:11px;color:#ccc;margin-bottom:4px">
-      🌐 ${species.english_name || '—'}
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:10.5px;color:#ccc;margin-bottom:8px">
+      <div>🏠 <span style="color:${iucnColor};font-weight:bold">${iucn}</span></div>
+      <div>📏 <span style="color:#ddd">${maxLen}</span></div>
+      <div>${zoneEmoji[sp.temperature_zone] || '🌍'} <span style="color:#ddd">${zoneLabel[sp.temperature_zone] || tempZone}</span></div>
+      <div>🍖 <span style="color:#ddd">${diet.substring(0,6) || '—'}</span></div>
     </div>
-    <div style="font-size:11px;color:${species.is_edible ? '#7FD17F' : '#FF7F7F'};margin-bottom:6px">
-      ${species.is_edible ? '✅ 可食用' : '⚠️ 不可食用'}
+    <div style="font-size:10px;color:#999;margin-bottom:6px">
+      🌊 栖息地：<span style="color:#ccc">${habitat}</span>
     </div>
-    ${species.description ? `<div style="font-size:10px;color:#999;line-height:1.4;margin-top:6px;border-top:1px solid rgba(255,255,255,0.1);padding-top:6px">${species.description.substring(0, 80)}…</div>` : ''}
+    <div style="font-size:11px;color:${sp.is_edible ? '#7FD17F' : '#FF7F7F'};margin-top:4px">
+      ${edible}
+    </div>
   `
   return div
 }
@@ -112,6 +142,9 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
 
   // Build species lookup map
   const speciesMap = useRef<Record<string, any>>({})
+  const distRef = useRef<SpeciesDistribution[]>([])
+  // speciesId -> first distribution (for click popup position)
+  const speciesDistMap = useRef<Record<string, SpeciesDistribution>>({})
   useEffect(() => {
     species.forEach((s: any) => { speciesMap.current[s.id] = s })
   }, [species])
@@ -209,6 +242,8 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
     const buildMarkers = (distList: SpeciesDistribution[]) => {
       if (!distList || distList.length === 0) return
 
+      distRef.current = distList  // store for click handler
+
       // Remove old markers
       if (instancedMarkers) { scene.remove(instancedMarkers); instancedMarkers.geometry.dispose() }
       spriteMarkers.forEach(s => scene.remove(s))
@@ -233,11 +268,14 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
       instancedMarkers.instanceMatrix.needsUpdate = true
       scene.add(instancedMarkers)
 
-      // Near-field: Sprites
+      // Near-field: Sprites (one per species)
       const seen = new Set<string>()
       distList.forEach((d) => {
         if (seen.has(d.species_id)) return
         seen.add(d.species_id)
+        if (!speciesDistMap.current[d.species_id]) {
+          speciesDistMap.current[d.species_id] = d  // store for click popup
+        }
         const sp = speciesMap.current[d.species_id]
         const imgUrl = (sp && sp.images && sp.images[0]) ? sp.images[0] : null
 
@@ -268,30 +306,52 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
       mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1
 
       raycaster.setFromCamera(mouse, camera)
-      const intersects = raycaster.intersectObject(instancedMarkers)
-      if (intersects.length > 0) {
-        const idx = intersects[0].instanceId
-        if (idx !== undefined && idx < distributions.length) {
-          const d = distributions[idx]
-          const sp = speciesMap.current[d.species_id]
-          if (!sp) return
 
-          // Remove old card
-          if (activeLabelObj) { scene.remove(activeLabelObj); activeLabelObj = null }
+      // Priority 1: Check sprite markers first (they sit on top when visible)
+      const spriteHits = raycaster.intersectObjects(spriteMarkers, false)
+      if (spriteHits.length > 0) {
+        const sprite = spriteHits[0].object as any
+        const sp = speciesMap.current[sprite.userData.species_id]
+        const dist = speciesDistMap.current[sprite.userData.species_id]
+        if (!sp || !dist) return
 
-          // Create new card
-          const cardDiv = makeShrimpCard(sp)
-          const labelObj = new CSS2DObject(cardDiv)
-          const [x, y, z] = latLonToVec3(d.latitude, d.longitude, EARTH_R + 2)
-          labelObj.position.set(x, y, z)
-          scene.add(labelObj)
-          activeLabelObj = labelObj
-          setTooltip({ name: sp.chinese_name || sp.scientific_name, visible: true })
-        }
-      } else {
         if (activeLabelObj) { scene.remove(activeLabelObj); activeLabelObj = null }
-        setTooltip(t => ({ ...t, visible: false }))
+        const cardDiv = makeShrimpCard(sp)
+        const labelObj = new CSS2DObject(cardDiv)
+        const [x, y, z] = latLonToVec3(dist.latitude, dist.longitude, EARTH_R + 2.5)
+        labelObj.position.set(x, y, z)
+        scene.add(labelObj)
+        activeLabelObj = labelObj
+        setTooltip({ name: sp.cn_name || sp.scientific_name, visible: true })
+        return
       }
+
+      // Priority 2: Check instanced markers (far-field dots)
+      if (instancedMarkers) {
+        const instHits = raycaster.intersectObject(instancedMarkers)
+        if (instHits.length > 0) {
+          const idx = instHits[0].instanceId
+          if (idx !== undefined && idx < distRef.current.length) {
+            const d = distRef.current[idx]
+            const sp = speciesMap.current[d.species_id]
+            if (!sp) return
+
+            if (activeLabelObj) { scene.remove(activeLabelObj); activeLabelObj = null }
+            const cardDiv = makeShrimpCard(sp)
+            const labelObj = new CSS2DObject(cardDiv)
+            const [x, y, z] = latLonToVec3(d.latitude, d.longitude, EARTH_R + 2)
+            labelObj.position.set(x, y, z)
+            scene.add(labelObj)
+            activeLabelObj = labelObj
+            setTooltip({ name: sp.cn_name || sp.scientific_name, visible: true })
+            return
+          }
+        }
+      }
+
+      // Clicked on nothing relevant — dismiss card
+      if (activeLabelObj) { scene.remove(activeLabelObj); activeLabelObj = null }
+      setTooltip(t => ({ ...t, visible: false }))
     }
     renderer.domElement.addEventListener('click', onMouseClick)
 
@@ -362,6 +422,7 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
   useEffect(() => {
     const sr = stateRef.current
     if (sr.scene && distributions.length > 0 && sr.buildMarkers) {
+      distRef.current = distributions
       sr.buildMarkers(distributions)
     }
   }, [distributions])
