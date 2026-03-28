@@ -239,8 +239,7 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
         if (seen.has(d.species_id)) return
         seen.add(d.species_id)
         const sp = speciesMap.current[d.species_id]
-        const imgUrl = speciesImages[d.species_id]
-          || (sp?.folder_name ? `/species-images/${sp.folder_name}/1.jpg` : null)
+        const imgUrl = (sp && sp.images && sp.images[0]) ? sp.images[0] : null
 
         const fallbackTex = loader.load(makeGlowDataURL('#FF8C00', 128))
         const mat = new THREE.SpriteMaterial({ map: fallbackTex, transparent: true, depthWrite: false })
