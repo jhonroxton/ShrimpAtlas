@@ -338,6 +338,41 @@ export default function Globe3D({ distributions = [], speciesImages = {}, specie
 
     layerRefs.current = { worldDots, heatmap, sprites, currAnim, migrAnim, controls, camera, scene }
 
+    // If distributions data arrived after mount (API was slow), rebuild layers now
+    if (distributions.length > 0 && !layerRefs.current._distLoaded) {
+      layerRefs.current._distLoaded = true
+    }
+  }, [distributions.length]) // eslint-disable-line
+
+  // Rebuild data layers when distributions data loads (after initial mount)
+  useEffect(() => {
+    const refs = layerRefs.current
+    if (!refs.scene || distributions.length === 0) return
+    // Rebuild worldDots if already created (data arrived after mount)
+    if (refs.worldDots && refs.scene) {
+      refs.scene.remove(refs.worldDots)
+      refs.worldDots.geometry.dispose()
+      const newDots = buildWorldDots(distributions, refs.scene)
+      refs.worldDots = newDots
+    }
+    if (refs.heatmap && refs.scene) {
+      refs.scene.remove(refs.heatmap)
+      refs.heatmap.geometry.dispose()
+      const newHeat = buildRichnessHeatmap(distributions, refs.scene)
+      refs.heatmap = newHeat
+      refs.heatmap.visible = checkboxRef.current[1]
+    }
+    if (refs.sprites && refs.scene) {
+      refs.sprites.forEach((s: any) => { refs.scene.remove(s) })
+      const { sprites: newSprites } = buildSprites(distributions, effectiveSpeciesImages, refs.scene)
+      refs.sprites = newSprites
+      // Show sprites if camera is close
+      const dist = refs.camera ? refs.camera.position.length() : 999
+      const showSprites = dist < 40
+      refs.sprites.forEach((s: any) => { s.visible = showSprites })
+    }
+  }, [distributions.length, species?.length || 0]) // eslint-disable-line
+
     // Animation loop
     let animId: number; let t = 0
     const NEAR = 40, FAR = 50
