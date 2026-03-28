@@ -13,6 +13,7 @@ function toFolderName(name: string): string {
 export default function HomePage() {
   const [distributions, setDistributions] = useState<SpeciesDistribution[]>([])
   const [speciesImages, setSpeciesImages] = useState<Record<string, string>>({})
+  const [species, setSpecies] = useState<any[]>([])
   const [, setLoading] = useState(false)
 
   // Load distributions + species name→ID mapping → speciesImages
