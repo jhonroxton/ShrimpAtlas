@@ -27,35 +27,34 @@ export default function HomePage() {
     let cancelled = false
     setLoading(true)
 
-    // 加载物种列表
+    // 加载物种列表（用 fetch 直接拿，减少分页请求）
     const loadSpecies = async () => {
-      const speciesList: any[] = []
-      let page = 1
-      while (true) {
-        const res = await speciesApi.list({ page, page_size: 100 })
-        const items = res?.data ?? []
-        if (!items.length) break
-        speciesList.push(...items)
-        if (items.length < 100) break
-        page++
-        if (page > 30) break
+      try {
+        const resp = await fetch('/api/v1/species?page=1&page_size=5000')
+        if (cancelled) return
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
+        const json = await resp.json()
+        if (cancelled) return
+        const speciesList: any[] = Array.isArray(json) ? json : (json.data ?? [])
+        console.log('[HomePage] loaded species:', speciesList.length)
+        const imgMap: Record<string, string> = {}
+        for (const s of speciesList) {
+          if (s.id && Array.isArray(s.images) && s.images[0]) imgMap[s.id] = s.images[0]
+        }
+        setAllSpecies(speciesList)
+        setFilteredSpecies(speciesList)
+        setSpeciesImages(imgMap)
+      } catch (e) {
+        console.error('[HomePage] loadSpecies failed:', e)
       }
-      if (cancelled) return
-
-      // 构建图片映射
-      const imgMap: Record<string, string> = {}
-      for (const s of speciesList) {
-        if (s.id && Array.isArray(s.images) && s.images[0]) imgMap[s.id] = s.images[0]
-      }
-      setAllSpecies(speciesList)
-      setFilteredSpecies(speciesList)
-      setSpeciesImages(imgMap)
     }
 
     // 加载分布点
     const loadDistributions = async () => {
       try {
         const resp = await fetch('/api/v1/map/distributions')
+        if (cancelled) return
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
         const geojson = await resp.json()
         if (cancelled || !geojson?.features) return
         const dists: SpeciesDistribution[] = geojson.features.map((f: any) => ({
@@ -68,14 +67,15 @@ export default function HomePage() {
           is_verified: f.properties?.is_verified ?? false,
           source: f.properties?.source || '',
         }))
+        console.log('[HomePage] loaded distributions:', dists.length)
         setDistributions(dists)
       } catch (e) {
-        console.warn('分布点加载失败:', e)
+        console.error('[HomePage] loadDistributions failed:', e)
       }
     }
 
-    loadSpecies()
-    loadDistributions().finally(() => {
+    // 等两个都完成再关 loading
+    Promise.all([loadSpecies(), loadDistributions()]).finally(() => {
       if (!cancelled) setLoading(false)
     })
 
