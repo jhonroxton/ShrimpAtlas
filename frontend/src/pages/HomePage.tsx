@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Globe3D from '../components/Globe3Dv2'
+import Globe3D from '../components/Globe3D'
 import { mapApi } from '../api/map'
 import { speciesApi } from '../api/species'
 import { SpeciesDistribution } from '../types'
