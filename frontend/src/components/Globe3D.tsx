@@ -261,6 +261,7 @@ export default function GlobeGlobe({ distributions, species, speciesImages, onSp
 
     // ── Update distribution dots ──────────────────────────────────────────────
     const updateDistDots = (dists: SpeciesDistribution[]) => {
+      console.log('[Globe3D] updateDistDots called, count:', dists.length)
       const pos = distDotGeo.attributes.position.array as Float32Array
       const sizes = distDotGeo.attributes.size.array as Float32Array
       const data: Array<{ species_id: string; lat: number; lon: number }> = []
@@ -367,6 +368,9 @@ export default function GlobeGlobe({ distributions, species, speciesImages, onSp
 
     // ── Store refs ───────────────────────────────────────────────────────────
     threeRef.current = { scene, camera, renderer, controls, earthGroup, updateDistDots }
+    ;(window as any).__threeRenderer = renderer
+    ;(window as any).__threeScene = scene
+    console.log('[Globe3D] Three.js initialized, drawcalls:', renderer.info.render.calls)
 
     return () => {
       cancelAnimationFrame(animId)
@@ -383,6 +387,7 @@ export default function GlobeGlobe({ distributions, species, speciesImages, onSp
   // ── 分布点更新（侧边栏筛选变化时）────────────────────────────────────────
   useEffect(() => {
     const r = threeRef.current
+    console.log('[Globe3D] distributions changed, count:', distributions.length, 'threeRef ready:', !!r.updateDistDots)
     if (!r.updateDistDots || distributions.length === 0) return
     r.updateDistDots(distributions)
   }, [distributions])

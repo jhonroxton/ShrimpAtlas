@@ -3,7 +3,7 @@
  * HomePage.tsx — 首页，整合 Three.js Globe3D + Sidebar + TimeSlider
  */
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Globe3D from '../components/Globe3D'
 import Sidebar, { FilterState, DEFAULT_FILTERS, applyFilters } from '../components/Sidebar'
 import TimeSlider, { TimeState } from '../components/TimeSlider'
@@ -17,72 +17,91 @@ export default function HomePage() {
   const [filteredSpecies, setFilteredSpecies] = useState<any[]>([])
   const [filteredDists, setFilteredDists] = useState<SpeciesDistribution[]>([])
   const [loading, setLoading] = useState(true)
+  // 用 ref 跟踪最新 distributions，避免闭包陈旧值
+  const distributionsRef = useRef<SpeciesDistribution[]>([])
+  // 当前生效的 filter 状态（确认后的）
+  const confirmedFiltersRef = useRef<FilterState>(DEFAULT_FILTERS)
 
   // ── 加载数据 ──────────────────────────────────────────────────────────────
   useEffect(() => {
-    const load = async () => {
-      setLoading(true)
+    let cancelled = false
+    setLoading(true)
+
+    // 加载物种列表
+    const loadSpecies = async () => {
+      const speciesList: any[] = []
+      let page = 1
+      while (true) {
+        const res = await speciesApi.list({ page, page_size: 100 })
+        const items = res?.data ?? []
+        if (!items.length) break
+        speciesList.push(...items)
+        if (items.length < 100) break
+        page++
+        if (page > 30) break
+      }
+      if (cancelled) return
+
+      // 构建图片映射
+      const imgMap: Record<string, string> = {}
+      for (const s of speciesList) {
+        if (s.id && Array.isArray(s.images) && s.images[0]) imgMap[s.id] = s.images[0]
+      }
+      setAllSpecies(speciesList)
+      setFilteredSpecies(speciesList)
+      setSpeciesImages(imgMap)
+    }
+
+    // 加载分布点
+    const loadDistributions = async () => {
       try {
-        // 加载所有物种
-        const speciesList: any[] = []
-        let page = 1
-        while (true) {
-          const res = await speciesApi.list({ page, page_size: 100 })
-          if (!res.data?.length) break
-          speciesList.push(...res.data)
-          if (res.data.length < 100) break
-          page++
-          if (page > 30) break
-        }
-        setAllSpecies(speciesList)
-        setFilteredSpecies(speciesList)
-
-        // 构建图片映射
-        const imgMap: Record<string, string> = {}
-        for (const s of speciesList) {
-          if (s.id && Array.isArray(s.images) && s.images[0]) {
-            imgMap[s.id] = s.images[0]
-          }
-        }
-        setSpeciesImages(imgMap)
-
-        // 加载分布点（直接从后端 API 获取 GeoJSON）
-        try {
-          const resp = await fetch('/api/v1/map/distributions')
-          const geojson = await resp.json()
-          if (geojson?.features) {
-            const dists: SpeciesDistribution[] = geojson.features.map((f: any) => ({
-              id: f.properties?.id || '',
-              species_id: f.properties?.species_id || '',
-              latitude: f.geometry?.coordinates?.[1] || 0,
-              longitude: f.geometry?.coordinates?.[0] || 0,
-              location_name: f.properties?.location_name || '',
-              depth_m: f.properties?.depth_m,
-              is_verified: f.properties?.is_verified ?? false,
-              source: f.properties?.source || '',
-            }))
-            setDistributions(dists)
-          }
-        } catch (e) {
-          console.warn('分布点加载失败:', e)
-        }
-      } catch (err) {
-        console.warn('加载失败:', err)
-      } finally {
-        setLoading(false)
+        const resp = await fetch('/api/v1/map/distributions')
+        const geojson = await resp.json()
+        if (cancelled || !geojson?.features) return
+        const dists: SpeciesDistribution[] = geojson.features.map((f: any) => ({
+          id: f.properties?.id || '',
+          species_id: f.properties?.species_id || '',
+          latitude: f.geometry?.coordinates?.[1] || 0,
+          longitude: f.geometry?.coordinates?.[0] || 0,
+          location_name: f.properties?.location_name || '',
+          depth_m: f.properties?.depth_m,
+          is_verified: f.properties?.is_verified ?? false,
+          source: f.properties?.source || '',
+        }))
+        setDistributions(dists)
+      } catch (e) {
+        console.warn('分布点加载失败:', e)
       }
     }
-    load()
+
+    loadSpecies()
+    loadDistributions().finally(() => {
+      if (!cancelled) setLoading(false)
+    })
+
+    return () => { cancelled = true }
   }, [])
 
-  // ── 筛选变化 → 更新过滤后的分布点，Globe3D 自动重建卡片 ─────────────────
-  const handleFilterChange = useCallback((filtered: any[], filters: FilterState) => {
+  // ── distributions 加载完成后更新 ref ────────────────────────────────────
+  useEffect(() => {
+    if (distributions.length === 0) return
+    distributionsRef.current = distributions
+    // distributions 加载完成后，用当前已确认的过滤条件重新应用
+    const filtered = applyFilters(allSpecies, confirmedFiltersRef.current)
     setFilteredSpecies(filtered)
-    // 根据过滤后的物种ID筛选分布点
     const ids = new Set(filtered.map((s: any) => s.id))
-    const fDists = distributions.filter(d => ids.has(d.species_id))
-    setFilteredDists(fDists)
+    setFilteredDists(distributions.filter(d => ids.has(d.species_id)))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [distributions])
+  // ── 筛选变化 → 更新过滤后的分布点 ───────────────────────────────────────
+  const handleFilterChange = useCallback((filtered: any[], filters: FilterState) => {
+    confirmedFiltersRef.current = filters
+    setFilteredSpecies(filtered)
+    // 用 ref 获取最新 distributions，避免闭包陈旧值
+    const ids = new Set(filtered.map((s: any) => s.id))
+    const fDists = distributionsRef.current.filter(d => ids.has(d.species_id))
+    setFilteredDists(fDists)
+  }, [])
 
   // ── 时间维度变化 ─────────────────────────────────────────────────────────
   const handleTimeChange = useCallback((time: TimeState) => {

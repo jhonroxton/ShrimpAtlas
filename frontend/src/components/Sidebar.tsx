@@ -61,7 +61,7 @@ export const DEFAULT_FILTERS: FilterState = {
   fishingType: [],
 }
 
-function applyFilters(species: any[], filters: FilterState): any[] {
+export function applyFilters(species: any[], filters: FilterState): any[] {
   return species.filter((sp: any) => {
     // 搜索
     if (filters.search) {
