@@ -6,7 +6,6 @@
  */
 
 import { useEffect, useRef, useState, useCallback } from 'react'
-import { Map as CesiumMap } from 'cesium'
 import { ScatterplotLayer, ArcLayer, PathLayer } from '@deck.gl/layers'
 import { HeatmapLayer } from '@deck.gl/aggregation-layers'
 import { Deck } from '@deck.gl/core'
@@ -102,8 +101,8 @@ export default function CesiumGlobe({
     if (!containerRef.current) return
 
     // 初始化 Cesium viewer
-    const viewer = new CesiumMap(containerRef.current, {
-      imageryProvider: false,          // 不使用付费地图，用纯色地球
+    const viewer = new Cesium.Viewer(containerRef.current, {
+      imageryProvider: false,          // 不用地图瓦片，纯色地球
       baseLayerPicker: false,
       geocoder: false,
       homeButton: false,
@@ -117,6 +116,8 @@ export default function CesiumGlobe({
       selectionIndicator: false,
       shadows: false,
       skyAtmosphere: new Cesium.SkyAtmosphere(),
+      requestRenderMode: true,
+      maximumRenderTimeChange: Infinity,
     })
 
     // 深海背景色
@@ -354,7 +355,7 @@ export default function CesiumGlobe({
     viewerRef.current.camera.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(lon, lat, height),
       duration: 1.8,
-      easingFunction: Cesium.EasingFunction.TO_RADIANS,
+      easingFunction: Cesium.EasingFunction.CUBIC_IN_OUT,
     })
   }, [])
 
