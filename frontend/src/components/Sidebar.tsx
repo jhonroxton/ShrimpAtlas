@@ -96,7 +96,10 @@ function applyFilters(species: any[], filters: FilterState): any[] {
 }
 
 export default function Sidebar({ species, totalDistCount, onFilterChange }: SidebarProps) {
-  const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS)
+  // pendingFilters: 当前用户在界面上选择的条件（未确认）
+  const [pendingFilters, setPendingFilters] = useState<FilterState>(DEFAULT_FILTERS)
+  // confirmedFilters: 上次点击"确认"后生效的条件
+  const [confirmedFilters, setConfirmedFilters] = useState<FilterState>(DEFAULT_FILTERS)
   const [collapsed, setCollapsed] = useState(false)
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
     habitat: true,
@@ -106,26 +109,43 @@ export default function Sidebar({ species, totalDistCount, onFilterChange }: Sid
     fishing: false,
   })
 
-  const updateFilters = useCallback((partial: Partial<FilterState>) => {
-    const next = { ...filters, ...partial }
-    setFilters(next)
-    const filtered = applyFilters(species, next)
-    onFilterChange(filtered, next)
-  }, [filters, species, onFilterChange])
+  // 更新待确认条件（仅更新本地状态，不触发过滤）
+  const updatePending = useCallback((partial: Partial<FilterState>) => {
+    setPendingFilters(prev => ({ ...prev, ...partial }))
+  }, [])
+
+  // 确认应用当前条件
+  const confirmFilters = useCallback(() => {
+    setConfirmedFilters(pendingFilters)
+    const filtered = applyFilters(species, pendingFilters)
+    onFilterChange(filtered, pendingFilters)
+  }, [pendingFilters, species, onFilterChange])
 
   const toggleArrayFilter = useCallback((key: 'habitat' | 'iucnStatus' | 'temperatureZone' | 'fishingType', value: string) => {
-    const current = filters[key]
+    const current = pendingFilters[key]
     const next = current.includes(value)
       ? current.filter((v: string) => v !== value)
       : [...current, value]
-    updateFilters({ [key]: next })
-  }, [filters, updateFilters])
+    updatePending({ [key]: next })
+  }, [pendingFilters, updatePending])
+
+  // 重置：恢复默认条件（不清空，但恢复到默认值）
+  const resetFilters = useCallback(() => {
+    setPendingFilters(DEFAULT_FILTERS)
+    // 可选：也立即应用默认条件
+    setConfirmedFilters(DEFAULT_FILTERS)
+    onFilterChange(species, DEFAULT_FILTERS)
+  }, [species, onFilterChange])
+
+  // 预览数量 = 待确认条件的结果
+  const pendingCount = applyFilters(species, pendingFilters).length
+  const hasChanges = JSON.stringify(pendingFilters) !== JSON.stringify(confirmedFilters)
 
   const toggleSection = (key: string) => {
     setExpandedSections(prev => ({ ...prev, [key]: !prev[key] }))
   }
 
-  const filteredCount = applyFilters(species, filters).length
+  const filteredCount = pendingCount
 
   return (
     <div style={{
@@ -164,7 +184,10 @@ export default function Sidebar({ species, totalDistCount, onFilterChange }: Sid
               🦐 物种筛选
             </div>
             <div style={{ fontSize: '11px', color: '#666', marginTop: '4px' }}>
-              已选 <span style={{ color: '#0fdfff' }}>{filteredCount}</span> / {species.length} 种
+              {hasChanges
+                ? <><span style={{ color: '#ffb84d' }}>预览 {pendingCount}</span> / {species.length} 种</>
+                : <>已选 <span style={{ color: '#0fdfff' }}>{pendingCount}</span> / {species.length} 种</>
+              }
             </div>
           </div>
 
@@ -174,8 +197,8 @@ export default function Sidebar({ species, totalDistCount, onFilterChange }: Sid
               <input
                 type="text"
                 placeholder="搜索物种名称..."
-                value={filters.search}
-                onChange={e => updateFilters({ search: e.target.value })}
+                value={pendingFilters.search}
+                onChange={e => updatePending({ search: e.target.value })}
                 style={{
                   width: '100%', padding: '8px 10px 8px 30px',
                   background: 'rgba(0,212,255,0.06)',
@@ -202,7 +225,7 @@ export default function Sidebar({ species, totalDistCount, onFilterChange }: Sid
                 <CheckboxItem
                   key={opt.value}
                   label={opt.label}
-                  checked={filters.habitat.includes(opt.value)}
+                  checked={pendingFilters.habitat.includes(opt.value)}
                   onChange={() => toggleArrayFilter('habitat', opt.value)}
                 />
               ))}
@@ -218,7 +241,7 @@ export default function Sidebar({ species, totalDistCount, onFilterChange }: Sid
                 <CheckboxItem
                   key={opt.value}
                   label={opt.label}
-                  checked={filters.iucnStatus.includes(opt.value)}
+                  checked={pendingFilters.iucnStatus.includes(opt.value)}
                   onChange={() => toggleArrayFilter('iucnStatus', opt.value)}
                   dotColor={opt.color}
                 />
@@ -235,7 +258,7 @@ export default function Sidebar({ species, totalDistCount, onFilterChange }: Sid
                 <CheckboxItem
                   key={opt.value}
                   label={opt.label}
-                  checked={filters.temperatureZone.includes(opt.value)}
+                  checked={pendingFilters.temperatureZone.includes(opt.value)}
                   onChange={() => toggleArrayFilter('temperatureZone', opt.value)}
                 />
               ))}
@@ -254,12 +277,12 @@ export default function Sidebar({ species, totalDistCount, onFilterChange }: Sid
                 <RadioItem
                   key={String(opt.value)}
                   label={opt.label}
-                  checked={filters.isEdible === opt.value}
-                  onChange={() => updateFilters({ isEdible: opt.value })}
+                  checked={pendingFilters.isEdible === opt.value}
+                  onChange={() => updatePending({ isEdible: opt.value })}
                 />
               ))}
               <button
-                onClick={() => updateFilters({ isEdible: null })}
+                onClick={() => updatePending({ isEdible: null })}
                 style={{
                   background: 'none', border: 'none', color: '#7ec8e3',
                   cursor: 'pointer', fontSize: '11px', padding: '2px 0',
@@ -280,7 +303,7 @@ export default function Sidebar({ species, totalDistCount, onFilterChange }: Sid
                 <CheckboxItem
                   key={opt.value}
                   label={opt.label}
-                  checked={filters.fishingType.includes(opt.value)}
+                  checked={pendingFilters.fishingType.includes(opt.value)}
                   onChange={() => toggleArrayFilter('fishingType', opt.value)}
                 />
               ))}
@@ -288,22 +311,40 @@ export default function Sidebar({ species, totalDistCount, onFilterChange }: Sid
 
           </div>
 
-          {/* 重置按钮 */}
-          <div style={{ padding: '12px 14px', borderTop: '1px solid rgba(0,212,255,0.1)' }}>
+          {/* 按钮区 */}
+          <div style={{ padding: '12px 14px', borderTop: '1px solid rgba(0,212,255,0.1)', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            {/* 确认筛选按钮 */}
             <button
-              onClick={() => updateFilters(DEFAULT_FILTERS)}
+              onClick={confirmFilters}
+              disabled={!hasChanges}
               style={{
-                width: '100%', padding: '8px',
-                background: 'rgba(0,212,255,0.1)',
-                border: '1px solid rgba(0,212,255,0.3)',
-                borderRadius: '8px', color: '#7ec8e3',
-                cursor: 'pointer', fontSize: '12px',
-                transition: 'background 0.2s',
+                width: '100%', padding: '9px',
+                background: hasChanges ? 'rgba(0,212,255,0.85)' : 'rgba(0,212,255,0.2)',
+                border: 'none',
+                borderRadius: '8px', color: hasChanges ? '#001828' : '#7ec8e3',
+                cursor: hasChanges ? 'pointer' : 'default',
+                fontSize: '13px', fontWeight: 700,
+                transition: 'all 0.2s',
+                letterSpacing: '0.05em',
               }}
-              onMouseOver={e => (e.currentTarget.style.background = 'rgba(0,212,255,0.2)')}
-              onMouseOut={e => (e.currentTarget.style.background = 'rgba(0,212,255,0.1)')}
             >
-              🔄 重置筛选
+              {hasChanges ? `✓ 确认筛选（${pendingCount} 种）` : '✓ 确认筛选'}
+            </button>
+            {/* 重置按钮 */}
+            <button
+              onClick={resetFilters}
+              style={{
+                width: '100%', padding: '7px',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(255,255,255,0.12)',
+                borderRadius: '8px', color: '#888',
+                cursor: 'pointer', fontSize: '12px',
+                transition: 'all 0.2s',
+              }}
+              onMouseOver={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = '#ccc' }}
+              onMouseOut={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = '#888' }}
+            >
+              🔄 重置
             </button>
           </div>
         </>

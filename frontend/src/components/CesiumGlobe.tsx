@@ -100,9 +100,11 @@ export default function CesiumGlobe({
   useEffect(() => {
     if (!containerRef.current) return
 
-    // 初始化 Cesium viewer
+    // 初始化 Cesium viewer — 使用本地地球纹理，无外网依赖
     const viewer = new Cesium.Viewer(containerRef.current, {
-      imageryProvider: false,          // 不用地图瓦片，纯色地球
+      imageryProvider: new Cesium.SingleTileImageryProvider({
+        url: '/textures/earth-topology.png',
+      }),
       baseLayerPicker: false,
       geocoder: false,
       homeButton: false,
@@ -116,15 +118,15 @@ export default function CesiumGlobe({
       selectionIndicator: false,
       shadows: false,
       skyAtmosphere: new Cesium.SkyAtmosphere(),
-      requestRenderMode: true,
-      maximumRenderTimeChange: Infinity,
+      skyBox: new Cesium.SkyBox(false),
+      showGroundAtmosphere: false,
     })
 
-    // 深海背景色
-    viewer.scene.globe.baseColor = Cesium.Color.fromCssColorString('#0d1f3c')
+    // 深海背景色（纹理加载前的fallback）
+    viewer.scene.globe.baseColor = Cesium.Color.fromCssColorString('#0a2a4a')
     viewer.scene.globe.showGroundAtmosphere = false
     viewer.scene.fog.enabled = false
-    viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#071020')
+    viewer.scene.backgroundColor = Cesium.Color.fromCssColorString('#050e1a')
 
     // 初始相机位置
     viewer.camera.setView({
