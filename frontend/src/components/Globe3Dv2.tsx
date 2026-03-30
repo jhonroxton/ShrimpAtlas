@@ -426,9 +426,10 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
       new THREE.MeshPhongMaterial({ color: 0x0088cc, transparent: true, opacity: 0.07, side: THREE.BackSide, depthWrite: false })
     ))
 
-    // ── InstancedMesh for distribution dots ─────────────────────────────────
-    let instancedMarkers: any = null
-    let dotTempObj = new THREE.Object3D()
+    // ── Points for distribution dots (PointsMaterial — proven to work) ─────
+    // Uses a per-species representative dot (one per unique species_id)
+    // for both display AND click detection → index maps correctly to distRef
+    let worldDots: any = null
 
     // ── Species sprite images (near-field LOD) ─────────────────────────────
     let spriteMarkers: any[] = []
@@ -438,31 +439,42 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
       distRef.current = distList
 
       // Remove old
-      if (instancedMarkers) { scene.remove(instancedMarkers); instancedMarkers.geometry.dispose(); instancedMarkers = null }
+      if (worldDots) { scene.remove(worldDots); worldDots.geometry.dispose(); worldDots = null }
       spriteMarkers.forEach(s => scene.remove(s))
       spriteMarkers = []
 
-      // Far-field: InstancedMesh dots
-      const n = distList.length
-      const dotGeo = new THREE.SphereGeometry(0.12, 6, 6)
-      const dotTex = loader.load(makeGlowDataURL('#00D4FF', 128))
-      const dotMat = new THREE.MeshBasicMaterial({ map: dotTex, transparent: true })
-      instancedMarkers = new THREE.InstancedMesh(dotGeo, dotMat, n)
-      instancedMarkers.instanceMatrix.setUsage(THREE.StaticDrawUsage)
-
-      distList.forEach((d, i) => {
-        const [x, y, z] = latLonToVec3(d.latitude, d.longitude, EARTH_R + 0.05)
-        dotTempObj.position.set(x, y, z)
-        dotTempObj.updateMatrix()
-        instancedMarkers.setMatrixAt(i, dotTempObj.matrix)
+      // Build display dots: one per unique species (not per distribution)
+      // → index maps directly to distRef for correct click detection
+      const seen = new Set<string>()
+      const positions: number[] = [], colors: number[] = [], colorIdxArr: number[] = []
+      distList.forEach((d: any, idx: number) => {
+        if (seen.has(d.species_id)) return
+        seen.add(d.species_id)
+        colorIdxArr.push(idx)  // store original distRef index for this dot
+        const [x, y, z] = latLonToVec3(d.latitude, d.longitude, EARTH_R + 0.5)
+        positions.push(x, y, z)
+        // Color by species count richness (placeholder gray — visual only)
+        colors.push(0.0, 0.83, 1.0) // #00D4FF
       })
-      instancedMarkers.instanceMatrix.needsUpdate = true
-      // Dots are in earthGroup → they also shrink/translate with earth
-      earthGroup.add(instancedMarkers)
+
+      const geo = new THREE.BufferGeometry()
+      geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(positions), 3))
+      geo.setAttribute('color',    new THREE.BufferAttribute(new Float32Array(colors), 3))
+      // Store the distRef index on each point for click resolution
+      ;(geo as any)._distIndices = colorIdxArr
+
+      const glowTex = loader.load(makeGlowDataURL('#00D4FF', 128))
+      const dotMat = new THREE.PointsMaterial({
+        size: 9.0, map: glowTex, vertexColors: true,
+        transparent: true, depthWrite: false,
+        blending: THREE.AdditiveBlending, sizeAttenuation: true,
+      })
+      worldDots = new THREE.Points(geo, dotMat)
+      earthGroup.add(worldDots)
 
       // Near-field: Sprites (one per species)
-      const seen = new Set<string>()
-      distList.forEach((d) => {
+      seen.clear()
+      distList.forEach((d: any) => {
         if (seen.has(d.species_id)) return
         seen.add(d.species_id)
         if (!speciesDistMap.current[d.species_id]) {
@@ -479,7 +491,6 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
         sprite.scale.set(4, 4, 1)
         sprite.visible = false
         sprite.userData = { species_id: d.species_id, imgUrl, loaded: false, mat }
-        // Sprites are in earthGroup
         earthGroup.add(sprite)
         spriteMarkers.push(sprite)
       })
@@ -512,18 +523,22 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
         return
       }
 
-      // Priority 2: instanced dots
-      if (instancedMarkers) {
-        const instHits = raycaster.intersectObject(instancedMarkers)
-        if (instHits.length > 0) {
-          const idx = instHits[0].instanceId
-          if (idx !== undefined && idx < distRef.current.length) {
-            const d = distRef.current[idx]
-            const sp = speciesMap.current[d.species_id]
-            if (!sp) return
-            dismissCard()
-            setTimeout(() => flyToRegionAndShowCard(sp, d), 50)
-            return
+      // Priority 2: world dots (far-field)
+      if (worldDots) {
+        const dotHits = raycaster.intersectObject(worldDots)
+        if (dotHits.length > 0) {
+          const ptIdx = dotHits[0].index
+          if (ptIdx !== undefined) {
+            // Map point index → original distRef index via _distIndices
+            const distIdx = (worldDots.geometry as any)._distIndices?.[ptIdx]
+            if (distIdx !== undefined) {
+              const d = distRef.current[distIdx]
+              const sp = speciesMap.current[d?.species_id]
+              if (!sp) return
+              dismissCard()
+              setTimeout(() => flyToRegionAndShowCard(sp, d), 50)
+              return
+            }
           }
         }
       }
@@ -539,7 +554,7 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
     stateRef.current = {
       scene, camera, renderer, controls, labelRenderer,
       earthGroup, earthMesh,
-      instancedMarkers, spriteMarkers,
+      worldDots, spriteMarkers,
       buildMarkers,
       activeLabelObj,
     }
@@ -554,14 +569,14 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
       const dist = camera.position.length()
 
       // LOD switching
-      if (instancedMarkers) {
+      if (worldDots) {
         const showSprites = dist < 42
         // When card is visible, always show sprites for context
         const forceSprites = cardVisible
         if (!forceSprites) {
-          instancedMarkers.visible = !showSprites
+          worldDots.visible = !showSprites
         } else {
-          instancedMarkers.visible = false
+          worldDots.visible = false
         }
         spriteMarkers.forEach(s => { s.visible = showSprites || forceSprites })
 
