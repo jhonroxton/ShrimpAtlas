@@ -1,12 +1,14 @@
 // @ts-nocheck
 /**
- * Globe3D.tsx — 每个分布点用物种图片 sprite 密集展示
- * - 所有分布点(20k)都显示物种图片 sprite
- * - 放大后图片变大更清晰（sprite 不受 distance scale 影响）
- * - 点击 sprite → 相机飞向该点 + 显示物种详情卡片
+ * Globe3D.tsx — Species cards densely displayed on the globe
+ * - One card per species (2597 species) anchored at first distribution location
+ * - HTML card elements with species photo + name, follow globe rotation
+ * - Click card → fly to + show detail card
+ * - Ocean currents animation
  */
 
 import { useEffect, useRef, useState, useCallback } from 'react'
+import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js'
 import * as TWEEN from '@tweenjs/tween.js'
 import type { SpeciesDistribution } from '../types/shrimp'
 
@@ -22,15 +24,13 @@ function latLonToVec3(lat: number, lon: number, r = EARTH_R): [number, number, n
   ]
 }
 
-function makeGlowDataURL(color: string, size = 64): string {
+function makeGlowDataURL(color: string, size = 128): string {
   const cv = document.createElement('canvas')
   cv.width = cv.height = size
   const ctx = cv.getContext('2d')!
   const cx = size / 2, cy = size / 2, rad = size * 0.42
   const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, rad)
-  g.addColorStop(0, color)
-  g.addColorStop(0.4, color + 'cc')
-  g.addColorStop(1, color + '00')
+  g.addColorStop(0, color); g.addColorStop(0.4, color + 'cc'); g.addColorStop(1, color + '00')
   ctx.fillStyle = g; ctx.fillRect(0, 0, size, size)
   ctx.beginPath(); ctx.arc(cx, cy, rad * 0.22, 0, Math.PI * 2)
   ctx.fillStyle = 'white'; ctx.fill()
@@ -47,7 +47,7 @@ const OCEAN_CURRENTS = [
   { name: '厄加勒斯暖流',   type: 'warm', coords: [[20,-30],[30,-35],[40,-38],[50,-40]] },
 ]
 
-// ── Species Card ─────────────────────────────────────────────────────────────
+// ── Detail Card ───────────────────────────────────────────────────────────────
 
 const IUCN_COLORS: Record<string, string> = {
   LC: '#7FD17F', NT: '#A8D17F', VU: '#FFD700', EN: '#FFA500',
@@ -59,21 +59,19 @@ const IUCN_LABELS: Record<string, string> = {
 }
 
 interface CardData {
-  id: string; cn_name: string; en_name: string
-  scientific_name: string
+  id: string; cn_name: string; en_name: string; scientific_name: string
   iucn_status: string; max_length_cm: number; diet: string
   is_edible: boolean; habitat: string; temperature_zone: string
   images: string[]; family: string; genus: string
 }
 
-function SpeciesCardPanel({ data, onClose }: { data: CardData; onClose: () => void }) {
+function DetailCard({ data, onClose }: { data: CardData; onClose: () => void }) {
   const [imgError, setImgError] = useState(false)
   const iucnColor = IUCN_COLORS[data.iucn_status] || '#AAAAAA'
-  const sciName = data.scientific_name || '—'
-  const cnName = data.cn_name || data.en_name || '—'
   const iucn = data.iucn_status ? `${data.iucn_status} (${IUCN_LABELS[data.iucn_status] || data.iucn_status})` : '—'
   const maxLen = data.max_length_cm ? `${data.max_length_cm} cm` : '—'
   const edible = data.is_edible ? '✅ 可食用' : '⚠️ 不可食用'
+  const cnName = data.cn_name || data.en_name || '—'
 
   return (
     <div style={{
@@ -105,7 +103,7 @@ function SpeciesCardPanel({ data, onClose }: { data: CardData; onClose: () => vo
 
       <div style={{ marginBottom: '12px', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '10px' }}>
         <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#FFD700', marginBottom: '4px' }}>{cnName}</div>
-        <div style={{ fontSize: '12px', color: '#aaa', fontStyle: 'italic' }}>{sciName}</div>
+        <div style={{ fontSize: '12px', color: '#aaa', fontStyle: 'italic' }}>{data.scientific_name || '—'}</div>
         <div style={{ fontSize: '11px', color: '#777' }}>{data.en_name || ''}</div>
       </div>
 
@@ -138,6 +136,29 @@ function SpeciesCardPanel({ data, onClose }: { data: CardData; onClose: () => vo
   )
 }
 
+// ── Globe card (shown on globe surface) ─────────────────────────────────────
+
+function makeGlobeCardHTML(sp: any, imgUrl: string | null): HTMLDivElement {
+  const el = document.createElement('div')
+  el.style.cssText = `
+    width: 52px; height: 52px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1.5px solid rgba(0,212,255,0.6);
+    cursor: pointer;
+    background: #0a1a2e;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    transition: transform 0.15s, border-color 0.15s;
+    pointer-events: auto;
+  `
+  if (imgUrl) {
+    el.innerHTML = `<img src="${imgUrl}" style="width:100%;height:100%;object-fit:cover;" />`
+  } else {
+    el.innerHTML = `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:24px;">🦐</div>`
+  }
+  return el
+}
+
 // ── Component ───────────────────────────────────────────────────────────────
 
 interface Props {
@@ -148,9 +169,10 @@ interface Props {
 
 export default function Globe3D({ distributions = [], species = [], speciesImages = {} }: Props) {
   const mountRef = useRef<HTMLDivElement>(null)
+  const labelRef = useRef<HTMLDivElement>(null)
 
-  const [cardData, setCardData] = useState<CardData | null>(null)
-  const [cardVisible, setCardVisible] = useState(false)
+  const [detailCard, setDetailCard] = useState<CardData | null>(null)
+  const [detailVisible, setDetailVisible] = useState(false)
   const [showCurrents, setShowCurrents] = useState(true)
 
   const threeRef = useRef<Record<string, any>>({})
@@ -161,11 +183,10 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
     species.forEach((s: any) => { speciesMap.current[s.id] = s })
   }, [species])
 
-  // Dismiss card + reset
-  const dismissCard = useCallback(() => {
+  // Dismiss detail card + reset globe
+  const dismissDetail = useCallback(() => {
     const r = threeRef.current
     if (!r.scene || !r.camera || !r.controls) return
-
     if (r.earthGroup) {
       new TWEEN.Tween(r.earthGroup.scale).to({ x: 1, y: 1, z: 1 }, 600).easing(TWEEN.Easing.Cubic.InOut).start()
       new TWEEN.Tween(r.earthGroup.position).to({ x: 0, y: 0, z: 0 }, 600).easing(TWEEN.Easing.Cubic.InOut).start()
@@ -174,12 +195,11 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
       new TWEEN.Tween(r.camera.position).to({ x: 0, y: 15, z: 65 }, 700).easing(TWEEN.Easing.Cubic.InOut).start()
       new TWEEN.Tween(r.controls.target).to({ x: 0, y: 0, z: 0 }, 700).easing(TWEEN.Easing.Cubic.InOut).onUpdate(() => r.controls.update()).start()
     }
-
-    setCardVisible(false)
-    setTimeout(() => setCardData(null), 700)
+    setDetailVisible(false)
+    setTimeout(() => setDetailCard(null), 700)
   }, [])
 
-  // Fly to + show card
+  // Fly to species location + show detail card
   const flyToAndShow = useCallback((sp: any, dist: SpeciesDistribution) => {
     const r = threeRef.current
     if (!r.scene || !r.camera || !r.controls || !r.earthGroup) return
@@ -190,20 +210,17 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
     const camDist = EARTH_R * 1.4
     const camEndX = (tx/len) * camDist, camEndY = (ty/len) * camDist, camEndZ = (tz/len) * camDist
 
-    // Phase 1 — Camera fly (1.6 s)
     new TWEEN.Tween(camera.position).to({ x: camEndX, y: camEndY, z: camEndZ }, 1600).easing(TWEEN.Easing.Cubic.InOut).onUpdate(() => controls.update()).start()
     new TWEEN.Tween(controls.target).to({ x: tx, y: ty, z: tz }, 1600).easing(TWEEN.Easing.Cubic.InOut).onUpdate(() => controls.update()).start()
 
-    // Phase 2 — Earth shrink + shift left (at t=1.3s)
     setTimeout(() => {
       if (!threeRef.current.earthGroup) return
       new TWEEN.Tween(earthGroup.scale).to({ x: 0.55, y: 0.55, z: 0.55 }, 900).easing(TWEEN.Easing.Cubic.InOut).start()
       new TWEEN.Tween(earthGroup.position).to({ x: -5.5, y: 0, z: 0 }, 900).easing(TWEEN.Easing.Cubic.InOut).start()
     }, 1300)
 
-    // Phase 3 — Show card (at t=1.8s)
     setTimeout(() => {
-      setCardData({
+      setDetailCard({
         id: sp.id,
         cn_name: sp.cn_name || sp.en_name || '',
         en_name: sp.en_name || '',
@@ -218,17 +235,24 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
         family: sp.family || '',
         genus: sp.genus || '',
       })
-      requestAnimationFrame(() => requestAnimationFrame(() => setCardVisible(true)))
+      requestAnimationFrame(() => requestAnimationFrame(() => setDetailVisible(true)))
     }, 1800)
   }, [])
 
-  // Toggle ocean currents
   const toggleCurrents = useCallback(() => {
     const next = !showCurrents
     setShowCurrents(next)
-    const r = threeRef.current
-    r.currParticles?.forEach((p: any) => { p.visible = next })
+    threeRef.current.currParticles?.forEach((p: any) => { p.visible = next })
   }, [showCurrents])
+
+  // Build species → first distribution location map
+  const buildSpeciesFirstDist = useCallback((distList: SpeciesDistribution[]) => {
+    const map: Record<string, SpeciesDistribution> = {}
+    distList.forEach(d => {
+      if (!map[d.species_id]) map[d.species_id] = d
+    })
+    return map
+  }, [])
 
   // ── Three.js Setup ────────────────────────────────────────────────────────
   useEffect(() => {
@@ -253,6 +277,22 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
 
     const earthGroup = new THREE.Group()
     scene.add(earthGroup)
+
+    // CSS2DRenderer for globe surface cards
+    const labelRenderer = new CSS2DRenderer()
+    if (labelRef.current) {
+      labelRef.current.style.position = 'absolute'
+      labelRef.current.style.top = '0'
+      labelRef.current.style.left = '0'
+      labelRef.current.style.pointerEvents = 'none'
+      labelRef.current.style.width = '100%'
+      labelRef.current.style.height = '100%'
+      container.appendChild(labelRef.current)
+      labelRenderer.domElement.style.position = 'absolute'
+      labelRenderer.domElement.style.top = '0'
+      labelRenderer.domElement.style.left = '0'
+      labelRef.current.appendChild(labelRenderer.domElement)
+    }
 
     const controls = new OC(camera, renderer.domElement)
     controls.enableDamping = true
@@ -311,61 +351,78 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
       currParticles.push(pPts)
     })
 
-    // ── Species Sprites (one per distribution point) ──────────────────────────
-    // Fallback glow texture for when image hasn't loaded yet
-    const fallbackTex = loader.load(makeGlowDataURL('#FF8C00', 64))
+    // ── Species Cards (CSS2DObjects on globe surface) ─────────────────────────
+    // One card per unique species, anchored at its first distribution location
+    const card2dObjects: CSS2DObject[] = []
 
-    const buildSprites = (distList: SpeciesDistribution[]) => {
+    const buildCards = (distList: SpeciesDistribution[], speciesData: any[]) => {
       if (!distList || distList.length === 0) return
       distRef.current = distList
-      species.forEach((s: any) => { speciesMap.current[s.id] = s })
+      speciesData.forEach((s: any) => { speciesMap.current[s.id] = s })
 
-      const r = threeRef.current
-      // Remove old sprites
-      if (r.spriteMarkers) {
-        r.spriteMarkers.forEach((s: any) => earthGroup.remove(s))
-      }
+      // Remove old cards
+      card2dObjects.forEach(o => scene.remove(o))
+      card2dObjects.length = 0
 
-      const newSprites: any[] = []
-      const textureCache: Record<string, any> = {}
-
-      distList.forEach((d: any) => {
-        const sp = speciesMap.current[d.species_id]
-        const imgUrl = (sp && sp.images && sp.images[0]) ? sp.images[0] : null
-
-        // Reuse loaded textures per species to save GPU memory
-        let tex: any
-        if (imgUrl && textureCache[imgUrl]) {
-          tex = textureCache[imgUrl]
-        } else if (imgUrl) {
-          tex = new THREE.TextureLoader().load(imgUrl)
-          textureCache[imgUrl] = tex
-        } else {
-          tex = fallbackTex
-        }
-
-        const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false })
-        const sprite = new THREE.Sprite(mat)
-        const [x, y, z] = latLonToVec3(d.latitude, d.longitude, EARTH_R + 0.3)
-        sprite.position.set(x, y, z)
-        // Scale sprite — size depends on distance from camera (Three.js sprites scale with view)
-        // Start small; they'll appear bigger when zoomed in
-        sprite.scale.set(1.5, 1.5, 1)
-        sprite.userData = {
-          species_id: d.species_id,
-          distIndex: distList.indexOf(d),
-          sp,
-        }
-        earthGroup.add(sprite)
-        newSprites.push(sprite)
+      // Species → first distribution
+      const speciesFirstDist: Record<string, SpeciesDistribution> = {}
+      distList.forEach(d => {
+        if (!speciesFirstDist[d.species_id]) speciesFirstDist[d.species_id] = d
       })
 
-      threeRef.current.spriteMarkers = newSprites
+      // One card per species
+      Object.entries(speciesFirstDist).forEach(([speciesId, dist]) => {
+        const sp = speciesMap.current[speciesId]
+        if (!sp) return
+
+        const imgUrl = (sp.images && sp.images[0]) ? sp.images[0]
+          : speciesImages[speciesId] || null
+
+        const el = makeGlobeCardHTML(sp, imgUrl)
+        const [x, y, z] = latLonToVec3(dist.latitude, dist.longitude, EARTH_R + 0.3)
+        const pos = new THREE.Vector3(x, y, z)
+        const obj = new CSS2DObject(el)
+        obj.position.copy(pos)
+        obj.userData = { speciesId, sp, dist }
+
+        el.addEventListener('click', () => {
+          dismissDetail()
+          setTimeout(() => flyToAndShow(sp, dist), 50)
+        })
+
+        scene.add(obj)
+        card2dObjects.push(obj)
+      })
     }
 
-    if (distributions.length > 0) buildSprites(distributions)
+    if (distributions.length > 0 && species.length > 0) buildCards(distributions, species)
 
-    // ── Raycaster ──────────────────────────────────────────────────────────
+    // Store refs
+    threeRef.current = {
+      scene, camera, renderer, controls, earthGroup,
+      labelRenderer, card2dObjects,
+      currParticles, buildCards,
+      speciesFirstDist: {},
+    }
+
+    // ── Raycaster (for clicking CSS2DObjects via hidden mesh) ────────────────
+    // Create invisible hit spheres at each card position for raycasting
+    const hitMeshes: any[] = []
+    const buildHitMeshes = () => {
+      hitMeshes.forEach(m => scene.remove(m))
+      hitMeshes.length = 0
+      card2dObjects.forEach(obj => {
+        const hitSphere = new THREE.Mesh(
+          new THREE.SphereGeometry(0.8, 6, 6),
+          new THREE.MeshBasicMaterial({ visible: false })
+        )
+        hitSphere.position.copy(obj.position)
+        hitSphere.userData = obj.userData
+        scene.add(hitSphere)
+        hitMeshes.push(hitSphere)
+      })
+    }
+
     const raycaster = new THREE.Raycaster()
     const mouse = new THREE.Vector2()
 
@@ -375,30 +432,19 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
       mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1
       raycaster.setFromCamera(mouse, camera)
 
-      const r = threeRef.current
-      if (r.spriteMarkers && r.spriteMarkers.length > 0) {
-        const hits = raycaster.intersectObjects(r.spriteMarkers, false)
-        if (hits.length > 0) {
-          const sprite = hits[0].object as any
-          const sp = sprite.userData.sp || speciesMap.current[sprite.userData.species_id]
-          if (!sp) return
-          const distIdx = sprite.userData.distIndex
-          const dist = distRef.current[distIdx]
-          if (!dist) return
-          dismissCard()
-          setTimeout(() => flyToAndShow(sp, dist), 50)
-          return
-        }
+      const hits = raycaster.intersectObjects(hitMeshes)
+      if (hits.length > 0) {
+        const { sp, dist } = hits[0].object.userData
+        if (!sp) return
+        dismissDetail()
+        setTimeout(() => flyToAndShow(sp, dist), 50)
+        return
       }
     }
     renderer.domElement.addEventListener('click', onMouseClick)
 
-    threeRef.current = {
-      scene, camera, renderer, controls, earthGroup,
-      spriteMarkers: [], currParticles,
-      buildSprites,
-    }
-    ;(window as any).__globe = threeRef.current
+    // Build hit meshes after cards
+    setTimeout(buildHitMeshes, 500)
 
     // ── Animation loop ────────────────────────────────────────────────────
     let animId: number; let t = 0
@@ -408,20 +454,7 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
       TWEEN.update(time)
       controls.update()
 
-      const dist = camera.position.length()
-
-      // Sprites always visible — scale them based on camera distance
-      // (closer = bigger sprites relative to earth)
-      if (threeRef.current.spriteMarkers) {
-        const spriteScale = Math.max(1.0, Math.min(3.5, (80 - dist) / 15))
-        threeRef.current.spriteMarkers.forEach((s: any) => {
-          s.scale.set(spriteScale, spriteScale, 1)
-          // Only show sprites clearly when close enough to the globe
-          s.visible = dist < 80
-        })
-      }
-
-      // Ocean currents animation
+      // Animate ocean currents
       currParticles.forEach((pts: any) => {
         const { curr, segLens, total, phase, speed } = pts.userData
         const pos = pts.geometry.attributes.position.array as Float32Array
@@ -440,6 +473,7 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
       })
 
       renderer.render(scene, camera)
+      labelRenderer.render(scene, camera)
     }
     animate(0)
 
@@ -463,27 +497,28 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Build sprites when distributions + species both arrive
+  // Build cards when both distributions + species data available
   useEffect(() => {
     const r = threeRef.current
-    if (!r.scene || distributions.length === 0) return
+    if (!r.scene || distributions.length === 0 || species.length === 0) return
     species.forEach((s: any) => { speciesMap.current[s.id] = s })
-    if (r.buildSprites) r.buildSprites(distributions)
+    if (r.buildCards) r.buildCards(distributions, species)
   }, [distributions, species.length]) // eslint-disable-line
 
   return (
     <div className="relative w-full h-full" style={{ overflow: 'hidden' }}>
       <div ref={mountRef} className="w-full h-full" />
+      <div ref={labelRef} className="absolute inset-0" style={{ zIndex: 10 }} />
 
-      {/* Sliding species card */}
+      {/* Detail card (slides in from right) */}
       <div style={{
         position: 'absolute', inset: 0,
-        pointerEvents: cardVisible ? 'auto' : 'none',
+        pointerEvents: detailVisible ? 'auto' : 'none',
         zIndex: 150,
-        transform: cardVisible ? 'translateX(0)' : 'translateX(100%)',
+        transform: detailVisible ? 'translateX(0)' : 'translateX(100%)',
         transition: 'transform 0.75s cubic-bezier(0.16,1,0.3,1)',
       }}>
-        {cardData && <SpeciesCardPanel data={cardData} onClose={dismissCard} />}
+        {detailCard && <DetailCard data={detailCard} onClose={dismissDetail} />}
       </div>
 
       {/* Controls */}
@@ -507,8 +542,8 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
             borderTop: '1px solid rgba(255,255,255,0.1)',
             paddingTop: '8px', fontSize: '11px', color: '#aaa', lineHeight: '1.8',
           }}>
-            🦐 点击任意分布点 → 飞向区域 + 显示详情卡片<br/>
-            ☀️ 滚轮缩放 · 拖拽旋转地球
+            🦐 拖拽旋转地球查看物种卡片<br/>
+            ☀️ 点击卡片 → 飞向区域 + 详情
           </div>
         </div>
       </div>
