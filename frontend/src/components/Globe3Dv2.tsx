@@ -1,17 +1,15 @@
 // @ts-nocheck
 /**
- * Globe3Dv2.tsx — Three.js Earth Globe (Rebuild)
- * Phase 1+2: Earth base + distribution markers + near-species images + popup cards
+ * Globe3Dv2.tsx — Three.js Earth Globe
+ * Features: InstancedMesh dots, Sprite LOD, fly-to-region animation + sliding card
  *
- * Architecture:
- * - InstancedMesh: 20k+ distribution dots (efficient GPU instancing)
- * - CSS2DRenderer: HTML popup cards with shrimp details
- * - Sprite LOD: near view shows species images
- * - Tween.js: smooth camera zoom transitions
- * - Season toggle: changes earth appearance
+ * Animation sequence (per Feishu doc):
+ *   Stage 1 — Camera flies to target + OrbitControls.target follows
+ *   Stage 2 — Earth shrinks + moves left
+ *   Stage 3 — Species card slides in from right
  */
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js'
 import * as TWEEN from '@tweenjs/tween.js'
 import type { SpeciesDistribution } from '../types/shrimp'
@@ -20,7 +18,6 @@ const EARTH_R = 20
 
 // ── Math helpers ─────────────────────────────────────────────────────────────
 
-/** Convert lat/lon (degrees) to Three.js Vector3 at radius R */
 function latLonToVec3(lat: number, lon: number, r = EARTH_R): [number, number, number] {
   const phi = (90 - lat) * Math.PI / 180
   const theta = (lon + 180) * Math.PI / 180
@@ -48,70 +45,156 @@ function makeGlowDataURL(color: string, size = 128): string {
   return cv.toDataURL()
 }
 
-// ── Popup card component ─────────────────────────────────────────────────────
+// ── Species card content (pure React, no DOM creation) ─────────────────────
 
-function makeShrimpCard(sp: any): HTMLDivElement {
-  const div = document.createElement('div')
-  div.style.cssText = `
-    background: rgba(5,15,35,0.95);
-    border: 1.5px solid rgba(0,212,255,0.5);
-    border-radius: 12px;
-    padding: 14px 16px;
-    color: white;
-    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    width: 220px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 20px rgba(0,212,255,0.1);
-    pointer-events: none;
-    user-select: none;
-    overflow: hidden;
-  `
+const IUCN_COLORS: Record<string, string> = {
+  LC: '#7FD17F', NT: '#A8D17F', VU: '#FFD700', EN: '#FFA500',
+  CR: '#FF4444', EW: '#FF88FF', EX: '#888888', DD: '#AAAAAA',
+}
+const IUCN_LABELS: Record<string, string> = {
+  LC: '无危', NT: '近危', VU: '易危', EN: '濒危',
+  CR: '极危', EW: '野外灭绝', EX: '灭绝', DD: '数据缺乏',
+}
+const ZONE_EMOJI: Record<string, string> = { tropical: '🌴', temperate: '🍂', cold: '❄️' }
+const ZONE_LABEL: Record<string, string> = { tropical: '热带', temperate: '温带', cold: '寒带' }
 
-  // IUCN status color
-  const iucnColors: Record<string, string> = {
-    LC: '#7FD17F', NT: '#A8D17F', VU: '#FFD700', EN: '#FFA500',
-    CR: '#FF4444', EW: '#FF88FF', EX: '#888888', DD: '#AAAAAA',
-  }
-  const iucnColor = iucnColors[sp.iucn_status] || '#AAAAAA'
-  const iucnLabel: Record<string, string> = {
-    LC: '无危', NT: '近危', VU: '易危', EN: '濒危',
-    CR: '极危', EW: '野外灭绝', EX: '灭绝', DD: '数据缺乏',
-  }
+interface CardData {
+  id: string
+  cn_name: string
+  en_name: string
+  scientific_name: string
+  scientificName?: string  // some API shapes use this
+  iucn_status: string
+  max_length_cm: number
+  diet: string
+  is_edible: boolean
+  habitat: string
+  temperature_zone: string
+  images: string[]
+  family: string
+  genus: string
+}
 
-  const cnName = sp.cn_name || sp.chinese_name || sp.en_name || '—'
-  const enName = sp.en_name || sp.english_name || '—'
-  const sciName = sp.scientific_name || '—'
-  const habitat = sp.habitat || '—'
-  const diet = sp.diet || '—'
-  const tempZone = sp.temperature_zone || '—'
-  const iucn = sp.iucn_status ? `${sp.iucn_status} (${iucnLabel[sp.iucn_status] || sp.iucn_status})` : '—'
-  const maxLen = sp.max_length_cm ? `${sp.max_length_cm} cm` : '—'
-  const edible = sp.is_edible ? '✅ 可食用' : '⚠️ 不可食用'
+function SpeciesCardPanel({ data, onClose }: { data: CardData; onClose: () => void }) {
+  const [imgError, setImgError] = useState(false)
+  const iucnColor = IUCN_COLORS[data.iucn_status] || '#AAAAAA'
+  const sciName = data.scientific_name || data.scientificName || '—'
+  const cnName = data.cn_name || data.en_name || '—'
+  const habitat = data.habitat || '—'
+  const diet = data.diet || '—'
+  const iucn = data.iucn_status ? `${data.iucn_status} (${IUCN_LABELS[data.iucn_status] || data.iucn_status})` : '—'
+  const maxLen = data.max_length_cm ? `${data.max_length_cm} cm` : '—'
+  const edible = data.is_edible ? '✅ 可食用' : '⚠️ 不可食用'
+  const zoneEmoji = ZONE_EMOJI[data.temperature_zone] || '🌍'
+  const zoneLabel = ZONE_LABEL[data.temperature_zone] || data.temperature_zone || '—'
 
-  const zoneEmoji: Record<string, string> = { tropical: '🌴', temperate: '🍂', cold: '❄️', unknown: '🌍' }
-  const zoneLabel: Record<string, string> = { tropical: '热带', temperate: '温带', cold: '寒带' }
+  return (
+    <div style={{
+      position: 'absolute',
+      top: '50%',
+      right: '5%',
+      transform: 'translateY(-50%)',
+      width: '320px',
+      background: 'rgba(5,15,35,0.96)',
+      border: '1.5px solid rgba(0,212,255,0.5)',
+      borderRadius: '16px',
+      padding: '20px',
+      color: 'white',
+      fontFamily: "'PingFang SC','Microsoft YaHei',sans-serif",
+      backdropFilter: 'blur(16px)',
+      boxShadow: '0 8px 40px rgba(0,0,0,0.7), 0 0 30px rgba(0,212,255,0.12)',
+      zIndex: 200,
+      willChange: 'transform, opacity',
+      transition: 'transform 0.8s cubic-bezier(0.16,1,0.3,1), opacity 0.6s ease',
+    }}>
+      {/* Close button */}
+      <button
+        onClick={onClose}
+        style={{
+          position: 'absolute', top: '12px', right: '12px',
+          background: 'rgba(255,255,255,0.1)', border: 'none',
+          color: '#aaa', cursor: 'pointer', fontSize: '18px',
+          lineHeight: 1, padding: '4px 8px', borderRadius: '6px',
+        }}
+      >✕</button>
 
-  div.innerHTML = `
-    <div style="font-size:16px;font-weight:bold;color:#FFD700;margin-bottom:8px;line-height:1.3">
-      ${cnName}
+      {/* Image */}
+      <div style={{
+        width: '100%', height: '160px', borderRadius: '10px',
+        background: '#0a1a2e', marginBottom: '14px', overflow: 'hidden',
+      }}>
+        {!imgError && data.images?.[0] ? (
+          <img
+            src={data.images[0]}
+            alt={cnName}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{ fontSize: '48px' }}>🦐</span>
+          </div>
+        )}
+      </div>
+
+      {/* Names */}
+      <div style={{ marginBottom: '12px', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '10px' }}>
+        <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#FFD700', marginBottom: '4px' }}>
+          {cnName}
+        </div>
+        <div style={{ fontSize: '12px', color: '#aaa', fontStyle: 'italic' }}>{sciName}</div>
+        <div style={{ fontSize: '11px', color: '#777' }}>{data.en_name || ''}</div>
+      </div>
+
+      {/* IUCN + Max Length */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', fontSize: '12px', marginBottom: '10px' }}>
+        <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '8px', padding: '8px' }}>
+          <span style={{ color: '#888' }}>保护状态</span>
+          <div style={{ color: iucnColor, fontWeight: 'bold', marginTop: '2px' }}>{iucn}</div>
+        </div>
+        <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '8px', padding: '8px' }}>
+          <span style={{ color: '#888' }}>最大体长</span>
+          <div style={{ color: '#ddd', marginTop: '2px' }}>{maxLen}</div>
+        </div>
+        <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '8px', padding: '8px' }}>
+          <span style={{ color: '#888' }}>温度带</span>
+          <div style={{ color: '#ddd', marginTop: '2px' }}>{zoneEmoji} {zoneLabel}</div>
+        </div>
+        <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '8px', padding: '8px' }}>
+          <span style={{ color: '#888' }}>食性</span>
+          <div style={{ color: '#ddd', marginTop: '2px' }}>{diet ? diet.substring(0, 6) : '—'}</div>
+        </div>
+      </div>
+
+      {/* Habitat */}
+      <div style={{ fontSize: '11px', color: '#999', marginBottom: '8px' }}>
+        🌊 栖息地：<span style={{ color: '#ccc' }}>{habitat}</span>
+      </div>
+
+      {/* Classification tags */}
+      <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '12px' }}>
+        {data.family && <span style={{ fontSize: '10px', background: 'rgba(0,212,255,0.15)', color: '#7FD1D1', padding: '3px 8px', borderRadius: '20px' }}>{data.family}</span>}
+        {data.genus && <span style={{ fontSize: '10px', background: 'rgba(0,212,255,0.15)', color: '#7FD1D1', padding: '3px 8px', borderRadius: '20px' }}>{data.genus}</span>}
+        <span style={{ fontSize: '10px', background: data.is_edible ? 'rgba(127,209,127,0.2)' : 'rgba(255,127,127,0.2)', color: data.is_edible ? '#7FD17F' : '#FF7F7F', padding: '3px 8px', borderRadius: '20px' }}>
+          {edible}
+        </span>
+      </div>
+
+      {/* View detail link */}
+      <a
+        href={`/species/${data.id}`}
+        style={{
+          display: 'block', textAlign: 'center',
+          background: 'rgba(0,212,255,0.9)', color: '#001020',
+          fontWeight: 'bold', fontSize: '13px',
+          padding: '10px', borderRadius: '10px',
+          textDecoration: 'none',
+        }}
+      >
+        查看详情 →
+      </a>
     </div>
-    <div style="font-size:11px;color:#aaa;margin-bottom:10px;font-style:italic;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:8px">
-      ${sciName}
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:10.5px;color:#ccc;margin-bottom:8px">
-      <div>🏠 <span style="color:${iucnColor};font-weight:bold">${iucn}</span></div>
-      <div>📏 <span style="color:#ddd">${maxLen}</span></div>
-      <div>${zoneEmoji[sp.temperature_zone] || '🌍'} <span style="color:#ddd">${zoneLabel[sp.temperature_zone] || tempZone}</span></div>
-      <div>🍖 <span style="color:#ddd">${diet.substring(0,6) || '—'}</span></div>
-    </div>
-    <div style="font-size:10px;color:#999;margin-bottom:6px">
-      🌊 栖息地：<span style="color:#ccc">${habitat}</span>
-    </div>
-    <div style="font-size:11px;color:${sp.is_edible ? '#7FD17F' : '#FF7F7F'};margin-top:4px">
-      ${edible}
-    </div>
-  `
-  return div
+  )
 }
 
 // ── Season config ────────────────────────────────────────────────────────────
@@ -127,27 +210,138 @@ const SEASONS: Record<string, { label: string; earthColor: number }> = {
 
 interface Props {
   distributions?: SpeciesDistribution[]
-  species?: any[]          // full species records
+  species?: any[]
   speciesImages?: Record<string, string>
 }
-
-interface Season { key: string; label: string }
 
 export default function Globe3D({ distributions = [], species = [], speciesImages = {} }: Props) {
   const mountRef   = useRef<HTMLDivElement>(null)
   const labelRef   = useRef<HTMLDivElement>(null)
   const [season, setSeason] = useState<Season>({ key: 'spring', label: '🌸 春季' })
-  const [tooltip, setTooltip] = useState<{ name: string; visible: boolean }>({ name: '', visible: false })
+  const [cardData, setCardData] = useState<CardData | null>(null)
+  const [cardVisible, setCardVisible] = useState(false)
   const stateRef = useRef<Record<string, any>>({})
-
-  // Build species lookup map
   const speciesMap = useRef<Record<string, any>>({})
   const distRef = useRef<SpeciesDistribution[]>([])
-  // speciesId -> first distribution (for click popup position)
   const speciesDistMap = useRef<Record<string, SpeciesDistribution>>({})
+
+  // Build species lookup map
   useEffect(() => {
     species.forEach((s: any) => { speciesMap.current[s.id] = s })
   }, [species])
+
+  // Dismiss card and reset globe
+  const dismissCard = useCallback(() => {
+    const sr = stateRef.current
+    if (!sr.scene) return
+
+    // Remove 3D label if present
+    if (sr.activeLabelObj) {
+      sr.scene.remove(sr.activeLabelObj)
+      sr.activeLabelObj = null
+    }
+
+    // Animate earth back to original
+    const { earthGroup, camera, controls } = sr
+    if (earthGroup) {
+      new TWEEN.Tween(earthGroup.scale)
+        .to({ x: 1, y: 1, z: 1 }, 600)
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .start()
+      new TWEEN.Tween(earthGroup.position)
+        .to({ x: 0, y: 0, z: 0 }, 600)
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .start()
+    }
+
+    // Fly camera back to default
+    if (camera && controls) {
+      new TWEEN.Tween(camera.position)
+        .to({ x: 0, y: 15, z: 65 }, 700)
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .start()
+      new TWEEN.Tween(controls.target)
+        .to({ x: 0, y: 0, z: 0 }, 700)
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .onUpdate(() => controls.update())
+        .start()
+    }
+
+    setCardVisible(false)
+    setTimeout(() => setCardData(null), 700)
+  }, [])
+
+  // Core animation: fly to region + shrink earth + show card
+  const flyToRegionAndShowCard = useCallback((sp: any, dist: SpeciesDistribution) => {
+    const sr = stateRef.current
+    if (!sr.scene || !sr.camera || !sr.controls || !sr.earthGroup) return
+
+    const { camera, controls, earthGroup, scene } = sr
+
+    // Remove existing label
+    if (sr.activeLabelObj) { scene.remove(sr.activeLabelObj); sr.activeLabelObj = null }
+
+    // Target 3D position
+    const [tx, ty, tz] = latLonToVec3(dist.latitude, dist.longitude, EARTH_R)
+
+    // Camera end position: extend from target toward camera direction by a fixed distance
+    // Direction from earth center to target
+    const dirX = tx, dirY = ty, dirZ = tz
+    const len = Math.sqrt(dirX*dirX + dirY*dirY + dirZ*dirZ)
+    const normX = dirX/len, normY = dirY/len, normZ = dirZ/len
+    // Pull back from target: final camera distance from earth center ~ EARTH_R * 1.4
+    const camDist = EARTH_R * 1.4
+    const camEndX = normX * camDist
+    const camEndY = normY * camDist
+    const camEndZ = normZ * camDist
+
+    // Phase 1 — Camera fly (1.6 s)
+    new TWEEN.Tween(camera.position)
+      .to({ x: camEndX, y: camEndY, z: camEndZ }, 1600)
+      .easing(TWEEN.Easing.Cubic.InOut)
+      .onUpdate(() => controls.update())
+      .start()
+
+    new TWEEN.Tween(controls.target)
+      .to({ x: tx, y: ty, z: tz }, 1600)
+      .easing(TWEEN.Easing.Cubic.InOut)
+      .onUpdate(() => controls.update())
+      .start()
+
+    // Phase 2 — Earth shrink + shift left (starts at t=1.3s, lasts 0.9s)
+    setTimeout(() => {
+      if (!stateRef.current.earthGroup) return
+      new TWEEN.Tween(earthGroup.scale)
+        .to({ x: 0.55, y: 0.55, z: 0.55 }, 900)
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .start()
+      new TWEEN.Tween(earthGroup.position)
+        .to({ x: -5.5, y: 0, z: 0 }, 900)
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .start()
+    }, 1300)
+
+    // Phase 3 — Show card (starts at t=1.8s)
+    setTimeout(() => {
+      setCardData({
+        id: sp.id,
+        cn_name: sp.cn_name || sp.chinese_name || sp.en_name || '',
+        en_name: sp.en_name || '',
+        scientific_name: sp.scientific_name || '',
+        iucn_status: sp.iucn_status || 'DD',
+        max_length_cm: sp.max_length_cm || 0,
+        diet: sp.diet || '',
+        is_edible: !!sp.is_edible,
+        habitat: sp.habitat || '—',
+        temperature_zone: sp.temperature_zone || 'unknown',
+        images: Array.isArray(sp.images) ? sp.images : (sp.images ? [sp.images] : []),
+        family: sp.family || '',
+        genus: sp.genus || '',
+      })
+      // Trigger slide-in: start from translateX(100%) then animate to translateX(0)
+      requestAnimationFrame(() => requestAnimationFrame(() => setCardVisible(true)))
+    }, 1800)
+  }, [])
 
   useEffect(() => {
     if (!mountRef.current) return
@@ -171,7 +365,11 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
     const camera = new THREE.PerspectiveCamera(45, W / H, 0.1, 2000)
     camera.position.set(0, 15, 65)
 
-    // CSS2DRenderer for popup cards
+    // Earth group (for animated shrink/translate)
+    const earthGroup = new THREE.Group()
+    scene.add(earthGroup)
+
+    // CSS2DRenderer (for 3D-attached labels, not used for main card)
     const labelRenderer = new CSS2DRenderer()
     if (labelRef.current) {
       labelRef.current.style.position = 'absolute'
@@ -207,7 +405,7 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
     starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3))
     scene.add(new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0xffffff, size: 0.3, sizeAttenuation: true })))
 
-    // Earth texture loader
+    // Earth textures → added to earthGroup (not scene directly)
     const loader = new THREE.TextureLoader()
     const earthTex = loader.load('/textures/earth-blue-marble.jpg')
     const bumpTex  = loader.load('/textures/earth-topology.png')
@@ -220,39 +418,32 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
         specular: new THREE.Color(0x222222), shininess: 10,
       })
     )
-    scene.add(earthMesh)
+    earthGroup.add(earthMesh)
 
-    // Atmosphere
-    scene.add(new THREE.Mesh(
+    // Atmosphere (also in earthGroup so it shrinks too)
+    earthGroup.add(new THREE.Mesh(
       new THREE.SphereGeometry(EARTH_R + 1.2, 64, 64),
       new THREE.MeshPhongMaterial({ color: 0x0088cc, transparent: true, opacity: 0.07, side: THREE.BackSide, depthWrite: false })
     ))
 
-    // ── InstancedMesh for distribution dots (efficient!) ──────────────────
+    // ── InstancedMesh for distribution dots ─────────────────────────────────
     let instancedMarkers: any = null
-    let dotMatrix = new THREE.Matrix4()
     let dotTempObj = new THREE.Object3D()
-    let dotCount = 0
-    let dotVisible = true
 
-    // ── Species sprite images (near-field LOD) ───────────────────────────
+    // ── Species sprite images (near-field LOD) ─────────────────────────────
     let spriteMarkers: any[] = []
-    let spriteVisible = false
 
     const buildMarkers = (distList: SpeciesDistribution[]) => {
       if (!distList || distList.length === 0) return
+      distRef.current = distList
 
-      distRef.current = distList  // store for click handler
-
-      // Remove old markers
-      if (instancedMarkers) { scene.remove(instancedMarkers); instancedMarkers.geometry.dispose() }
+      // Remove old
+      if (instancedMarkers) { scene.remove(instancedMarkers); instancedMarkers.geometry.dispose(); instancedMarkers = null }
       spriteMarkers.forEach(s => scene.remove(s))
       spriteMarkers = []
 
-      const n = distList.length
-      dotCount = n
-
       // Far-field: InstancedMesh dots
+      const n = distList.length
       const dotGeo = new THREE.SphereGeometry(0.12, 6, 6)
       const dotTex = loader.load(makeGlowDataURL('#00D4FF', 128))
       const dotMat = new THREE.MeshBasicMaterial({ map: dotTex, transparent: true })
@@ -266,7 +457,8 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
         instancedMarkers.setMatrixAt(i, dotTempObj.matrix)
       })
       instancedMarkers.instanceMatrix.needsUpdate = true
-      scene.add(instancedMarkers)
+      // Dots are in earthGroup → they also shrink/translate with earth
+      earthGroup.add(instancedMarkers)
 
       // Near-field: Sprites (one per species)
       const seen = new Set<string>()
@@ -274,7 +466,7 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
         if (seen.has(d.species_id)) return
         seen.add(d.species_id)
         if (!speciesDistMap.current[d.species_id]) {
-          speciesDistMap.current[d.species_id] = d  // store for click popup
+          speciesDistMap.current[d.species_id] = d
         }
         const sp = speciesMap.current[d.species_id]
         const imgUrl = (sp && sp.images && sp.images[0]) ? sp.images[0] : null
@@ -287,15 +479,15 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
         sprite.scale.set(4, 4, 1)
         sprite.visible = false
         sprite.userData = { species_id: d.species_id, imgUrl, loaded: false, mat }
-        scene.add(sprite)
+        // Sprites are in earthGroup
+        earthGroup.add(sprite)
         spriteMarkers.push(sprite)
       })
     }
 
-    // Build markers when distributions arrive
     if (distributions.length > 0) buildMarkers(distributions)
 
-    // ── Raycaster for click-to-show-card ─────────────────────────────────
+    // ── Raycaster for click ─────────────────────────────────────────────────
     const raycaster = new THREE.Raycaster()
     const mouse = new THREE.Vector2()
     let activeLabelObj: CSS2DObject | null = null
@@ -307,26 +499,20 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
 
       raycaster.setFromCamera(mouse, camera)
 
-      // Priority 1: Check sprite markers first (they sit on top when visible)
+      // Priority 1: sprites (when visible, they're on top)
       const spriteHits = raycaster.intersectObjects(spriteMarkers, false)
-      if (spriteHits.length > 0) {
+      if (spriteHits.length > 0 && spriteHits[0].object.visible) {
         const sprite = spriteHits[0].object as any
         const sp = speciesMap.current[sprite.userData.species_id]
         const dist = speciesDistMap.current[sprite.userData.species_id]
         if (!sp || !dist) return
-
-        if (activeLabelObj) { scene.remove(activeLabelObj); activeLabelObj = null }
-        const cardDiv = makeShrimpCard(sp)
-        const labelObj = new CSS2DObject(cardDiv)
-        const [x, y, z] = latLonToVec3(dist.latitude, dist.longitude, EARTH_R + 2.5)
-        labelObj.position.set(x, y, z)
-        scene.add(labelObj)
-        activeLabelObj = labelObj
-        setTooltip({ name: sp.cn_name || sp.scientific_name, visible: true })
+        // Dismiss any existing card first
+        dismissCard()
+        setTimeout(() => flyToRegionAndShowCard(sp, dist), 50)
         return
       }
 
-      // Priority 2: Check instanced markers (far-field dots)
+      // Priority 2: instanced dots
       if (instancedMarkers) {
         const instHits = raycaster.intersectObject(instancedMarkers)
         if (instHits.length > 0) {
@@ -335,34 +521,30 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
             const d = distRef.current[idx]
             const sp = speciesMap.current[d.species_id]
             if (!sp) return
-
-            if (activeLabelObj) { scene.remove(activeLabelObj); activeLabelObj = null }
-            const cardDiv = makeShrimpCard(sp)
-            const labelObj = new CSS2DObject(cardDiv)
-            const [x, y, z] = latLonToVec3(d.latitude, d.longitude, EARTH_R + 2)
-            labelObj.position.set(x, y, z)
-            scene.add(labelObj)
-            activeLabelObj = labelObj
-            setTooltip({ name: sp.cn_name || sp.scientific_name, visible: true })
+            dismissCard()
+            setTimeout(() => flyToRegionAndShowCard(sp, d), 50)
             return
           }
         }
       }
 
-      // Clicked on nothing relevant — dismiss card
-      if (activeLabelObj) { scene.remove(activeLabelObj); activeLabelObj = null }
-      setTooltip(t => ({ ...t, visible: false }))
+      // Dismiss on empty click (unless card is visible → close button handles it)
+      if (!cardVisible) {
+        if (activeLabelObj) { scene.remove(activeLabelObj); activeLabelObj = null }
+      }
     }
     renderer.domElement.addEventListener('click', onMouseClick)
 
     // Store refs
     stateRef.current = {
       scene, camera, renderer, controls, labelRenderer,
-      earthMesh, earthTex, instancedMarkers, spriteMarkers,
-      buildMarkers, distributions, dotVisible, spriteVisible,
+      earthGroup, earthMesh,
+      instancedMarkers, spriteMarkers,
+      buildMarkers,
+      activeLabelObj,
     }
 
-    // ── Animation loop ─────────────────────────────────────────────────
+    // ── Animation loop ─────────────────────────────────────────────────────
     let animId: number
     const animate = (time: number) => {
       animId = requestAnimationFrame(animate)
@@ -374,11 +556,17 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
       // LOD switching
       if (instancedMarkers) {
         const showSprites = dist < 42
-        instancedMarkers.visible = !showSprites
-        spriteMarkers.forEach(s => { s.visible = showSprites })
+        // When card is visible, always show sprites for context
+        const forceSprites = cardVisible
+        if (!forceSprites) {
+          instancedMarkers.visible = !showSprites
+        } else {
+          instancedMarkers.visible = false
+        }
+        spriteMarkers.forEach(s => { s.visible = showSprites || forceSprites })
 
-        // Lazy load species real images
-        if (showSprites) {
+        // Lazy load species images
+        if (showSprites || forceSprites) {
           spriteMarkers.forEach((sprite: any) => {
             if (!sprite.userData.loaded && sprite.userData.imgUrl) {
               new THREE.TextureLoader().load(
@@ -416,9 +604,10 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
         mountRef.current.removeChild(renderer.domElement)
       }
     }
-  }, []) // eslint-disable-line
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-  // Rebuild markers when distributions change
+  // Rebuild markers when distributions arrive
   useEffect(() => {
     const sr = stateRef.current
     if (sr.scene && distributions.length > 0 && sr.buildMarkers) {
@@ -427,7 +616,12 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
     }
   }, [distributions])
 
-  // ── Season change ───────────────────────────────────────────────────────
+  // Rebuild sprites when species load (after distributions already built)
+  useEffect(() => {
+    species.forEach((s: any) => { speciesMap.current[s.id] = s })
+  }, [species])
+
+  // Season change
   const cycleSeason = () => {
     const keys = Object.keys(SEASONS)
     const cur = keys.indexOf(season.key)
@@ -436,11 +630,31 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
   }
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full" style={{ overflow: 'hidden' }}>
       <div ref={mountRef} className="w-full h-full" />
       <div ref={labelRef} className="absolute inset-0" style={{ zIndex: 10 }} />
 
-      {/* Season toggle */}
+      {/* ── Sliding species card (portal-like, overlaid on canvas) ── */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          pointerEvents: cardVisible ? 'auto' : 'none',
+          zIndex: 150,
+          transform: cardVisible ? 'translateX(0)' : 'translateX(100%)',
+          transition: 'transform 0.75s cubic-bezier(0.16,1,0.3,1)',
+        }}
+        onClick={() => {}} /* capture click so it doesn't pass through */
+      >
+        {cardData && (
+          <SpeciesCardPanel
+            data={cardData}
+            onClose={dismissCard}
+          />
+        )}
+      </div>
+
+      {/* ── Controls overlay ── */}
       <div className="absolute top-4 left-4 z-20 flex flex-col gap-2">
         <button
           onClick={cycleSeason}
@@ -458,33 +672,23 @@ export default function Globe3D({ distributions = [], species = [], speciesImage
           {season.label}
         </button>
 
-        {tooltip.visible && (
-          <div style={{
-            background: 'rgba(0,20,40,0.88)',
-            border: '1px solid rgba(0,212,255,0.4)',
-            borderRadius: '8px',
-            color: '#FFD700',
-            padding: '6px 12px',
-            fontSize: '12px',
-            backdropFilter: 'blur(6px)',
-          }}>
-            📍 {tooltip.name}
-          </div>
-        )}
-
         <div style={{
-          background: 'rgba(0,20,40,0.7)',
+          background: 'rgba(0,20,40,0.80)',
           border: '1px solid rgba(0,212,255,0.3)',
           borderRadius: '8px',
-          padding: '6px 12px',
+          padding: '8px 12px',
           fontSize: '11px',
           color: '#aaa',
           backdropFilter: 'blur(6px)',
+          lineHeight: '1.8',
         }}>
-          🔵 虾类分布点 · 点击查看详情<br/>
-          ☀️ 滚轮放大查看物种图片
+          🔵 点击光点 → 飞向区域 + 显示卡片<br/>
+          ☀️ 滚轮缩放 · 拖拽旋转<br/>
+          ✕ 卡片右上角关闭
         </div>
       </div>
     </div>
   )
 }
+
+interface Season { key: string; label: string }
